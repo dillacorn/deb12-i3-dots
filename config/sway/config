@@ -1,7 +1,7 @@
 #############################
 ### Dillacorn Sway Config ###
 #############################
-# https://github.com/Dillacorn/dotfiles/tree/main/.config/sway
+# github.com/dillacorn/dilla.files
 
 font pango: JetBrain Mono 10
 
