@@ -1,0 +1,41 @@
+ignore-empty-password
+
+indicator-radius=100
+indicator-thickness=30
+
+#font=FiraGO Regular
+#font-size=11
+
+text-color=00000000
+text-clear-color=00000000
+text-caps-lock-color=00000000
+text-ver-color=00000000
+text-wrong-color=00000000
+
+color=000000
+separator-color=3b425200
+#line-color=
+
+# Sets the color of the key press highlight segments.
+key-hl-color=a3be8c
+# Sets the color of backspace highlight segments.
+bs-hl-color=ebcb8b
+
+caps-lock-key-hl-color=d08770
+caps-lock-bs-hl-color=d08770
+
+
+# Sets the color of the inside of the indicator.
+inside-color=2e344000
+inside-clear-color=ebcb8b00
+inside-caps-lock-color=d0877000
+inside-ver-color=a3be8c00
+inside-wrong-color=bf616a00
+line-uses-inside
+
+# Sets the color of the ring of the indicator when typing or idle.
+ring-color=3b4252
+ring-clear-color=ebcb8b
+ring-caps-lock-color=d08770
+ring-ver-color=a3be8c
+ring-wrong-color=bf616a

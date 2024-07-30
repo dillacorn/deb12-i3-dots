@@ -1,0 +1,74 @@
+###########################
+## This is NOT a script! ##
+###########################
+
+I've decided to look back at chromium browsers... and what better than to use a chromium browser with zero google telemetry.
+
+Technically Chromium is the source project for Chrome.. but Ungoogled Chromium is better IMO because it doesn't include ANY Google telemetry and you have to do some manual work to make it more private and secure.
+
+Now I'm usually on the camp of use Librewolf or Firefox+arkenfox_user.js if you want privacy but lately I've just been wanting to get more work done and browse the web a bit faster and don't care about the possible privacy sacrifices for those purposes... Chromium based browsers are superior for those purposes unfortunately for most websites. My new daily browser will be "Ungoogled Chromium" in a Flatpak and if I need additional privacy I'll use Librewolf.
+
+START HERE FOR SETUP DIRECTIONS:
+`flatpak install io.github.ungoogled_software.ungoogled_chromium`
+
+open "Ungoogled Chromium"
+
+navigate to: `chrome://flags/`
+
+change these flags:
+* Handling of extension MIME type requests: `Always prompt for install` <- allows for **chrome-web-store** to be installed
+* Disable search engine collection: `Enabled`
+* Enable get*ClientRects() fingerprint deception: `Enabled`
+* Enable Canvas::measureText() fingerprint deception: `Enabled`
+* Enable Canvas image data fingerprint deception: `Enabled`
+* Anonymize local IPs exposed by WebRTC: Enabled
+* Preferred Ozone platform: `Wayland` <- If you're using **Wayland** session - **(Sway for example)**
+
+Make chrome web store work:
+
+Navigate to : 'https://github.com/NeverDecaf/chromium-web-store'
+
+Open Extensions Page: 'chrome://extensions/'
+
+Drag and Drop from your file browser the 'Chromium.Web.Store.crx' you downloaded with your prefered file browser. <- example browser for **Linux** = **pcmanfm or thunar**
+
+Go install your extensions! -> 'https://chromewebstore.google.com/'
+
+Additionally these are the **extensions** I use:
+
+`Chromium Web Store`
+`Chrome Show Tab Numbers`
+`uBlock Origin`
+`LocalCDN`
+`ClearURLs`
+`Privacy Badger`
+`ScrollAnywhere`
+`Dark Reader`
+`Key Jump keyboard navigation`
+`Go Back With Backspace`
+`Bitwarden Password Manager`
+`Google Translate`
+`Honey` <- to save $
+`Enhancer for YouTube`
+`Return YouTube Dislike`
+`DeArrow - Better Titles and Thumbnails`
+`Search by Image`
+`DownThemAll!`
+`FastForward`
+
+my **search engine**:
+
+Name:
+`searx`
+
+Shortcut:
+`searx`
+
+URL with %s in place of query
+`https://search.disroot.org/search?q=%s`
+
+Suggestions URL with %s in place of query
+`.` <- leave blank
+
+**Test Browser Security**
+https://browserleaks.com/webrtc

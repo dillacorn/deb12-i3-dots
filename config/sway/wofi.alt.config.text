@@ -1,0 +1,18 @@
+#############################
+### This is NOT a script! ###
+#############################
+
+# Search rofi/wofi in .config
+
+Option #1:
+# rofi/wofi
+set $run wofi --style ~/.config/wofi/gruvbox.css --show run
+set $menu wofi --style ~/.config/wofi/gruvbox.css --show drun --allow-images
+
+Option #2:
+# rofi/wofi
+set $run rofi -show run
+set $menu rofi -show drun
+
+Side Note: 
+I like both but prefer rofi due to ignoring capitals. Seems to work under wayland (sway) with xwayland protocol just fine.
