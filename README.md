@@ -156,3 +156,10 @@ command to check errors:
 i3 -C -c ~/.config/i3/config
 
 good luck
+
+Wallpapers?
+-----------------------------------------------------------------------------------------
+
+https://github.com/AngelJumbo/gruvbox-wallpapers
+
+https://github.com/D3Ext/aesthetic-wallpapers
