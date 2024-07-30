@@ -1,5 +1,4 @@
 # dilla.files
-dillacorns Linux OS dot files and Guide
 
 Run these commands to download repo
 -----------------------------------------------------------------------------------------
