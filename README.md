@@ -7,12 +7,15 @@ https://github.com/AngelJumbo/gruvbox-wallpapers
 
 https://github.com/D3Ext/aesthetic-wallpapers
 
-my system specs
+SnapKey for Linux
 -----------------------------------------------------------------------------------------
 
-AMD Ryzen 7 7700
+I'm the OP for [SnapKey on Linux tutorial!](https://github.com/cafali/SnapKey/issues/4#issuecomment-2251568839)
 
-AMD RX 6800 XT
+[github.com/cafali/SnapKey](https://github.com/cafali/SnapKey)
+
+Keyboard at time of post: [Gamakay TK68 HE](https://gamakay.com/products/gamakay-tk68-he-65-hall-effect-wireless-custom-keyboard?variant=43840647463101)
+[Reddit Post with CannonKeys CXA iara](https://www.reddit.com/r/MechanicalKeyboards/comments/1dlecqk/gamakay_tk68_he_cannonkeys_cxa_lara/)
 
 have an nvidia GPU?
 -----------------------------------------------------------------------------------------
