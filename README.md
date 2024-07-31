@@ -10,7 +10,7 @@ https://github.com/D3Ext/aesthetic-wallpapers
 SnapKey for Linux
 -----------------------------------------------------------------------------------------
 
-I'm the OP for [SnapKey on Linux tutorial!](https://github.com/cafali/SnapKey/issues/4#issuecomment-2251568839)
+I'm the OP for [SnapKey on Linux tutorial!](https://github.com/cafali/SnapKey/wiki/Setup-Linux)
 
 [github.com/cafali/SnapKey](https://github.com/cafali/SnapKey)
 
