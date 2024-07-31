@@ -1,64 +1,35 @@
 # dilla.files
 
-Run these commands to download repo
+wallpapers?
 -----------------------------------------------------------------------------------------
 
-cd ~/Downloads
+https://github.com/AngelJumbo/gruvbox-wallpapers
 
-sudo apt install git -y
+https://github.com/D3Ext/aesthetic-wallpapers
 
-git clone https://github.com/Dillacorn/dotfiles
-
-New to Linux?
------------------------------------------------------------------------------------------
-
-folders starting with a DOT ( . ) -> example: ".config" are hidden files.
-
-Recursive copy prefered app settings within "config" to your ".config" in your $HOME directory.
-
-example command:
-
-cd ~/Downloads/dotfiles/config
-
-cp -r SpeedCrunch/ ~/.config/
-
-additionally if you didn't catch it... "~" = $HOME or $home directory (same dir)
-
-for more example commands -> [https://gist.github.com/heobay/8431305](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md)
-
-Run a script in scripts folder
------------------------------------------------------------------------------------------
-
-example:
-
-navigate to directory with "cd" command.
-
-cd ~/Downloads/dotfiles/scripts
-
-chmod +x install_my_apps.sh     <- make executable
-
-sudo ./install_my_apps.sh       <- run script
-
-Have an Nvidia GPU?
------------------------------------------------------------------------------------------
-
-https://github.com/crispyricepc/sway-nvidia for Nvidia GPU fixes for Sway.
-
-or go use i3 wm instead?
-
-My System Specs
+my system specs
 -----------------------------------------------------------------------------------------
 
 AMD Ryzen 7 7700
 
 AMD RX 6800 XT
 
-Commands I Run Daily
+have an nvidia GPU?
 -----------------------------------------------------------------------------------------
 
-sway
+https://github.com/crispyricepc/sway-nvidia for Nvidia GPU fixes for Sway.
 
-apt list --manual-installed
+or go use i3 wm instead?
+
+sway commands
+-----------------------------------------------------------------------------------------
+
+[Read sway config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config)
+
+Using both MOD1(ALT) and MOD4(win)
+
+terminal commands
+-----------------------------------------------------------------------------------------
 
 CTRL+l <- clears console
 
@@ -72,13 +43,15 @@ CTRL+left or CTRL+right <- forward and backward words
 
 Shift+PgUp or Shift+PgDwn <- up and down terminal (faster than scrolling)
 
+apt list --manual-installed
+
 man application_name
 
 micro file_name
 
 for more example commands -> [https://gist.github.com/heobay/8431305](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md)
 
-My Sway keybinds are atypical for a Sway user
+my sway keybinds are atypical for a sway user
 -----------------------------------------------------------------------------------------
 
 My keybinds are suckless DWM inspired. -> https://dwm.suckless.org/
@@ -87,7 +60,7 @@ Previously used DWM Flexipatch -> https://github.com/bakkeby/dwm-flexipatch
 
 DWM was my first window manager so some of my keybinds have been reconfigured for easier adoption and transition.
 
-Screw display managers...
+screw display managers...
 -----------------------------------------------------------------------------------------
 
 If there's anything I've experienced the most issues and breaking bugs with it has been the display (login) managers.
@@ -108,20 +81,26 @@ TL;DR
 
 Want to keep your display manager? Try "ly" -> https://github.com/fairyglade/ly
 
-Converting sway config to i3? Heres how to check for errors
+converting sway config to i3? Heres how to check for errors
 -----------------------------------------------------------------------------------------
 
-I prefer .config directory to store i3 and Sway
+I use ~/.config directory to store i3 and Sway
 
-command to check errors:
+command to check errors for i3 conversion:
 
 i3 -C -c ~/.config/i3/config
 
 good luck
 
-Wallpapers?
+run a script in scripts folder
 -----------------------------------------------------------------------------------------
 
-https://github.com/AngelJumbo/gruvbox-wallpapers
+example:
 
-https://github.com/D3Ext/aesthetic-wallpapers
+navigate to directory with "cd" command.
+
+cd ~/Downloads/dotfiles/scripts
+
+chmod +x install_my_apps.sh     <- make executable
+
+sudo ./install_my_apps.sh       <- run script
