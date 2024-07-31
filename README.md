@@ -23,7 +23,7 @@ have an nvidia GPU?
 
 Nvidia GPU fix for (Sway)[https://github.com/swaywm/sway] -> [github/sway-nvidia](https://github.com/crispyricepc/sway-nvidia) by [crispyricepc](https://github.com/crispyricepc)
 
-or go use (i3 wm)[https://github.com/i3/i3] instead?
+or go use [i3 wm](https://github.com/i3/i3) instead?
 
 sway commands
 -----------------------------------------------------------------------------------------
