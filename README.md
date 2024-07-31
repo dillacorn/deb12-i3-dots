@@ -58,39 +58,9 @@ Commands I Run Daily
 
 sway
 
-sudo shutdown now
-
-sudo reboot now
-
-cd directory/directory
-
-cd ..
-
-ls
-
 apt list --manual-installed
 
-apt search application_name
-
-sudo apt install application_name
-
-sudo apt update
-
-sudo apt upgrade
-
-sudo apt remove application_name
-
-flatpak list
-
-flatpak search application_name
-
-flatpak install application_id
-
-flatpak update
-
-flatpak uninstall application_name <- ++TAB to list options
-
-clear or CTRL+l
+CTRL+l <- clears console
 
 CTRL+a <- goes to beginning of line
 
@@ -101,14 +71,6 @@ CTRL+k <- deletes from cursor to end of line
 CTRL+left or CTRL+right <- forward and backward words
 
 Shift+PgUp or Shift+PgDwn <- up and down terminal (faster than scrolling)
-
-rm
-
-rm -r
-
-cp
-
-cp -r
 
 man application_name
 

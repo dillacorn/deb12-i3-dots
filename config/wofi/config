@@ -1,5 +1,5 @@
-width=450
-height=520
+width=1000
+height=800
 location=center
 columns=1
 show=drun
@@ -15,7 +15,7 @@ allow_images=true
 image_size=40
 gtk_dark=true
 layer=top
-term=kitty
+term=alacritty
 hide_scroll=false
 normal_window=true
 line_wrap=word
