@@ -30,7 +30,7 @@ sway commands
 
 [READ sway config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config)
 
-# Using both MOD1(ALT) and MOD4(win)
+Using both MOD1(ALT) and MOD4(win)
 
 terminal commands
 -----------------------------------------------------------------------------------------
