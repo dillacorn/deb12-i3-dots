@@ -83,7 +83,7 @@ No need to thank me thank Linux and say bye to Windows because THIS IS another r
 
 TL;DR
 
-Want to keep your display manager? Try "ly" -> (github/ly)[https://github.com/fairyglade/ly] by (fairyglade)[https://github.com/fairyglade]
+Want to keep your display manager? Try "ly" -> [github/ly](https://github.com/fairyglade/ly) by [fairyglade](https://github.com/fairyglade)
 
 converting sway config to i3? Heres how to check for errors
 -----------------------------------------------------------------------------------------
