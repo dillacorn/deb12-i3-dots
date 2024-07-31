@@ -27,9 +27,9 @@ set $lock swaylock -f -C ~/.config/swaylock/config
 set $files pcmanfm
 set $waybar waybar
 
-# run app | rofi/wofi | run/drun
-set $run wofi --style --show run
-set $menu wofi --style --show drun --allow-images
+# run app | wofi | run/drun
+set $run wofi --show run
+set $drun wofi --show drun --allow-images
 
 # screenshot utility
 set $screenshot1 grimshot --notify save area
@@ -40,7 +40,7 @@ set $screenshot2 flameshot gui
 ####################
 
 output DP-3 res 1920x1080@240Hz pos 0,0
-output * bg ~/Pictures/wallpapers/gruvb_solarsys.png fill
+output * bg ~/Pictures/wallpapers/gas-station.png fill
 
 # Mouse
 input type:pointer {
@@ -68,8 +68,8 @@ exec swayidle -w \
 ### Binds ###
 #############
 
-# run app | rofi/wofi | run/drun
-bindsym $mod1+p exec $menu
+# run app | wofi | run/drun
+bindsym $mod1+p exec $drun
 bindsym $mod1+shift+p exec $run
 
 # screenshot
