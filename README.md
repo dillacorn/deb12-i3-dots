@@ -3,9 +3,9 @@
 wallpapers?
 -----------------------------------------------------------------------------------------
 
-https://github.com/AngelJumbo/gruvbox-wallpapers
+[gruvbox](https://github.com/AngelJumbo/gruvbox-wallpapers) by [AngelJumbo](https://github.com/AngelJumbo)
 
-https://github.com/D3Ext/aesthetic-wallpapers
+[aesthetic-wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
 
 SnapKey for Linux
 -----------------------------------------------------------------------------------------
@@ -21,16 +21,16 @@ Reddit Post with cannonkeys keycaps -> [TK68 HE w/ CannonKeys CXA iara](https://
 have an nvidia GPU?
 -----------------------------------------------------------------------------------------
 
-https://github.com/crispyricepc/sway-nvidia for Nvidia GPU fixes for Sway.
+Nvidia GPU fix for (Sway)[https://github.com/swaywm/sway] -> [github/sway-nvidia](https://github.com/crispyricepc/sway-nvidia) by [crispyricepc](https://github.com/crispyricepc)
 
-or go use i3 wm instead?
+or go use (i3 wm)[https://github.com/i3/i3] instead?
 
 sway commands
 -----------------------------------------------------------------------------------------
 
-[Read sway config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config)
+[READ sway config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config)
 
-Using both MOD1(ALT) and MOD4(win)
+# Using both MOD1(ALT) and MOD4(win)
 
 terminal commands
 -----------------------------------------------------------------------------------------
@@ -53,18 +53,18 @@ man application_name
 
 micro file_name
 
-for more example commands -> [https://gist.github.com/heobay/8431305](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md)
+more commands to learn -> [learning-command-line](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md) by [LinkedInLearning](https://github.com/LinkedInLearning)
 
 my sway keybinds are atypical for a sway user
 -----------------------------------------------------------------------------------------
 
-My keybinds are suckless DWM inspired. -> https://dwm.suckless.org/
+My keybinds are [suckless DWM](https://dwm.suckless.org/) inspired.
 
-Previously used DWM Flexipatch -> https://github.com/bakkeby/dwm-flexipatch
+Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby)
 
-DWM was my first window manager so some of my keybinds have been reconfigured for easier adoption and transition.
+DWM was my first window manager. My keybinds have been reconfigured for easier adoption and transition.
 
-screw display managers...
+screw display managers...full stop...
 -----------------------------------------------------------------------------------------
 
 If there's anything I've experienced the most issues and breaking bugs with it has been the display (login) managers.
@@ -79,11 +79,11 @@ execute Sway from TTY: just type "sway"
 
 If you ever have an issue with your current TTY you can make more TTYs with CTRL+ALT+F1 F2 F3 F4 F5 or F6.
 
-No need to thank me thank Linux and say bye to Windows because THIS another reason why Linux is the Goat Operating System of choice!
+No need to thank me thank Linux and say bye to Windows because THIS IS another reason why Linux is the Goat Operating System of choice!
 
 TL;DR
 
-Want to keep your display manager? Try "ly" -> https://github.com/fairyglade/ly
+Want to keep your display manager? Try "ly" -> (github/ly)[https://github.com/fairyglade/ly] by (fairyglade)[https://github.com/fairyglade]
 
 converting sway config to i3? Heres how to check for errors
 -----------------------------------------------------------------------------------------
