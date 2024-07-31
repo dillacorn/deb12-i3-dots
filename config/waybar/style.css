@@ -95,7 +95,6 @@ button:hover {
 #backlight,
 #wireplumber,
 #tray,
-#mpris,
 #load,
 #cpu,
 #temperature,
@@ -119,10 +118,6 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-#cava {
-    padding: 0 5px;
 }
 
 #battery.charging, #battery.plugged {
@@ -162,11 +157,6 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-}
-
-#mpris.playing {
-    background-color: #d79921;
-    color: #282828;
 }
 
 #tray menu {

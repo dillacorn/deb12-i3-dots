@@ -27,10 +27,8 @@ set $lock swaylock -f -C ~/.config/swaylock/config
 set $files pcmanfm
 
 # run app | rofi/wofi | run/drun
-set $run rofi -show run
-set $menu rofi -show drun
-#set $run wofi --style ~/.config/wofi/gruvbox.css --show run
-#set $menu wofi --style ~/.config/wofi/gruvbox.css --show drun --allow-images
+set $run wofi --style --show run
+set $menu wofi --style --show drun --allow-images
 
 # screenshot utility
 set $screenshot1 grimshot --notify save area

@@ -12,6 +12,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     sway-backgrounds
     swayidle
     swaylock
+    wlogout
     alacritty
     micro
     lxpolkit
@@ -27,7 +28,6 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     waybar
     mako-notifier
     wofi
-    rofi
     flameshot
     grimshot
     simplescreenrecorder

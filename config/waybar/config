@@ -20,11 +20,12 @@
         "cpu",
         "temperature",
         "memory",
-	"wireplumber",
+	    "wireplumber",
         "backlight",
         "clock",
         "battery",
-        "tray"
+        "tray",
+        "custom/power"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -80,6 +81,11 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%Y-%m-%d | %I:%M}"
     },
+    "custom/power": {
+    	"tooltip": false,
+    	"on-click": "wlogout &",
+    	"format": ""
+	},
     "cpu": {
         "format": "{usage}%  ",
         "tooltip": true
