@@ -93,7 +93,7 @@ run a script in scripts folder
 example:
 
 ```sh
-cd ~/Downloads/dotfiles/scripts`
+cd ~/dotfiles/scripts`
 chmod +x install_my_apps.sh
 sudo ./install_my_apps.sh
 ```
