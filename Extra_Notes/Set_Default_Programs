@@ -2,8 +2,6 @@
 ## This is NOT a script! ##
 ###########################
 
-# These are just notes NOT a script!
-
 # Use These Commands to Change Default Programs
 
 sudo update-alternatives --config editor
