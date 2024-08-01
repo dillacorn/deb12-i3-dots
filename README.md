@@ -1,4 +1,5 @@
 # `dilla.files`
+distro: [`debian`](https://www.debian.org/) | wayland: [`swaywm`](https://github.com/swaywm/sway) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg)
 
 wallpapers
 -----------------------------------------------------------------------------------------
