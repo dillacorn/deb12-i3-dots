@@ -25,6 +25,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     blueman
     wl-clipboard
     wf-recorder
+    ffmpeg
     fonts-font-awesome
     waybar
     mako-notifier
