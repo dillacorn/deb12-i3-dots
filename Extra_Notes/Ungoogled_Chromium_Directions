@@ -2,11 +2,8 @@
 ## This is NOT a script! ##
 ###########################
 
-I've decided to look back at chromium browsers... and what better than to use a chromium browser with zero google telemetry.
-
-Technically Chromium is the source project for Chrome.. but Ungoogled Chromium is better IMO because it doesn't include ANY Google telemetry and you have to do some manual work to make it more private and secure.
-
-Now I'm usually on the camp of use Librewolf or Firefox+arkenfox_user.js if you want privacy but lately I've just been wanting to get more work done and browse the web a bit faster and don't care about the possible privacy sacrifices for those purposes... Chromium based browsers are superior for those purposes unfortunately for most websites. My new daily browser will be "Ungoogled Chromium" in a Flatpak and if I need additional privacy I'll use Librewolf.
+For when FireFox isn't capable of the task.. or for just normal browsing with Manifest V3.. lame
+FireFox is still better.. Using Librewolf as my main browser
 
 START HERE FOR SETUP DIRECTIONS:
 `flatpak install io.github.ungoogled_software.ungoogled_chromium`
