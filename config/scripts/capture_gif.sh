@@ -4,7 +4,7 @@
 pkill --euid "$USER" --signal SIGINT wf-recorder && exit
 
 # Define paths
-DefaultSaveDir=$HOME'/Videos/gifs'
+DefaultSaveDir=$HOME'/Videos/'
 TmpPathPrefix='/tmp/gif-record'
 TmpRecordPath=$TmpPathPrefix'-cap.mp4'
 TmpPalettePath=$TmpPathPrefix'-palette.png'
