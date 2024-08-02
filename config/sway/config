@@ -45,12 +45,8 @@ set $drun wofi --show drun --allow-images
 set $screenshot1 grimshot --notify save area
 set $screenshot2 flameshot gui
 
-###############
-### scripts ###
-###############
-
 # capture gif
-set $gif ~/.config/scripts/capture_gif.sh
+set $gif ~/.config/gif/capture_gif.sh
 
 ####################
 ### input/output ###
