@@ -177,8 +177,8 @@ bindsym $mod1+y sticky toggle
 ### scratchpads ###
 ###################
 
-bindsym $mod1+shift+minus move scratchpad
-bindsym $mod1+minus scratchpad show
+bindsym $mod1+shift+x move scratchpad
+bindsym $mod1+x scratchpad show
 
 ####################################
 ### focused resize / adjust gaps ###
