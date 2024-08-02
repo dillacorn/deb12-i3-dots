@@ -44,6 +44,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     thunar
     qimgv
     mpv
+    gcolor3
     timeshift
     virt-manager
     wireguard
