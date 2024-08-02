@@ -24,6 +24,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     nm-tray
     blueman
     wl-clipboard
+    wf-recorder
     fonts-font-awesome
     waybar
     mako-notifier
