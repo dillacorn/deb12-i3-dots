@@ -1,9 +1,0 @@
-###########################
-## This is NOT a script! ##
-###########################
-
-git clone https://github.com/Frogging-Family/linux-tkg.git
-cd linux-tkg
-./install.sh install
-
-#following directions and provide proper information
