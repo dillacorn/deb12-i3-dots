@@ -8,6 +8,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "custom/apps",
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad"
@@ -20,7 +21,7 @@
         "cpu",
         "temperature",
         "memory",
-	    "wireplumber",
+        "wireplumber",
         "backlight",
         "clock",
         "battery",
@@ -73,6 +74,11 @@
         "icon-size": 14,
         "spacing": 10
     },
+    "custom/apps": {
+    	"tooltip": false,
+    	"on-click": "wofi --show drun --allow-images",
+    	"format": "    "
+    },
     "load": {
         "format": " {} "
     },
@@ -84,7 +90,7 @@
     "custom/power": {
     	"tooltip": false,
     	"on-click": "wlogout &",
-    	"format": ""
+    	"format": "    "
 	},
     "cpu": {
         "format": "{usage}%  ",
