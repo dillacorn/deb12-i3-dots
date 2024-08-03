@@ -3,7 +3,9 @@ Librewolf is pretty great...
 at least I can watch youtube videos without ads
 
 # install
-`flatpak install io.gitlab.librewolf-community`
+```sh
+flatpak install io.gitlab.librewolf-community
+```
 
 open "Librewolf"
 
