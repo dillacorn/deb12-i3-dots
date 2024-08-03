@@ -86,7 +86,6 @@ button:hover {
 }
 
 #idle_inhibitor,
-#cava,
 #scratchpad,
 #mode,
 #window,
@@ -108,6 +107,26 @@ button:hover {
     background-color: #689d6a;
     color: #282828;
     /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#custom-apps {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+
+#custom-apps:hover {
+    background-color: #665c54;
+    color: #ebdbb2;
+}
+
+#custom-power {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+
+#custom-power:hover {
+    background-color: #665c54;
+    color: #ebdbb2;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
