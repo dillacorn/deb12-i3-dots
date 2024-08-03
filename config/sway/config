@@ -19,9 +19,6 @@ gaps outer 10
 set $mod1 Mod1
 set $mod4 Mod4
 
-# escape key
-set $ecp escape
-
 # direction keys
 set $left h
 set $down j
@@ -43,7 +40,6 @@ set $waybar waybar
 # run app | wofi | run/drun
 set $run wofi --show run
 set $drun wofi --show drun --allow-images
-set $kill_wofi killall wofi
 
 # screenshot utilities
 set $screenshot1 grimshot --notify save area
@@ -89,7 +85,6 @@ exec swayidle -w \
 # run app | wofi | run/drun
 bindsym $mod1+p exec $drun
 bindsym $mod1+shift+p exec $run
-bindsym $ecp exec $kill_wofi
 
 # screenshot
 bindsym $mod4+shift+s exec $screenshot1
