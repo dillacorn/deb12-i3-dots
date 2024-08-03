@@ -27,7 +27,7 @@ Make chrome web store work:
 
 Navigate to : [`https://github.com/NeverDecaf/chromium-web-store`](https://github.com/NeverDecaf/chromium-web-store)
 
-Open Extensions Page: [`chrome://extensions/`](chrome://extensions/)
+Open Extensions Page: `chrome://extensions/`
 
 Drag and Drop from your file browser the `Chromium.Web.Store.crx` you downloaded with your prefered file browser. <- example browser for **Linux** = **pcmanfm or thunar**
 
