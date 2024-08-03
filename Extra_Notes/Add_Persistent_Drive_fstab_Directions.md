@@ -1,6 +1,4 @@
-# This is NOT a script!
-
-list drives.
+# list drives.
 
 `sudo blkid`
 
