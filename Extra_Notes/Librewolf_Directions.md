@@ -9,7 +9,7 @@ open "Librewolf"
 
 # config
 
-navigate to: [`about:config`](about:config)
+navigate to: `about:config`
 
 change these flags:
 * middlemouse.paste: `false`
