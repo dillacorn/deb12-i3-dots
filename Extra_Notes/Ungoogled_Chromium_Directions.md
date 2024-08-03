@@ -18,7 +18,7 @@ change these flags:
 * Enable get*ClientRects() fingerprint deception: `Enabled`
 * Enable Canvas::measureText() fingerprint deception: `Enabled`
 * Enable Canvas image data fingerprint deception: `Enabled`
-* Anonymize local IPs exposed by WebRTC: Enabled
+* Anonymize local IPs exposed by WebRTC: `Enabled`
 * Preferred Ozone platform: `Wayland` <- If you're using **Wayland** session - **(Sway for example)**
 
 # chrome web store fix
