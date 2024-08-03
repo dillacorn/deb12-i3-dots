@@ -2,7 +2,9 @@ For when FireFox isn't capable of the task.. or for just normal browsing with Ma
 FireFox is still better.. Using Librewolf as my main browser
 
 # start here
-`flatpak install io.github.ungoogled_software.ungoogled_chromium`
+```sh
+flatpak install io.github.ungoogled_software.ungoogled_chromium
+```
 
 open "Ungoogled Chromium"
 
