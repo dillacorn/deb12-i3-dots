@@ -57,8 +57,6 @@ Login by typing your username and password, then start Sway from TTY by typing:
 
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
-No need to thank me, thank Linux! Another reason why Linux is the best operating system.
-
 TL;DR
 
 Want to keep your display manager? Try `ly` -> [github/ly](https://github.com/fairyglade/ly) by [fairyglade](https://github.com/fairyglade)
