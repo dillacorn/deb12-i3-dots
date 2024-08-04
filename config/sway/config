@@ -39,7 +39,7 @@ set $waybar waybar
 
 # run app | wofi | run/drun
 set $run wofi --show run
-set $drun wofi --show drun --allow-images
+set $drun pkill wofi || wofi --show drun --allow-images
 
 # screenshot utilities
 set $screenshot1 grimshot --notify save area
