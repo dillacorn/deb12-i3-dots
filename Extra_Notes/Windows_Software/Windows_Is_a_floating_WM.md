@@ -46,6 +46,11 @@ x-mouse-controls breaks taskbar right-click functionality.. Learn to live with i
 
 ![image](https://i.imgur.com/CWKra0b.png)
 
+## Screenshot/Flameshot:
+### Install [Flameshot](https://github.com/flameshot-org/flameshot)
+* Take screenshots with flameshot!
+### `WIN+Shift+s` to activate flameshot
+
 # AutoHotkey desktop switcher
 
 ## turn this script off when online gaming -> anti-cheats don't like AutoHotkey
