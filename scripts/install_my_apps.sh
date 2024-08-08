@@ -9,7 +9,6 @@ echo installing the must-have pre-requisites
 while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     sway
     swaybg
-    sway-backgrounds
     swayidle
     swaylock
     wlogout
