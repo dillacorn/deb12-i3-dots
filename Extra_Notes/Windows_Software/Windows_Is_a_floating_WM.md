@@ -5,7 +5,7 @@
 
 ### this adds normal Linux WM behavior
 
-### install [x-mouse-controls](https://joelpurra.com/projects/X-Mouse_Controls/)
+### install [x-mouse controls](https://joelpurra.com/projects/X-Mouse_Controls/)
 
 * extract .zip and place in directory
 
