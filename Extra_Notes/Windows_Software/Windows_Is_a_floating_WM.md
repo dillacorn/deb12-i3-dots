@@ -36,9 +36,9 @@ x-mouse-controls breaks taskbar right-click functionality.. Learn to live with i
 
 # PowerToys
 
-## Keyboard remapping similar to a window manager
+### Keyboard remapping similar to a window manager
 
-* install [PowerToys](https://github.com/microsoft/PowerToys)
+## install [PowerToys](https://github.com/microsoft/PowerToys)
 
 * navigate to `Keyboard Manager`
 
