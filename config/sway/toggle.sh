@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This config copies "super.config" to sway "config" and/or "mixture.config" to sway "config".
+# This script copies "super.config" to sway "config" and/or "mixture.config" to sway "config".
 # Purpose: toggle MOD functionality. -> mixture.config = mixture mod1+mod4 keybinds | super.config = mod4(win/super) only keybinds
 
 # Paths to the files
