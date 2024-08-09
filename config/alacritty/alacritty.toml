@@ -8,7 +8,7 @@
 
 # Import additional configuration files
 import = [
-  "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+  "~/.config/alacritty/alacritty-theme/themes/gruvbox_dark.toml"
 ]
 
 # Shell program and its arguments
