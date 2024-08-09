@@ -1,6 +1,6 @@
-#############################
-### dillacorn sway config ###
-#############################
+###############################################
+### dillacorn mixture mod binds sway config ###
+###############################################
 # https://github.com/dillacorn/dotfiles
 
 font pango: JetBrain Mono 10
@@ -48,7 +48,7 @@ set $screenshot2 flameshot gui
 # capture gif
 set $gif ~/.config/gif/capture_gif.sh
 
-# toggle config+reload script
+# toggle mixture/super_only config+reload script
 set $toggle ~/.config/sway/toggle.sh
 
 ####################
@@ -124,7 +124,7 @@ floating_modifier $mod1 normal
 # reload config
 bindsym $mod4+shift+q reload
 
-# toggle config+reload script
+# toggle mixture/super_only config+reload script
 bindsym $mod4+shift+r exec $toggle
 
 # change focused window

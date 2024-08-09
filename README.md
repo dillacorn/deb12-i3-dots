@@ -3,7 +3,7 @@ distro: [`debian`](https://www.debian.org/) | wayland: [`swaywm`](https://github
 
 # my sway keybinds
 
-My [keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) are [suckless DWM](https://dwm.suckless.org/) inspired.
+My [keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) are [suckless DWM](https://dwm.suckless.org/) inspired. + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
 
 Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) ~ DWM was my very first window manager.
 
@@ -15,7 +15,7 @@ Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [
 
 # sway commands
 
-READ sway [default config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/win.config)
+READ sway [default config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
 
 Using both `MOD1(ALT)` and `MOD4(win/super)` in config
 
