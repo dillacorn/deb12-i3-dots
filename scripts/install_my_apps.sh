@@ -15,7 +15,6 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     alacritty
     micro
     lxpolkit
-    fastfetch
     lxappearance
     xdg-desktop-portal
     xdg-desktop-portal-wlr
