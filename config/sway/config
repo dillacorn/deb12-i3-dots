@@ -109,8 +109,8 @@ bindsym $mod1+shift+Return exec $term
 bindsym $mod1+shift+c kill
 
 # hide/restart waybar
-bindsym $mod1+shift+b exec killall -SIGUSR1 waybar
-bindsym $mod1+b exec $waybar
+bindsym $mod4+shift+b exec killall -SIGUSR1 waybar
+bindsym $mod4+b exec $waybar
 
 # swaylock | lock screen
 bindsym $mod1+shift+ctrl+l exec $lock
