@@ -50,13 +50,13 @@ more commands to learn -> [learning-command-line](https://github.com/LinkedInLea
 I've had the most issues with display (login) managers, so I prefer TTY. To remove your display manager, use:
 
 ```sh
-`sudo apt remove gdm3 sddm lightdm`
+sudo apt remove gdm3 sddm lightdm
 ```
 
 Login by typing your username and password, then start Sway from TTY by typing:
 
 ```sh
-`sway`
+sway
 ```
 
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
@@ -70,7 +70,7 @@ Want to keep your display manager? Try `ly` -> [github/ly](https://github.com/fa
 I use the ~/.config directory to store i3 and Sway. Command to check errors for i3 conversion:
 
 ```sh
-`i3 -C -c ~/.config/i3/config`
+i3 -C -c ~/.config/i3/config
 ```
 
 good luck!
