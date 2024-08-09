@@ -15,9 +15,13 @@ Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [
 
 # sway commands
 
-READ sway [config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config)
+READ sway [default config for keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/win.config)
 
-Using both `MOD1(ALT)` and `MOD4(win)` in config
+Using both `MOD1(ALT)` and `MOD4(win/super)` in config
+
+`MOD4+shift+q` = reloads config
+
+`MOD4+shift+r` = toggles situational alternative MOD bind config -> [see directory](https://github.com/Dillacorn/dotfiles/tree/main/config/sway)
 
 `MOD4+shift+g` = capture a gif with script <- `repeat keybind to finish command!`
 
