@@ -84,7 +84,7 @@ Nvidia GPU fix for [Sway](https://github.com/swaywm/sway) -> [github/sway-nvidia
 example:
 
 ```sh
-cd ~/dotfiles/scripts`
+cd ~/dotfiles/scripts
 chmod +x install_my_apps.sh
 sudo ./install_my_apps.sh
 ```
