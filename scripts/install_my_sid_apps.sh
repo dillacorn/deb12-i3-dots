@@ -7,7 +7,7 @@ test $? -eq 0 || exit 1 "you should have sudo privilege to run this script"
 
 echo installing the must-have pre-requisites
 while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
-    flameshot
+    fastfetch
     nwg-look
     
 EOF
