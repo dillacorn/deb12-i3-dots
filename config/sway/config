@@ -54,7 +54,13 @@ set $gif ~/.config/gif/capture_gif.sh
 
 # displays
 output DP-3 res 1920x1080@240Hz pos 0,0
-output * bg ~/Pictures/wallpapers/bunny.png fill
+
+# wallpaper | randomize on config reload
+set $wallpapers_path ~/Pictures/wallpapers
+output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+
+# wallpaper | specific selection
+#output * bg ~/Pictures/wallpapers/bunny.png fill
 
 # mouse
 input type:pointer {
