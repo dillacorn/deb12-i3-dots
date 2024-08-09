@@ -49,7 +49,7 @@ x-mouse-controls breaks taskbar right-click functionality.. Learn to live with i
 ## Screenshot/Flameshot:
 ### Install [Flameshot](https://github.com/flameshot-org/flameshot)
 * Take screenshots with flameshot!
-### `WIN+Shift+s` to activate flameshot
+### `ALT+Shift+s` to activate flameshot
 
 # AutoHotkey desktop switcher
 
