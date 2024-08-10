@@ -61,10 +61,6 @@ sway
 
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
-TL;DR
-
-Want to keep your display manager? Try `ly` -> [github/ly](https://github.com/fairyglade/ly) by [fairyglade](https://github.com/fairyglade)
-
 # converting sway config to i3?
 
 I use the ~/.config directory to store i3 and Sway. Command to check errors for i3 conversion:
