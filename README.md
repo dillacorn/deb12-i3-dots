@@ -1,7 +1,8 @@
 # `dilla.files`
 distro: [`debian sid`](https://www.debian.org/releases/sid/) | wayland: [`swaywm`](https://github.com/swaywm/sway) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
-[![preview](https://img.youtube.com/vi/sL1O7zuQIuE/0.jpg)](https://youtu.be/sL1O7zuQIuE)
+### `~click picture!~`
+[![preview](https://i.imgur.com/1JOMnpC.png)](https://youtu.be/sL1O7zuQIuE)
 
 # my sway keybinds
 
