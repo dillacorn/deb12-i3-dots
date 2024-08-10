@@ -1,6 +1,8 @@
 # `dilla.files`
 distro: [`debian sid`](https://www.debian.org/releases/sid/) | wayland: [`swaywm`](https://github.com/swaywm/sway) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
+[![preview](https://img.youtube.com/vi/sL1O7zuQIuE/0.jpg)](https://youtu.be/sL1O7zuQIuE)
+
 # my sway keybinds
 
 My [keybinds](https://github.com/Dillacorn/dotfiles/blob/caf426ab0752ec1d72704f42f81f8dfa4ac39a59/config/sway/config) are [suckless DWM](https://dwm.suckless.org/) inspired. + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
