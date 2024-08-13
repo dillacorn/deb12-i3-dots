@@ -11,7 +11,7 @@ title_align center
 # disable_window_borders
 default_border pixel 1
 
-# Set inner/outer gaps
+# set inner/outer gaps
 gaps inner 10
 gaps outer 10
 
