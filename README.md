@@ -76,7 +76,7 @@ good luck!
 
 # have an nvidia GPU?
 
-Nvidia GPU fix for [Sway](https://github.com/swaywm/sway) -> [github/sway-nvidia](https://github.com/crispyricepc/sway-nvidia) by [crispyricepc](https://github.com/crispyricepc) or use [i3 wm](https://github.com/i3/i3) instead?
+Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is supported.
 
 # run a script in scripts folder
 
