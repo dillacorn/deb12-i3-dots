@@ -12,27 +12,24 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     swayidle
     swaylock
     wlogout
-    alacritty
-    micro
     lxpolkit
-    lxappearance
+    alacritty
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     arandr
-    nm-tray
-    blueman
     wl-clipboard
     wf-recorder
-    ffmpeg
     fonts-font-awesome
+    pavucontrol
     waybar
     mako-notifier
+    micro
     wofi
-    pcmanfm
-    flameshot
+    qimgv
+    mpv
+    cheese
     grimshot
-    simplescreenrecorder
-    pavucontrol
+    flameshot
     htop
     curl
     wget
@@ -42,11 +39,13 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     cheese
     speedcrunch
     cava
-    thunar
     okular
-    qimgv
-    mpv
+    nm-tray
+    blueman
+    ffmpeg
+    pcmanfm
     gcolor3
+    simplescreenrecorder
     timeshift
     virt-manager
     wireguard

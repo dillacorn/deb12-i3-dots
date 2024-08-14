@@ -48,6 +48,16 @@ Using both `MOD1(ALT)` and `MOD4(win/super)` in config
 
 more commands to learn -> [learning-command-line](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md) by [LinkedInLearning](https://github.com/LinkedInLearning)
 
+# run a script in scripts folder
+
+example:
+
+```sh
+cd ~/dotfiles/scripts
+chmod +x install_my_apps.sh
+sudo ./install_my_apps.sh
+```
+
 # screw display managers...full stop...
 
 I've had the most issues with display (login) managers, so I prefer TTY. To remove your display manager, use:
@@ -64,6 +74,10 @@ sway
 
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
+# have an nvidia GPU?
+
+Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is supported.
+
 # converting sway config to i3?
 
 I use the ~/.config directory to store i3 and Sway. Command to check errors for i3 conversion:
@@ -73,17 +87,3 @@ i3 -C -c ~/.config/i3/config
 ```
 
 good luck!
-
-# have an nvidia GPU?
-
-Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is supported.
-
-# run a script in scripts folder
-
-example:
-
-```sh
-cd ~/dotfiles/scripts
-chmod +x install_my_apps.sh
-sudo ./install_my_apps.sh
-```
