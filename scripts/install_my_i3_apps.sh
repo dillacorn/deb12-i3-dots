@@ -35,6 +35,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     speedcrunch
     cava
     okular
+    chromium
     tigervnc-viewer
     timeshift
     virt-manager
