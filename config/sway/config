@@ -179,7 +179,7 @@ assign [class="^teams-for-linux"] $ws8
 assign [app_id="^org.kde.kdenlive"] $ws9
 assign [class="^Shotcut$"] $ws9
 assign [class="^krita$"] $ws9
-assign [app_id="^com.obsproject.Studio$"] $ws10
+assign [app_id="^com.obsproject.Studio$"] $ws0
 
 # switch to tag
 bindsym $mod1+1 workspace number 1
