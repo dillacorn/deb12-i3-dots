@@ -39,7 +39,6 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     cheese
     speedcrunch
     cava
-    chromium
     okular
     nm-tray
     blueman

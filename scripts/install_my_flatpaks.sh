@@ -59,7 +59,6 @@ flatpak_apps=(
   'org.bleachbit.BleachBit'                              # Disk cleaner and log remover
   'it.mijorus.smile'                                     # Emoji picker
   'org.filezillaproject.Filezilla'                       # FTP Client
-  'com.thincast.client'                                  # RDP Client
   'com.github.tchx84.Flatseal'                           # Modify Flatpak Permissions
 
   # Browsers and internet
