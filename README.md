@@ -20,11 +20,11 @@ Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [
 
 READ sway [default config for keybinds](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config) + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
 
-Using both `MOD1(ALT)` and `MOD4(win/super)` in config
+Using both `MOD1(ALT)` and `MOD4(win/super)` in default config
 
 `MOD4+shift+q` = reloads config
 
-`MOD4+shift+r` = toggles situational alternative MOD bind config -> [see directory](https://github.com/Dillacorn/dotfiles/tree/main/config/sway)
+`MOD4+shift+r` = rotates alternative sway configurations -> [see ~/.config/sway directory](https://github.com/Dillacorn/dotfiles/tree/main/config/sway)
 
 `MOD4+shift+g` = capture a gif with script <- `repeat keybind to finish command!`
 
@@ -32,7 +32,7 @@ Using both `MOD1(ALT)` and `MOD4(win/super)` in config
 
 `MOD4+ctrl+shift+s` = flameshot screenshot
 
-# terminal commands
+# terminal navigation
 
 `CTRL+l` <- clears console
 
