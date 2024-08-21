@@ -166,6 +166,7 @@ set $ws9   9
 set $ws0   10
 
 # Default workspaces for common programs
+assign [app_id="^com.moonlight_stream.Moonlight"] $ws1
 assign [app_id="^LibreWolf$"] $ws2
 assign [app_id="^io.github.ungoogled_software.ungoogled_chromium$"] $ws2
 assign [app_id="^vesktop$"] $ws3
