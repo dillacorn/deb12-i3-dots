@@ -41,7 +41,6 @@ flatpak_apps=(
   'com.moonlight_stream.Moonlight'                        # Game/Remote RDP VNC Client
   'io.itch.itch'                                          # Install and play itch.io games
   'com.heroicgameslauncher.hgl'                           # Game Launcher
-  'org.vinegarhq.Vinegar'                                 # Roblox Client
   'io.github.hrkfdn.ncspot'                               # Spotify TUI Client
   'com.spotify.Client'                                    # Spotify Official Client
 
