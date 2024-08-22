@@ -76,11 +76,34 @@ If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
 # have an nvidia GPU?
 
-Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is supported.
+Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is fully supported... or if you just like X11 over Wayland due to strange behavior and/or bugs with your specific hardware.
+
+Match or modify `xinitrc` as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so i3 can be started in TTY with `startx` command
+
+Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh) to get my apps which also includes i3wm
+
+```sh
+git clone https://github.com/dillacorn/dotfiles
+cd dotfiles/scripts
+chmod +x install_my_i3_apps.sh
+./install_my_i3_apps.sh
+```
+
+Here is my [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) files you will need to copy to appropiate directory
+
+You also need [rofi](https://github.com/dillacorn/dotfiles/tree/main/config/rofi) and [dunst](https://github.com/dillacorn/dotfiles/tree/main/config/dunst) config files
+
+```sh
+cp -r dotfiles/config/i3 ~/.config
+cp -r dotfiles/dunst ~/.config
+cp -r dotfiles/rofi ~/.config
+```
+
+### mod4(win)+ctrl+shift+q = restart and reload i3 session
 
 # converting sway config to i3?
 
-I use the ~/.config directory to store i3 and Sway. Command to check errors for i3 conversion:
+I use the ~/.config directory to store i3 and Sway. Command to check errors for Sway to i3 config conversion:
 
 ```sh
 i3 -C -c ~/.config/i3/config
