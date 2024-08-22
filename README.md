@@ -80,6 +80,10 @@ Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is fully supported... 
 
 Match or modify `xinitrc` as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so i3 can be started in TTY with `startx` command
 
+```sh
+cp dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc
+```
+
 Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh) to get my apps which also includes i3wm
 
 ```sh
