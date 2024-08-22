@@ -103,6 +103,13 @@ cp -r dotfiles/dunst ~/.config
 cp -r dotfiles/rofi ~/.config
 ```
 
+Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) executable
+
+```sh
+cd ~/.config/i3
+chmod +x toggle.sh i3exit
+```
+
 ### mod4(win)+ctrl+shift+q = restart and reload i3 session
 
 # converting sway config to i3?
