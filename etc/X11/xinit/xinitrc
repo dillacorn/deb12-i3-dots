@@ -7,10 +7,6 @@
 # invoke global X session script
 #. /etc/X11/Xsession
 
-# change xrandr output "name" "resolution" and "refresh rate."
-
-xrandr --output Virtual-1 --mode 1920x1080 --rate 60
-
 xrdb ~/.Xresources
 
 exec dbus-run-session i3

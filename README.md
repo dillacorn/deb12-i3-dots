@@ -105,7 +105,19 @@ Modify **`xinitrc`** as described [here](https://github.com/dillacorn/dotfiles/b
 ```sh
 xrandr
 ```
-see output and match in **`xinitrc`** text file
+see output
+
+replace line in **`i3 config`**
+
+```sh
+exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 60
+```
+replace example: (two monitors in example)
+```sh
+exec --no-startup-id xrandr --output DP-3 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
+```
+## Tip:
+using **`arandr`** can help for getting the correct output code when dealing with multiple displays
 
 ### Install i3 apps I use with my script! ~ feel free to redact applications if you don't use them
 
