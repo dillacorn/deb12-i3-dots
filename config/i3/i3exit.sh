@@ -9,7 +9,7 @@ case "$1" in
         i3lock
         ;;
     logout)
-        i3 exit
+        i3-msg exit
         ;;
     suspend)
         systemctl suspend

@@ -70,7 +70,7 @@ set $i3exit [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT    
 bindsym mod4+ctrl+shift+p mode "$i3exit"
 mode "$i3exit" {
     bindsym l mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh lock
-    bindsym e mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh logout
+    bindsym o mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh logout
     bindsym s mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh suspend
     bindsym h mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh hibernate
     bindsym r mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh reboot
