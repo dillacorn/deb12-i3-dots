@@ -128,7 +128,7 @@ Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts
 ```sh
 cd dotfiles/scripts
 chmod +x install_my_i3_apps.sh
-./install_my_i3_apps.sh
+sudo ./install_my_i3_apps.sh
 ```
 
 Here is my [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) files you will need to copy to appropiate directory
