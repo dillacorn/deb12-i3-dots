@@ -140,7 +140,7 @@ cd ~/.config/i3
 chmod +x rotate.sh i3exit.sh
 ```
 
-### mod4(win/super)+ctrl+shift+q = restarts i3 session
+### mod4(win/super)+shift+q = restarts i3 session
 
 # converting sway config to i3?
 
