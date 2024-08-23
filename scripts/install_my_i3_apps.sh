@@ -20,6 +20,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     micro
     nm-tray
     blueman
+    arandr
     pavucontrol
     pcmanfm
     ffmpeg
