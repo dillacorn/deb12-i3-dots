@@ -107,7 +107,7 @@ xrandr
 ```
 see output and match in **`xinitrc`** text file
 
-## Install i3 apps I use with my script! ~ feel free to redact applications if you don't use them
+### Install i3 apps I use with my script! ~ feel free to redact applications if you don't use them
 
 ### NOTE: run these commands individually
 
