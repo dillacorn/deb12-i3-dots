@@ -68,14 +68,14 @@ I've had the most issues with display (login) managers, so I prefer TTY. To remo
 sudo apt remove gdm3 sddm lightdm
 ```
 
-Login by typing your username and password, then start Sway from TTY by typing:
+Login by typing your username and password, then start Sway and/or i3 from TTY by typing:
 
 ### **sway**
 ```sh
 sway
 ```
 
-### **i3**
+### **i3** ~ needs to be configured first to work
 ```sh
 startx
 ```
