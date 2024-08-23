@@ -114,7 +114,7 @@ exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 60
 ```
 replace example: (two monitors in example)
 ```sh
-exec --no-startup-id xrandr --output DP-3 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
+exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
 ```
 ## Tip:
 using **`arandr`** can help for getting the correct output code when dealing with multiple displays
