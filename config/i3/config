@@ -1,6 +1,6 @@
-###################################
-### Dillacorn mixture i3 Config ###
-###################################
+################################################
+### dillacorn alt navigation binds i3 config ###
+################################################
 # https://github.com/dillacorn/dotfiles
 
 # font for window titles
@@ -46,8 +46,8 @@ set $drun rofi -show drun
 set $screenshot1 scrot -s ~/Pictures/screenshots/%Y-&m-%d-%H:%M:%S-%h
 set $screenshot2 flameshot gui
 
-# toggle mixture/super_only config+reload script
-set $toggle ~/.config/i3/toggle.sh
+# rotate alt/super config+reload script
+set $rotate ~/.config/i3/rotate_configs.sh
 
 ####################
 ### Input/output ###
@@ -69,12 +69,12 @@ exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock' -c 000000
 set $i3exit [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF
 bindsym mod4+ctrl+shift+p mode "$i3exit"
 mode "$i3exit" {
-    bindsym l mode "default", exec --no-startup-id ~/.config/i3/i3exit lock
-    bindsym e mode "default", exec --no-startup-id ~/.config/i3/i3exit logout
-    bindsym s mode "default", exec --no-startup-id ~/.config/i3/i3exit suspend
-    bindsym h mode "default", exec --no-startup-id ~/.config/i3/i3exit hibernate
-    bindsym r mode "default", exec --no-startup-id ~/.config/i3/i3exit reboot
-    bindsym p mode "default", exec --no-startup-id ~/.config/i3/i3exit shutdown
+    bindsym l mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh lock
+    bindsym e mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh logout
+    bindsym s mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh suspend
+    bindsym h mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh hibernate
+    bindsym r mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh reboot
+    bindsym p mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh shutdown
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -106,8 +106,8 @@ floating_modifier $mod1
 # reload i3 config
 bindsym $mod4+shift+q restart
 
-# toggle mixture/super_only config+reload script
-bindsym $mod4+shift+r exec $toggle
+# rotate alt/super config+reload script
+bindsym $mod4+shift+r exec $rotate
 
 # change focused window
 bindsym $mod1+$left focus left

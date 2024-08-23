@@ -1,14 +1,14 @@
 # `dilla.files`
-distro: [`debian sid`](https://www.debian.org/releases/sid/) | wayland: [`swaywm`](https://github.com/swaywm/sway) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
+distro: [`debian sid`](https://www.debian.org/releases/sid/) | wayland: [`swaywm`](https://github.com/swaywm/sway)/[`i3`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 ### `~click picture!~`
 [![preview](https://i.imgur.com/1JOMnpC.png)](https://youtu.be/sL1O7zuQIuE)
 
-# my sway keybinds
+# my keybinds are **DWM** inspired
 
-My [keybinds](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config) are [suckless DWM](https://dwm.suckless.org/) inspired. + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
+My keybinds (see [**sway**](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config)/[**i3**](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are [**suckless DWM**](https://dwm.suckless.org/) inspired.
 
-Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) ~ DWM was my very first window manager.
+Previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) ~ DWM was my very first window manager.
 
 # wallpapers
 
@@ -16,41 +16,43 @@ Previously used [DWM Flexipatch](https://github.com/bakkeby/dwm-flexipatch) by [
 
 [aesthetic-wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
 
-# sway commands
+# keybind commands/navigation
 
-READ sway [default config for keybinds](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config) + [alternative config for MOD4 only keybinds](https://github.com/Dillacorn/dotfiles/blob/main/config/sway/super.config)
+READ [sway](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config)/[i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds + alternative [sway](https://github.com/dillacorn/dotfiles/blob/main/config/sway/super_navigation.config)/[i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/super_navigation.config) config for mod4(win/super) navigation keybinds
 
-Using both `MOD1(ALT)` and `MOD4(win/super)` in default config
+Using both `mod1(alt)` and `mod4(win/super)` in default config depending on use.
 
-`MOD4+shift+q` = reloads config
+`mod4+shift+q` = reloads config
 
-`MOD4+shift+r` = rotates alternative sway configurations -> [see ~/.config/sway directory](https://github.com/Dillacorn/dotfiles/tree/main/config/sway)
+`mod4+shift+r` = rotates sway/i3 navigation configurations -> [see sway dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/sway) or [i3 dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/i3)
 
-`MOD4+shift+g` = capture a gif with script <- `repeat keybind to finish command!`
+`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command! ~ currently only configured for Sway NOT i3`
 
-`MOD4+shift+s` = grimshot screenshot
+`mod4+shift+s` = grimshot screenshot
 
-`MOD4+ctrl+shift+s` = flameshot screenshot
+`mod4+ctrl+shift+s` = flameshot screenshot
 
 # terminal navigation
 
-`CTRL+l` <- clears console
+`ctrl+l` <- clears console
 
-`CTRL+a` <- goes to beginning of line
+`ctrl+a` <- goes to beginning of line
 
-`CTRL+e` <- goes to end of line
+`ctrl+e` <- goes to end of line
 
-`CTRL+k` <- deletes from cursor to end of line
+`ctrl+k` <- deletes from cursor to end of line
 
-`CTRL+left` or `CTRL+right` <- forward and backward words
+`ctrl+left` or `ctrl+right` <- forward and backward words
 
-`Shift+PgUp` or `Shift+PgDwn` <- up and down terminal (faster than scrolling)
+`shift+PgUp` or `shift+PgDwn` <- up and down terminal (faster than scrolling)
 
 more commands to learn -> [learning-command-line](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md) by [LinkedInLearning](https://github.com/LinkedInLearning)
 
-# run a script in scripts folder
+# run a script in [scripts folder](https://github.com/dillacorn/dotfiles/tree/main/scripts)
 
 example:
+
+### NOTE: run these commands individually
 
 ```sh
 cd ~/dotfiles/scripts
@@ -58,7 +60,7 @@ chmod +x install_my_apps.sh
 sudo ./install_my_apps.sh
 ```
 
-# screw display managers...full stop...
+# drop the display managers...full stop...
 
 I've had the most issues with display (login) managers, so I prefer TTY. To remove your display manager, use:
 
@@ -68,26 +70,34 @@ sudo apt remove gdm3 sddm lightdm
 
 Login by typing your username and password, then start Sway from TTY by typing:
 
+### **sway**
 ```sh
 sway
 ```
 
+### **i3**
+```sh
+startx
+```
+
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
-# have an nvidia GPU?
+### I've discovered!
+**HUGE PRO** to using the **TTY** is if you have `Sway/i3` config issues or an application is experiencing errors when you logout of `Sway/i3` you will see those errors in the **TTY!**
 
-Use [i3 wm](https://github.com/i3/i3) instead till Nvidia is fully supported... or if you just like X11 over Wayland due to strange behavior and/or bugs with your specific hardware.
+# prefer X11 over Wayland? Have an Nvidia GPU?
 
-Match or modify `xinitrc` as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so i3 can be started in TTY with `startx` command
+Use [**i3 wm**](https://github.com/i3/i3) instead till **Nvidia** is fully supported... or if you just like **X11** over **Wayland** due to strange behavior and/or bugs with your specific hardware.
 
-```sh
-cp dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc
-```
+Match or modify `xinitrc` as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so `i3` can be started in TTY with `startx` command
+
+**Important:** Make sure **xrandr** command is configured correctly for your display!
+
+### NOTE: run these commands individually
 
 Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh) to get my apps which also includes i3wm
 
 ```sh
-git clone https://github.com/dillacorn/dotfiles
 cd dotfiles/scripts
 chmod +x install_my_i3_apps.sh
 ./install_my_i3_apps.sh
@@ -97,6 +107,8 @@ Here is my [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/co
 
 You also need [rofi](https://github.com/dillacorn/dotfiles/tree/main/config/rofi) and [dunst](https://github.com/dillacorn/dotfiles/tree/main/config/dunst) config files
 
+### NOTE: run these commands individually
+
 ```sh
 cp -r dotfiles/config/i3 ~/.config
 cp -r dotfiles/dunst ~/.config
@@ -105,19 +117,17 @@ cp -r dotfiles/rofi ~/.config
 
 Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) executable
 
+### NOTE: run these commands individually
+
 ```sh
 cd ~/.config/i3
 chmod +x toggle.sh i3exit
 ```
 
-### mod4(win)+ctrl+shift+q = restart and reload i3 session
+### mod4(win/super)+ctrl+shift+q = restarts i3 session
 
 # converting sway config to i3?
-
-I use the ~/.config directory to store i3 and Sway. Command to check errors for Sway to i3 config conversion:
 
 ```sh
 i3 -C -c ~/.config/i3/config
 ```
-
-good luck!
