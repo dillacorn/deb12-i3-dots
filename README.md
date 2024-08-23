@@ -89,9 +89,25 @@ If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
 Use [**i3 wm**](https://github.com/i3/i3) instead till **Nvidia** is fully supported... or if you just like **X11** over **Wayland** due to strange behavior and/or bugs with your specific hardware.
 
-Match or modify `xinitrc` as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so `i3` can be started in TTY with `startx` command
+### git clone my repository
 
-**Important:** Make sure **xrandr** command is configured correctly for your display!
+### NOTE: run these commands individually
+
+```sh
+sudo apt install git
+git clone https://github.com/dillacorn/dotfiles
+```
+
+Modify **`xinitrc`** as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so **`i3`** can be started in **TTY** with `startx` command
+
+### **Important:** Make sure **xrandr** command is configured correctly for your display!
+
+```sh
+xrandr
+```
+see output and match in **`xinitrc`** text file
+
+## Install i3 apps I use with my script! ~ feel free to redact applications if you don't use them
 
 ### NOTE: run these commands individually
 
@@ -111,8 +127,8 @@ You also need [rofi](https://github.com/dillacorn/dotfiles/tree/main/config/rofi
 
 ```sh
 cp -r dotfiles/config/i3 ~/.config
-cp -r dotfiles/dunst ~/.config
-cp -r dotfiles/rofi ~/.config
+cp -r dotfiles/config/dunst ~/.config
+cp -r dotfiles/config/rofi ~/.config
 ```
 
 Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) executable
@@ -121,7 +137,7 @@ Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/
 
 ```sh
 cd ~/.config/i3
-chmod +x toggle.sh i3exit
+chmod +x rotate.sh i3exit.sh
 ```
 
 ### mod4(win/super)+ctrl+shift+q = restarts i3 session
