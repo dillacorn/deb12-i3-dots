@@ -43,7 +43,7 @@ set $run rofi -show run
 set $drun rofi -show drun
 
 # screenshot utilities
-set $screenshot1 scrot -s ~/Pictures/screenshots/%Y-&m-%d-%H:%M:%S-%h
+set $screenshot1 exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
 set $screenshot2 flameshot gui
 
 # rotate alt/super config+reload script
@@ -85,7 +85,7 @@ bindsym $mod1+p exec $drun
 bindsym $mod1+shift+p exec $run
 
 # screenshot
-bindsym $mod4+shift+s exec $screenshot1
+bindsym --release $mod4+shift+s exec $screenshot1
 bindsym $mod4+ctrl+shift+s exec $screenshot2
 
 # start a terminal
