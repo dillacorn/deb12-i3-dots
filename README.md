@@ -1,5 +1,5 @@
 # `dilla.files`
-distro: [`debian sid`](https://www.debian.org/releases/sid/) | Wayland/X11: [`swaywm`](https://github.com/swaywm/sway)/[`i3`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
+distro: [`debian sid`](https://www.debian.org/releases/sid/) | Wayland/X11: [`sway-wm`](https://github.com/swaywm/sway)/[`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 ### `~click picture!~`
 [![preview](https://i.imgur.com/1JOMnpC.png)](https://youtu.be/sL1O7zuQIuE)
