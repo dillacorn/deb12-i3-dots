@@ -56,7 +56,7 @@ example:
 
 ```sh
 cd ~/dotfiles/scripts
-chmod +x install_my_apps.sh
+sudo chmod +x install_my_apps.sh
 sudo ./install_my_apps.sh
 ```
 
@@ -127,7 +127,7 @@ Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts
 
 ```sh
 cd dotfiles/scripts
-chmod +x install_my_i3_apps.sh
+sudo chmod +x install_my_i3_apps.sh
 sudo ./install_my_i3_apps.sh
 ```
 
@@ -149,7 +149,7 @@ Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/
 
 ```sh
 cd ~/.config/i3
-chmod +x rotate.sh i3exit.sh
+sudo chmod +x rotate_configs.sh i3exit.sh
 ```
 
 ### mod4(win/super)+shift+q = restarts i3 session
