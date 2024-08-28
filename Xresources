@@ -1,0 +1,7 @@
+# Edit $HOME/.Xresources
+
+# for i3-wm
+Xcursor.theme: Anya cursor
+
+# for CRT display @ 1600x1200 resolution
+Xft.dpi: 120

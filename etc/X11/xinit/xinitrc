@@ -7,6 +7,6 @@
 # invoke global X session script
 #. /etc/X11/Xsession
 
-xrdb ~/.Xresources
+xrdb -merge ~/.Xresources
 
 exec dbus-run-session i3
