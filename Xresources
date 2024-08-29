@@ -3,5 +3,6 @@
 # for i3-wm
 Xcursor.theme: Anya cursor
 
-# for CRT display @ 1600x1200 resolution
-Xft.dpi: 120
+# Raise/Lower desktop DPI ~ default value is 96
+Xft.dpi: 96
+# options: 96, 100, 104, 108, 112, 116, 120... etc, etc +4
