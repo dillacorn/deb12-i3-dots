@@ -240,8 +240,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound vo
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # Brightness control
-bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 5%+; ~/.config/sway/scripts/brightness-thing"
-bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 5%-; ~/.config/sway/scripts/brightness-thing"
+bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 10%+"
+bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 10%-"
 
 ###################
 ### bar / theme ###
