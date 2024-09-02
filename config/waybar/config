@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 [{
-    "output": ["DP-3"],
+    "output": ["DP-2"],
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
@@ -21,7 +21,7 @@
         "cpu",
         "temperature",
         "memory",
-	"wireplumber",
+	    "wireplumber",
         "backlight",
         "clock",
         "battery",
@@ -48,7 +48,7 @@
             "10": "10 "
         },
         "persistent-workspaces": {
-            "1": "1 ",
+        	"1": "1 ",
             "2": "2 ",
             "3": "3 ",
             "4": "4 "
@@ -151,7 +151,7 @@
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     }
 },{
-    "output": ["HDMI-A-1"],
+    "output": ["DP-3"],
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 34, // Waybar height (to be removed for auto height)
@@ -171,20 +171,21 @@
     ],
     "sway/workspaces": {
         "all-outputs": true,
-        "warp-on-scroll": true,
+        "warp-on-scroll": false,
         "enable-bar-scroll": true,
+        "disable-scroll-wraparound": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10"
+            "1": "1 ",
+            "2": "2 ",
+            "3": "3 ",
+            "4": "4 ",
+            "5": "5 ",
+            "6": "6 ",
+            "7": "7 ",
+            "8": "8 ",
+            "9": "9 ",
+            "10": "10 "
         }
     },
     "sway/window": {
@@ -205,6 +206,6 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d | %I:%M}"
+        "format": "{:%Y-%m-%d | %I:%M}"
     }
 }]
