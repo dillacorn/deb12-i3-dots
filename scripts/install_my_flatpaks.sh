@@ -36,7 +36,6 @@ flatpak_apps=(
   'com.spotify.Client'                                    # Music streaming
   'com.valvesoftware.Steam'                               # Steam Game Client
   'io.github.Foldex.AdwSteamGtk'                          # Steam Game Client Themer
-  'org.freedesktop.Platform.VulkanLayer.gamescope'        # Gamescope for Steam Client
   'net.davidotek.pupgui2'                                 # Install 3D party Proton Versions
   'com.moonlight_stream.Moonlight'                        # Game/Remote RDP VNC Client
   'io.itch.itch'                                          # Install and play itch.io games
