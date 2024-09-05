@@ -1,4 +1,4 @@
-### These are unique launch options depending on the game and use case ~ currently configured to be used in a Xorg/X11 (i3) session
+### These are unique launch options depending on the game and use case for [i3wm](https://github.com/i3/i3)
 
 ### before running launch option set a custom resolution see [custom_res.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/custom_res.sh)
 
