@@ -16,7 +16,7 @@ gamemoderun %command% -w 1024 -h 768 -refresh 105 -novid +fps_max 0
 	"setting.defaultres"		"1400"
 	"setting.defaultresheight"		"1050"
 
-gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 81.67 +fps_max unlimited
+gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 240 +fps_max unlimited
 
 ## Apex Legends ~ 1344x1005 81.67hz on a CRT
 ### patch apex videoconfig.txt first
