@@ -29,6 +29,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     qimgv
     flameshot
     htop
+    btop
     curl
     wget
     git
