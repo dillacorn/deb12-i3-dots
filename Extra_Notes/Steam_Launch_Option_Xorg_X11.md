@@ -9,7 +9,10 @@ gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240.00" ; %command% 
 gamemoderun %command% -w 1024 -h 768 -refresh 105 -novid +fps_max 0
 
 ## Apex Legends on a CRT
-gamemoderun %command% +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid +fps_max unlimited
+gamemoderun xrandr --output DisplayPort-2 --mode "1344x1005_81.67" --pos 0x0 --output DisplayPort-1 --mode 1920x1080 --rate 81.67 --pos 1344x0 ; %command% ; xrandr --output DisplayPort-2 --off --output DisplayPort-1 --mode 1920x1080 --rate 240 --pos 0x0; SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 81.67 +fps_max unlimited
+
+## The Finals on a CRT
+gamemoderun xrandr --output DisplayPort-2 --mode "1344x1005_81.67" --pos 0x0 --output DisplayPort-1 --mode 1920x1080 --rate 81.67 --pos 1344x0 ; %command% ; xrandr --output DisplayPort-2 --off --output DisplayPort-1 --mode 1920x1080 --rate 240 --pos 0x0;
 
 ## The Finals ~ stretched 1400x1050 @ 240hz
 gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240.00" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240;
