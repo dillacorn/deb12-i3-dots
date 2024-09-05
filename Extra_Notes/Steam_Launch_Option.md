@@ -2,11 +2,9 @@
 
 ## Counter-Strike 2 ~ stretched to 1400x1050 on a 1920x1080 240hz Display
 
-gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240.00"; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; %command% -novid +fps_max 0
+### before running launch option set a custom resolution see [custom_res.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/custom_res.sh)
 
-~ reverts back to 1920x1080 @ 240hz when game is closed..
-
-~ for some reason game is launch again on second command.. I don't know a solution just MOD+Shift+c to close it.
+gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240.00" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; -novid +fps_max 0 
 
 ## Counter-Strike 2 ~ 1024x768 105hz on a CRT
 gamemoderun %command% -w 1024 -h 768 -refresh 105 -novid +fps_max 0
