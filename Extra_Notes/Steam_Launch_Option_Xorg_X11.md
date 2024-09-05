@@ -10,11 +10,22 @@ gamemoderun %command% -w 1024 -h 768 -refresh 105 -novid +fps_max 0
 
 ## Apex Legends ~ stretched 1400x1050 240hz
 ### patch apex videoconfig.txt first
-gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 81.67 +fps_max unlimited
 
+`micro ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/compatdata/1172470/pfx/drive_c/users/steamuser/Saved\ Games/Respawn/Apex/local/videoconfig.txt`
+
+	"setting.defaultres"		"1400"
+	"setting.defaultresheight"		"1050"
+
+gamemoderun xrandr --output DisplayPort-1 --mode "1400x1050_240" ; %command% ; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240; SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 81.67 +fps_max unlimited
 
 ## Apex Legends ~ 1344x1005 81.67hz on a CRT
 ### patch apex videoconfig.txt first
+
+`micro ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/compatdata/1172470/pfx/drive_c/users/steamuser/Saved\ Games/Respawn/Apex/local/videoconfig.txt`
+
+	"setting.defaultres"		"1344"
+	"setting.defaultresheight"		"1005"
+
 gamemoderun xrandr --output DisplayPort-2 --mode "1344x1005_81.67" --pos 0x0 --output DisplayPort-1 --mode 1920x1080 --rate 81.67 --pos 1344x0 ; %command% SettingsDX12.json +mat_letterbox_aspect_goal 0 +mat_letterbox_aspect_threshold 0 +building_cubemaps "1" -novid -freq 81.67 +fps_max unlimited
 
 ## The Finals ~ 1344x1005 81.67hz on a CRT
