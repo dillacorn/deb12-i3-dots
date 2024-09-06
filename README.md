@@ -149,7 +149,7 @@ Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/
 
 ```sh
 cd ~/.config/i3
-chmod +x rotate_configs.sh i3exit.sh
+chmod +x rotate_configs.sh i3exit.sh custom_res.sh
 ```
 
 ### mod4(win/super)+shift+q = restarts i3 session
