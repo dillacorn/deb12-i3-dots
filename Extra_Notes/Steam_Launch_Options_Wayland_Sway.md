@@ -1,4 +1,4 @@
-# not sure if this works yet... just testing
+# This does not currently work to my knowledge..... just testing... custom resolutions on wayland are difficult and swaymsg doesn't seem to work as a launch argument in Steam Flatpak.. although it does work on X11.. Sway giving me more reasons I should just ditch it all together and if I do I will be removing sway from this repo
 ### These are unique launch options depending on the game and use case for [sway](https://github.com/swaywm/sway)
 
 ### before running launch option set a custom resolution see `man sway-outputs`
