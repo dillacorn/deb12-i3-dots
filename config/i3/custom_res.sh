@@ -13,6 +13,7 @@ gtf 1600 1200 68.91
 # get modeline string for xrandr using gtf and/or cvt 
 # [IPS 1080p 240hz ~ ViewSonic XG2431]
 gtf 1400 1050 240
+gtf 1350 1080 240
 
 # adding gtf/cvt output as a newmode for xrandr to use
 # [CRT ~ Compaq FS7550]
@@ -25,6 +26,7 @@ xrandr --newmode "1600x1200_68.91"  187.14  1600 1712 1888 2176  1200 1201 1204 
 # adding gtf/cvt output as a newmode for xrandr to use
 # [IPS 1080p 240hz ~ ViewSonic XG2431]
 xrandr --newmode "1400x1050_240.00"  570.50  1400 1528 1680 1960  1050 1053 1057 1214 -hsync +vsync
+xrandr --newmode "1352x1080_240.00"  571.31  1352 1480 1632 1912  1080 1081 1084 1245  -HSync +Vsync
 
 # apply newmode to specific output
 # [CRT ~ Compaq FS7550]
@@ -36,6 +38,7 @@ xrandr --addmode DisplayPort-2 "1600x1200_68.91"
 # apply newmode to specific output
 # [IPS 1080p 240hz ~ ViewSonic XG2431]
 xrandr --addmode DisplayPort-1 "1400x1050_240.00"
+xrandr --addmode DisplayPort-1 "1352x1080_240.00"
 
 # apply output mode to CRT
 # xrandr --output DisplayPort-2 --mode "1024x768_105.39" --pos 0x0 --rotate normal
