@@ -1,4 +1,4 @@
-# if applications don't show up in [wofi](https://gitlab.com/dgirault/wofi)
+# if applications don't show up in rofi
 
 ### add them to this directory instead.
 

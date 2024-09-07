@@ -1,12 +1,13 @@
 # `dilla.files`
-distro: [`debian sid`](https://www.debian.org/releases/sid/) | Wayland/X11: [`sway-wm`](https://github.com/swaywm/sway)/[`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
+distro: [`debian sid`](https://www.debian.org/releases/sid/) | X11: [`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 ### `~click picture!~`
 [![preview](https://i.imgur.com/1JOMnpC.png)](https://youtu.be/sL1O7zuQIuE)
+### `~this preview is old but still gets accross the theme I was going for when creating this repo~`
 
 # my keybinds are **DWM** inspired
 
-My keybinds (see [**sway**](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config)/[**i3**](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are [**suckless DWM**](https://dwm.suckless.org/) inspired.
+My keybinds (see [**i3**](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are [**suckless DWM**](https://dwm.suckless.org/) inspired.
 
 Previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) ~ DWM was my very first window manager.
 
@@ -18,17 +19,17 @@ Previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) 
 
 # keybind commands/navigation
 
-READ [sway](https://github.com/dillacorn/dotfiles/blob/main/config/sway/config)/[i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds + alternative [sway](https://github.com/dillacorn/dotfiles/blob/main/config/sway/super_navigation.config)/[i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/super_navigation.config) config for mod4(win/super) navigation keybinds
+READ [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds + alternative [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/super_navigation.config) config for mod4(win/super) navigation keybinds
 
 Using both `mod1(alt)` and `mod4(win/super)` in default config depending on use.
 
 `mod4+shift+q` = reloads config
 
-`mod4+shift+r` = rotates sway/i3 navigation configurations -> [see sway dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/sway) or [i3 dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/i3)
+`mod4+shift+r` = rotates i3 navigation configurations -> [i3 dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/i3)
 
-`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command! ~ currently only configured for Sway NOT i3`
+`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command! ~ **work in process on i3**`
 
-`mod4+shift+s` = grimshot screenshot
+`mod4+shift+s` = scrot screenshot
 
 `mod4+ctrl+shift+s` = flameshot screenshot
 
@@ -68,14 +69,17 @@ I've had the most issues with display (login) managers, so I prefer TTY. To remo
 sudo apt remove gdm3 sddm lightdm
 ```
 
-Login by typing your username and password, then start Sway and/or i3 from TTY by typing:
+Login by typing your username and password, then start i3 from TTY by typing:
 
-### **sway**
+Edit xinitrc first
+
 ```sh
-sway
+micro /etc/X11/xinit/xinitrc
 ```
 
-### **i3** ~ needs to be configured first to work
+match my [**xinitrc**](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc)
+
+### start **i3**
 ```sh
 startx
 ```
@@ -83,11 +87,9 @@ startx
 If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 
 ### I've discovered!
-**HUGE PRO** to using the **TTY** is if you have `Sway/i3` config issues or an application is experiencing errors when you logout of `Sway/i3` you will see those errors in the **TTY!**
+**HUGE PRO** to using the **TTY** is if you have `i3` config issues or an application is experiencing errors when you logout of `i3` you will see those errors in the **TTY!**
 
-# prefer X11 over Wayland? Have an Nvidia GPU?
-
-Use [**i3 wm**](https://github.com/i3/i3) instead till **Nvidia** is fully supported... or if you just like **X11** over **Wayland** due to strange behavior and/or bugs with your specific hardware.
+# install directions
 
 ### git clone my repository
 
@@ -112,10 +114,15 @@ replace line in **`i3 config`**
 ```sh
 exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 60
 ```
+
 replace example: (two monitors in example)
+
 ```sh
 exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
 ```
+
+### or modify (custom_res.sh)[https://github.com/dillacorn/dotfiles/blob/main/config/i3/custom_res.sh]
+
 ## Tip:
 using **`arandr`** can help for getting the correct output code when dealing with multiple displays
 
@@ -154,8 +161,6 @@ chmod +x rotate_configs.sh i3exit.sh custom_res.sh
 
 ### mod4(win/super)+shift+q = restarts i3 session
 
-# converting sway config to i3?
-
-```sh
-i3 -C -c ~/.config/i3/config
-```
+# thanks for reading!
+### P.S. 
+### This originally started out as a wayland repo if you see the git history... at the time I actually liked Sway (wayland) but sense trying to do very custom things, I've concluded that wayland window managers just aren't for me.
