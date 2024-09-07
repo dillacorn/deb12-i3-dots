@@ -53,6 +53,10 @@ set $rotate ~/.config/i3/rotate_configs.sh
 # custom res and configuration script
 exec --no-startup-id ~/.config/i3/custom_res.sh
 
+# persistant digital vibrance command
+exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-1 1.4
+exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-2 1.4
+
 # shuffle and display random wallpaper
 exec_always feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
