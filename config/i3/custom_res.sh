@@ -50,3 +50,7 @@ xrandr --addmode DisplayPort-1 "1352x1080_240.00"
 # ViewSonic XG2431 (capped to 94hz to reduce crosstalk)
 xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240 --pos 0x0 --rotate normal
 # adjust "--pos 1024x0, 1152x0, 1344x0, 1600x0" depending on CRT configuration
+
+# display saturation with "vibrantLinux"
+flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-1 1.4
+flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-2 1.4
