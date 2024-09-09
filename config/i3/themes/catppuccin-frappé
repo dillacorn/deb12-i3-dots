@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# change bar colors in i3 config
+sed -i -E '
+s/^[[:space:]]*background[[:space:]]+.*/     background #303446/g;
+s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #c6d0f5/g;
+s/^[[:space:]]*separator[[:space:]]+.*/     separator  #303446/g;
+
+s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #303446 #ca9ee6 #232634/g;
+s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303446 #e78284 #232634/g;
+s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #303446 #303446 #232634/g;
+' "$HOME/.config/i3/config"
+
+# change bar colors in alt_navigation i3 config
+sed -i -E '
+s/^[[:space:]]*background[[:space:]]+.*/     background #303446/g;
+s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #c6d0f5/g;
+s/^[[:space:]]*separator[[:space:]]+.*/     separator  #303446/g;
+
+s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #303446 #ca9ee6 #232634/g;
+s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303446 #e78284 #232634/g;
+s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #303446 #303446 #232634/g;
+' "$HOME/.config/i3/alt_navigation.config"
+
+# change bar colors in super_navigation i3 config
+sed -i -E '
+s/^[[:space:]]*background[[:space:]]+.*/     background #303446/g;
+s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #c6d0f5/g;
+s/^[[:space:]]*separator[[:space:]]+.*/     separator  #303446/g;
+
+s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #303446 #ca9ee6 #232634/g;
+s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #303446 #626880 #c6d0f5/g;
+s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303446 #e78284 #232634/g;
+s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #303446 #303446 #232634/g;
+' "$HOME/.config/i3/super_navigation.config"
+
+# change client colors in i3 config
+sed -i -E '
+s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #babbf1 #303446 #c6d0f5 #f2d5cf   #babbf1/g;
+s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #ef9f76 #303446 #ef9f76 #737994   #ef9f76/g;
+s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #737994 #303446 #c6d0f5 #737994   #737994/g;
+
+s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #303446/g;
+' "$HOME/.config/i3/config"
+
+# change client colors in alt_navigation i3 config
+sed -i -E '
+s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #babbf1 #303446 #c6d0f5 #f2d5cf   #babbf1/g;
+s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #ef9f76 #303446 #ef9f76 #737994   #ef9f76/g;
+s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #737994 #303446 #c6d0f5 #737994   #737994/g;
+
+s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #303446/g;
+' "$HOME/.config/i3/alt_navigation.config"
+
+# change client colors in super_navigation i3 config
+sed -i -E '
+s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #babbf1 #303446 #c6d0f5 #f2d5cf   #babbf1/g;
+s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #737994 #303446 #c6d0f5 #f2d5cf   #737994/g;
+s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #ef9f76 #303446 #ef9f76 #737994   #ef9f76/g;
+s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #737994 #303446 #c6d0f5 #737994   #737994/g;
+
+s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #303446/g;
+' "$HOME/.config/i3/super_navigation.config"
+
+# change rofi theme
+sed -i '1s|.*|@theme "/usr/share/rofi/themes/DarkBlue.rasi"|' "$HOME/.config/rofi/config.rasi"
+
+# change alacritty theme
+sed -i '9s/.*/  "~\/.config\/alacritty\/themes\/themes\/catppuccin_frappe.toml"/' "$HOME/.config/alacritty/alacritty.toml"
+
+i3 reload
