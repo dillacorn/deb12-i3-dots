@@ -17,6 +17,19 @@ Previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) 
 
 [aesthetic-wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
 
+# i3 themes change script!
+
+```sh
+cd ~/.config/i3/themes
+chmod +x *
+```
+
+using rofi to select theme
+
+`mod4+shift+t`
+
+enjoy! I scripted this myself!
+
 # keybind commands/navigation
 
 READ [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds + alternative [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/super_navigation.config) config for mod4(win/super) navigation keybinds
