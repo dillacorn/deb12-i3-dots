@@ -83,7 +83,7 @@ sed -i -E '
 48s|.*|    background = "#282828"|;
 49s|.*|    foreground = "#ebdbb2"|;
 ' "$HOME/.config/dunst/dunstrc"
-pkill dunst && dunst
+killall dunst;notify-send foo
 
 # change rofi theme
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/DarkBlue.rasi"|' "$HOME/.config/rofi/config.rasi"
