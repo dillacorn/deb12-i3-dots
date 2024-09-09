@@ -72,6 +72,19 @@ s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #000000
 s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #FFFFFF/g;
 ' "$HOME/.config/i3/super_navigation.config"
 
+# change dunst notifications theme
+sed -i -E '
+22s|.*|    separator_color = "#585858"|;
+29s|.*|    color = "#83a598"|;
+38s|.*|    background = "#282828"|;
+39s|.*|    foreground = "#ebdbb2"|;
+43s|.*|    background = "#282828"|;
+44s|.*|    foreground = "#ebdbb2"|;
+48s|.*|    background = "#282828"|;
+49s|.*|    foreground = "#ebdbb2"|;
+' "$HOME/.config/dunst/dunstrc"
+pkill dunst && dunst
+
 # change rofi theme
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"|' "$HOME/.config/rofi/config.rasi"
 
