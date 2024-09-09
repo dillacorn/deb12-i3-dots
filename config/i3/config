@@ -74,7 +74,7 @@ exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock' -c 000000
 #############
 
 set $i3exit [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF
-bindsym mod4+ctrl+shift+p mode "$i3exit"
+bindsym mod1+ctrl+shift+p mode "$i3exit"
 mode "$i3exit" {
     bindsym l mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh lock
     bindsym o mode "default", exec --no-startup-id ~/.config/i3/i3exit.sh logout
@@ -244,9 +244,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 10%+"
 bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 10%-"
 
-###################
-### bar / theme ###
-###################
+####################
+### bar / themes ###
+####################
 
 # font for window titles and bars
 font pango: Hack 10
@@ -256,10 +256,11 @@ bar {
     position top
     status_command i3status -c ~/.config/i3/i3status.conf
     colors {
-        background #282828
-        statusline #FFFFFF
-        separator  #666666
-        
+        background         #282828
+        statusline         #FFFFFF
+        separator          #666666
+
+        # target           border  bground text
         focused_workspace  #262626 #E4DBBD #282828
         active_workspace   #333333 #222222 #E3DDBA
         inactive_workspace #333333 #222222 #888888
