@@ -74,14 +74,14 @@ s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #303446/
 
 # change dunst notifications theme
 sed -i -E '
-22s|.*|    separator_color = "#585858"|;
+22s|.*|    separator_color = "#626880"|;
 29s|.*|    color = "#83a598"|;
-38s|.*|    background = "#282828"|;
-39s|.*|    foreground = "#ebdbb2|;
-43s|.*|    background = "#282828"|;
-44s|.*|    foreground = "#ebdbb2"|;
-48s|.*|    background = "#282828"|;
-49s|.*|    foreground = "#ebdbb2"|;
+38s|.*|    background = "#303446"|;
+39s|.*|    foreground = "#626880"|;
+43s|.*|    background = "#303446"|;
+44s|.*|    foreground = "#626880"|;
+48s|.*|    background = "#303446"|;
+49s|.*|    foreground = "#626880"|;
 ' "$HOME/.config/dunst/dunstrc"
 killall dunst;notify-send foo
 
