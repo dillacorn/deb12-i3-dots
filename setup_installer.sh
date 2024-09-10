@@ -1,5 +1,17 @@
 #!/bin/bash
 
+#################################################
+## "run this script" directions for new users! ##
+#################################################
+
+# open a terminal
+# chmod +x setup_installer.sh   <-  without the #
+# sudo ./setup_installer.sh     <-  without the #
+
+#################################################
+## "run this script" directions for new users! ##
+#################################################
+
 # Install git if it's not already installed
 apt update
 apt install -y git
