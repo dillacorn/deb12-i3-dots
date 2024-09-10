@@ -10,7 +10,7 @@
 # cd dotfiles
 # chmod +x setup_installer.sh
 # dos2unix setup_installer.sh
-# sudo ./setup_installer.sh
+# ./setup_installer.sh
 # follow installer
 
 #################################################
@@ -106,29 +106,20 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Define the i3 directory
-I3_DIR="$CONFIG_DIR/i3"
-
-# Ensure the i3 directory exists
-if [ ! -d "$I3_DIR" ]; then
-    echo "i3 config directory does not exist. Exiting."
-    exit 1
-fi
+# Wait for files to appear
+echo "Waiting for configuration files to be available..."
+for file in "$CONFIG_DIR/custom_res.sh" "$CONFIG_DIR/i3exit.sh" "$CONFIG_DIR/rotate_configs.sh"; do
+    while [ ! -f "$file" ]; do
+        echo "Waiting for $file to appear..."
+        sleep 1
+    done
+done
 
 # Make specific files executable after they have been copied
-echo "Making i3 scripts executable..."
-for script in custom_res.sh i3exit.sh rotate_configs.sh; do
-    if [ -f "$I3_DIR/$script" ]; then
-        chmod +x "$I3_DIR/$script"
-        if [ $? -ne 0 ]; then
-            echo "Failed to make $script executable. Exiting."
-            exit 1
-        fi
-    else
-        echo "$script not found in $I3_DIR. Exiting."
-        exit 1
-    fi
-done
+echo "Making scripts executable..."
+chmod +x "$CONFIG_DIR/custom_res.sh"
+chmod +x "$CONFIG_DIR/i3exit.sh"
+chmod +x "$CONFIG_DIR/rotate_configs.sh"
 
 # Navigate to i3 themes and make files executable
 cd "$CONFIG_DIR/i3/themes" || exit
