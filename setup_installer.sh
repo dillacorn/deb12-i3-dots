@@ -10,7 +10,7 @@
 # cd dotfiles
 # chmod +x setup_installer.sh
 # dos2unix setup_installer.sh
-# ./setup_installer.sh
+# sudo ./setup_installer.sh
 # follow installer
 
 #################################################
