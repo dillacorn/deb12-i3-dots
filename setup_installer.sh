@@ -21,6 +21,20 @@
 apt update
 apt install -y git
 
+# Check the value of HOME
+echo "Home directory is set to: $HOME"
+
+# Clone the dotfiles repository into the home directory if it doesn't already exist
+if [ ! -d "$HOME/dotfiles" ]; then
+    git clone https://github.com/dillacorn/dotfiles "$HOME/dotfiles"
+    if [ $? -ne 0 ]; then
+        echo "Failed to clone the dotfiles repository. Exiting."
+        exit 1
+    fi
+else
+    echo "dotfiles repository already exists in $HOME."
+fi
+
 # Navigate to ~/dotfiles/scripts and make scripts executable
 cd ~/dotfiles/scripts || exit
 chmod +x *
@@ -53,7 +67,7 @@ fi
 
 # Copy other configuration files
 echo "Copying Xresources..."
-cp ~/dotfiles/Xresources ~/.Xresources
+cp ~/dotfiles/Xresources $HOME/.Xresources
 if [ $? -ne 0 ]; then
     echo "Failed to copy Xresources. Exiting."
     exit 1
