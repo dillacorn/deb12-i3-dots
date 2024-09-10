@@ -10,7 +10,7 @@
 # cd dotfiles
 # chmod +x setup_installer.sh
 # dos2unix setup_installer.sh
-# ./setup_installer.sh
+# sudo ./setup_installer.sh
 # follow installer
 
 #################################################
@@ -113,11 +113,28 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Wait for a moment to ensure files are copied
+sleep 2
+
 # Make specific files executable after they have been copied
 echo "Making scripts executable..."
-chmod +x "$CONFIG_DIR/custom_res.sh"
-chmod +x "$CONFIG_DIR/i3exit.sh"
-chmod +x "$CONFIG_DIR/rotate_configs.sh"
+if [ -f "$CONFIG_DIR/custom_res.sh" ]; then
+    chmod +x "$CONFIG_DIR/custom_res.sh"
+else
+    echo "File $CONFIG_DIR/custom_res.sh does not exist."
+fi
+
+if [ -f "$CONFIG_DIR/i3exit.sh" ]; then
+    chmod +x "$CONFIG_DIR/i3exit.sh"
+else
+    echo "File $CONFIG_DIR/i3exit.sh does not exist."
+fi
+
+if [ -f "$CONFIG_DIR/rotate_configs.sh" ]; then
+    chmod +x "$CONFIG_DIR/rotate_configs.sh"
+else
+    echo "File $CONFIG_DIR/rotate_configs.sh does not exist."
+fi
 
 # Navigate to i3 themes and make files executable
 cd "$CONFIG_DIR/i3/themes" || exit
