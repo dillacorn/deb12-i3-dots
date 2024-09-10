@@ -10,22 +10,15 @@
 # cd dotfiles
 # chmod +x setup_installer.sh
 # dos2unix setup_installer.sh
-# ./setup_installer.sh
+# sudo ./setup_installer.sh
 # follow installer
 
 #################################################
 ## "run this script" directions for new users! ##
 #################################################
 
-# Check if the script is run with root privileges, if not, notify user
-if [ "$(id -u)" -ne 0 ]; then
-    echo "You need to run this script with sudo for some commands."
-    echo "For example: sudo ./setup_installer.sh"
-    echo "Continue with the script, and manually run any sudo commands as prompted."
-fi
-
-# Define directories using HOME variable
-USER_HOME="$HOME"
+# Define a variable for the home directory
+USER_HOME="${SUDO_USER:-$HOME}"
 DOTFILES_DIR="$USER_HOME/dotfiles"
 CONFIG_DIR="$USER_HOME/.config"
 LOCAL_SHARE_DIR="$USER_HOME/.local/share"
