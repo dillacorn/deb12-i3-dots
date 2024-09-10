@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Exec=octave
+Name=octave
+Icon=octave
