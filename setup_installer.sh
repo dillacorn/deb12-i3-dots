@@ -58,7 +58,6 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run other scripts
-./fix_virt-manager.sh
 ./ranger_image_preview.sh
 
 # Copy X11 configuration
