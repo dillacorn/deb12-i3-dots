@@ -89,6 +89,6 @@ killall dunst;notify-send theme_updated
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/Indego.rasi"|' "$HOME/.config/rofi/config.rasi"
 
 # change alacritty theme
-sed -i '9s/.*/  "~\/.config\/alacritty\/themes\/themes\/msx.toml"/' "$HOME/.config/alacritty/alacritty.toml"
+sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/msx.toml"/' "$HOME/.config/alacritty/alacritty.toml"
 
 i3 reload
