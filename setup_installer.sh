@@ -5,8 +5,13 @@
 #################################################
 
 # open a terminal
-# chmod +x setup_installer.sh   <-  without the #
-# sudo ./setup_installer.sh     <-  without the #
+# sudo apt install git dos2unix -y
+# git clone https://github.com/dillacorn/dotfiles
+# cd dotfiles
+# chmod +x setup_installer.sh
+# dos2unix setup_installer.sh
+# sudo ./setup_installer.sh
+# follow installer
 
 #################################################
 ## "run this script" directions for new users! ##
@@ -15,17 +20,6 @@
 # Install git if it's not already installed
 apt update
 apt install -y git
-
-# Clone the dotfiles repository into the home directory if it doesn't already exist
-if [ ! -d "$HOME/dotfiles" ]; then
-    git clone https://github.com/dillacorn/dotfiles "$HOME/dotfiles"
-    if [ $? -ne 0 ]; then
-        echo "Failed to clone the dotfiles repository. Exiting."
-        exit 1
-    fi
-else
-    echo "dotfiles repository already exists in $HOME."
-fi
 
 # Navigate to ~/dotfiles/scripts and make scripts executable
 cd ~/dotfiles/scripts || exit
@@ -93,22 +87,23 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Make specific files executable
-chmod +x ~/.config/custom_res.sh
-chmod +x ~/.config/i3exit.sh
-chmod +x ~/.config/rotate_configs.sh
+# Make specific files executable after they have been copied
+echo "Making scripts executable..."
+chmod +x $HOME/.config/custom_res.sh
+chmod +x $HOME/.config/i3exit.sh
+chmod +x $HOME/.config/rotate_configs.sh
 
 # Navigate to i3 themes and make files executable
-cd ~/.config/i3/themes || exit
+cd $HOME/.config/i3/themes || exit
 chmod +x *
 
 # Navigate to alacritty and run the theme installation script
-cd ~/.config/alacritty || exit
+cd $HOME/.config/alacritty || exit
 chmod +x install_alacritty_themes.sh
 ./install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
-cp -r ~/dotfiles/local/share/applications/. ~/.local/share/applications/
+cp -r ~/dotfiles/local/share/applications/. $HOME/.local/share/applications/
 if [ $? -ne 0 ]; then
     echo "Failed to copy .desktop files. Exiting."
     exit 1
