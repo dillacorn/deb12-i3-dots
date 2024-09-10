@@ -10,19 +10,23 @@
 # cd dotfiles
 # chmod +x setup_installer.sh
 # dos2unix setup_installer.sh
-# sudo ./setup_installer.sh
+# ./setup_installer.sh
 # follow installer
 
 #################################################
 ## "run this script" directions for new users! ##
 #################################################
 
+# Check if the script is run with root privileges, if not, notify user
+if [ "$(id -u)" -ne 0 ]; then
+    echo "You need to run this script with sudo for some commands."
+    echo "For example: sudo ./setup_installer.sh"
+    echo "Continue with the script, and manually run any sudo commands as prompted."
+fi
+
 # Install git if it's not already installed
 apt update
 apt install -y git
-
-# Check the value of HOME
-echo "Home directory is set to: $HOME"
 
 # Clone the dotfiles repository into the home directory if it doesn't already exist
 if [ ! -d "$HOME/dotfiles" ]; then
@@ -59,6 +63,8 @@ fi
 ./ranger_image_preview.sh
 
 # Copy X11 configuration
+echo "You may need to run the following command with sudo:"
+echo "cp ~/dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc"
 cp ~/dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc
 if [ $? -ne 0 ]; then
     echo "Failed to copy xinitrc. Exiting."
@@ -67,7 +73,7 @@ fi
 
 # Copy other configuration files
 echo "Copying Xresources..."
-cp ~/dotfiles/Xresources $HOME/.Xresources
+cp ~/dotfiles/Xresources ~/.Xresources
 if [ $? -ne 0 ]; then
     echo "Failed to copy Xresources. Exiting."
     exit 1
@@ -117,6 +123,8 @@ chmod +x install_alacritty_themes.sh
 ./install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
+echo "You may need to run the following command with sudo:"
+echo "cp -r ~/dotfiles/local/share/applications/. $HOME/.local/share/applications/"
 cp -r ~/dotfiles/local/share/applications/. $HOME/.local/share/applications/
 if [ $? -ne 0 ]; then
     echo "Failed to copy .desktop files. Exiting."
@@ -124,6 +132,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # Set alternatives for editor and terminal emulator
+echo "You may need to run the following commands with sudo:"
+echo "update-alternatives --set editor /usr/bin/micro"
+echo "update-alternatives --set x-terminal-emulator /usr/bin/alacritty"
 update-alternatives --set editor /usr/bin/micro
 update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 
