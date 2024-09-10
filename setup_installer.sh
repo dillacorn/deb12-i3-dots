@@ -1,17 +1,5 @@
 #!/bin/bash
 
-#################################################
-## "run this script" directions for new users! ##
-#################################################
-
-# open a terminal
-# chmod +x setup_installer.sh   <-  without the #
-# sudo ./setup_installer.sh     <-  without the #
-
-#################################################
-## "run this script" directions for new users! ##
-#################################################
-
 # Install git if it's not already installed
 apt update
 apt install -y git
@@ -66,28 +54,28 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Copying alacritty config..."
-cp -r ~/dotfiles/config/alacritty $HOME/$USER/.config/
+cp -r ~/dotfiles/config/alacritty $HOME/.config/
 if [ $? -ne 0 ]; then
     echo "Failed to copy alacritty config. Exiting."
     exit 1
 fi
 
 echo "Copying dunst config..."
-cp -r ~/dotfiles/config/dunst $HOME/$USER/.config/
+cp -r ~/dotfiles/config/dunst $HOME/.config/
 if [ $? -ne 0 ]; then
     echo "Failed to copy dunst config. Exiting."
     exit 1
 fi
 
 echo "Copying i3 config..."
-cp -r ~/dotfiles/config/i3 $HOME/$USER/.config/
+cp -r ~/dotfiles/config/i3 $HOME/.config/
 if [ $? -ne 0 ]; then
     echo "Failed to copy i3 config. Exiting."
     exit 1
 fi
 
 echo "Copying rofi config..."
-cp -r ~/dotfiles/config/rofi $HOME/$USER/.config/
+cp -r ~/dotfiles/config/rofi $HOME/.config/
 if [ $? -ne 0 ]; then
     echo "Failed to copy rofi config. Exiting."
     exit 1
