@@ -52,13 +52,46 @@ fi
 
 # Copy X11 configuration
 cp ~/dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc
+if [ $? -ne 0 ]; then
+    echo "Failed to copy xinitrc. Exiting."
+    exit 1
+fi
 
 # Copy other configuration files
+echo "Copying Xresources..."
 cp ~/dotfiles/Xresources ~/.Xresources
-cp -r ~/dotfiles/config/alacritty ~/.config/
-cp -r ~/dotfiles/config/dunst ~/.config/
-cp -r ~/dotfiles/config/i3 ~/.config/
-cp -r ~/dotfiles/config/rofi ~/.config/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy Xresources. Exiting."
+    exit 1
+fi
+
+echo "Copying alacritty config..."
+cp -r ~/dotfiles/config/alacritty $HOME/$USER/.config/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy alacritty config. Exiting."
+    exit 1
+fi
+
+echo "Copying dunst config..."
+cp -r ~/dotfiles/config/dunst $HOME/$USER/.config/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy dunst config. Exiting."
+    exit 1
+fi
+
+echo "Copying i3 config..."
+cp -r ~/dotfiles/config/i3 $HOME/$USER/.config/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy i3 config. Exiting."
+    exit 1
+fi
+
+echo "Copying rofi config..."
+cp -r ~/dotfiles/config/rofi $HOME/$USER/.config/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy rofi config. Exiting."
+    exit 1
+fi
 
 # Make specific files executable
 chmod +x ~/.config/custom_res.sh
@@ -76,6 +109,10 @@ chmod +x install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
 cp -r ~/dotfiles/local/share/applications/. ~/.local/share/applications/
+if [ $? -ne 0 ]; then
+    echo "Failed to copy .desktop files. Exiting."
+    exit 1
+fi
 
 # Set alternatives for editor and terminal emulator
 update-alternatives --set editor /usr/bin/micro
