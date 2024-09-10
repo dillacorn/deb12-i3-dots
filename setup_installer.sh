@@ -108,7 +108,7 @@ fi
 
 # Wait for files to appear
 echo "Waiting for configuration files to be available..."
-for file in "$CONFIG_DIR/custom_res.sh" "$CONFIG_DIR/i3exit.sh" "$CONFIG_DIR/rotate_configs.sh"; do
+for file in "$CONFIG_DIR/i3/custom_res.sh" "$CONFIG_DIR/i3/i3exit.sh" "$CONFIG_DIR/i3/rotate_configs.sh"; do
     while [ ! -f "$file" ]; do
         echo "Waiting for $file to appear..."
         sleep 1
@@ -117,9 +117,9 @@ done
 
 # Make specific files executable after they have been copied
 echo "Making scripts executable..."
-chmod +x "$CONFIG_DIR/custom_res.sh"
-chmod +x "$CONFIG_DIR/i3exit.sh"
-chmod +x "$CONFIG_DIR/rotate_configs.sh"
+chmod +x "$CONFIG_DIR/i3/custom_res.sh"
+chmod +x "$CONFIG_DIR/i3/i3exit.sh"
+chmod +x "$CONFIG_DIR/i3/rotate_configs.sh"
 
 # Navigate to i3 themes and make files executable
 cd "$CONFIG_DIR/i3/themes" || exit
