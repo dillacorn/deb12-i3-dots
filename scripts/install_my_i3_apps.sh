@@ -37,7 +37,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     gdebi
     flatpak
     cheese
-    speedcrunch
+    octave
     cava
     okular
     tigervnc-viewer
