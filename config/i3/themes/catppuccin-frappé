@@ -85,6 +85,9 @@ sed -i -E '
 ' "$HOME/.config/dunst/dunstrc"
 killall dunst;notify-send theme_updated
 
+# change micro theme
+sed -i '2s|.*|    "colorscheme": "catppuccin-frappe"|' "$HOME/.config/micro/settings.json"
+
 # change rofi theme
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/DarkBlue.rasi"|' "$HOME/.config/rofi/config.rasi"
 

@@ -1,3 +1,4 @@
+#!/bin/bash
 # requires sudo!
 
 # enable image previews in ranger
