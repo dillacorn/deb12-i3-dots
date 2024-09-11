@@ -1,9 +1,5 @@
 # `dilla.files`
-distro: [`debian sid`](https://www.debian.org/releases/sid/) | X11: [`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
-
-### `~click picture!~`
-[![preview](https://i.imgur.com/1JOMnpC.png)](https://youtu.be/sL1O7zuQIuE)
-### `~this preview is old but still gets accross the theme I was going for when creating this repo~`
+distro: [`debian`](https://www.debian.org) | X11: [`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 # my keybinds are **DWM** inspired
 
@@ -102,7 +98,7 @@ If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
 ### I've discovered!
 **HUGE PRO** to using the **TTY** is if you have `i3` config issues or an application is experiencing errors when you logout of `i3` you will see those errors in the **TTY!**
 
-# install directions
+# manual install directions
 
 ### git clone my repository
 
