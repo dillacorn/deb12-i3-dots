@@ -147,12 +147,6 @@ update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 # Set default file manager for directories
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
 
-# Change ownership of specific directories to $SUDO_USER
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/alacritty
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/dunst
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/i3
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/rofi
-
 # Change ownership of all files in .config to the sudo user
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 
