@@ -144,7 +144,7 @@ xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
 
 # set permissions
 find /home/$SUDO_USER/.config/ -type d -exec chmod 777 {} +
-chmod 777 ~/.config/ *
+chmod 777 /home/$SUDO_USER/.config/ *
 
 # change ownership
 chown -R $USER:$USER /home/$SUDO_USER/.config
