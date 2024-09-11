@@ -14,7 +14,6 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     rofi
     scrot
     dunst
-    alacritty
     ueberzug
     ranger
     lxpolkit
