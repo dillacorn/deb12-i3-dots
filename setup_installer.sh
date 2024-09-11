@@ -4,8 +4,20 @@
 ## "run this script" directions for new users! ##
 #################################################
 
-# !NOTICE!
-# this is for debian sid branch.. alacritty theme changing will not work yet..
+########################
+## !ALACRITTY NOTICE! ##
+########################
+
+# This script works for Debian Stable BUT was intended for Unstable branch.
+# alacritty theme changing WILL NOT work **(YET)** with installed .toml config files.
+# I suggest building alacritty from source if you want to stay on Stable branch.
+# visit https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
+# also believe me when I tell you this is your best option.. 
+# I tried converting terminals but alacritty is the best IMO and it's worth building from source!
+
+##################
+## !DIRECTIONS! ##
+##################
 
 # open a terminal
 # sudo apt install git dos2unix -y
@@ -17,7 +29,7 @@
 # follow installer
 
 #################################################
-## "run this script" directions for new users! ##
+##              end of directions              ##
 #################################################
 
 # Install git if it's not already installed
