@@ -29,6 +29,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     ffmpeg
     mpv
     cheese
+    libexiv2-27
     qimgv
     flameshot
     htop
