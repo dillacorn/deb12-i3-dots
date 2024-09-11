@@ -12,8 +12,15 @@
 # alacritty theme changing WILL NOT work **(YET)** with installed .toml config files.
 # I suggest building alacritty from source if you want to stay on Stable branch.
 # visit https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
-# also believe me when I tell you this is your best option.. 
-# I tried converting terminals but alacritty is the best IMO and it's worth building from source!
+
+#######################################################
+## !USING ALACRITTY BUILD|FROM|SOURCE INSTALL SCRIPT ##
+#######################################################
+
+# I made a script to install alacritty from source for Debian Stable!
+# cd ~/dotfiles/scripts
+# sudo chmod +x build+install_alacritty.sh
+# sudo ./build+install_alacritty.sh
 
 ##################
 ## !DIRECTIONS! ##
