@@ -94,4 +94,7 @@ sed -i '1s|.*|@theme "/usr/share/rofi/themes/DarkBlue.rasi"|' "$HOME/.config/rof
 # change alacritty theme
 sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/catppuccin_frappe.toml"/' "$HOME/.config/alacritty/alacritty.toml"
 
+# change terminator theme
+# cp ~/.config/terminator/catppuccin-frappé ~/.config/terminator/config
+
 i3 reload

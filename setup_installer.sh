@@ -4,6 +4,9 @@
 ## "run this script" directions for new users! ##
 #################################################
 
+# !NOTICE!
+# this is for debian sid branch.. alacritty theme changing will not work yet..
+
 # open a terminal
 # sudo apt install git dos2unix -y
 # git clone https://github.com/dillacorn/dotfiles
