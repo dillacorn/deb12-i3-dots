@@ -8,9 +8,8 @@
 ## !ALACRITTY NOTICE! ##
 ########################
 
-# This script works for Debian Stable BUT was intended for Unstable branch.
-# alacritty theme changing WILL NOT work **(YET)** with installed .toml config files.
-# I suggest building alacritty from source if you want to stay on Stable branch.
+# alacritty theme changing WILL NOT work **(YET)** from Debian Stable repo.
+# I suggest building alacritty from source.
 # visit https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
 #######################################################
@@ -22,9 +21,9 @@
 # sudo chmod +x build+install_alacritty.sh
 # sudo ./build+install_alacritty.sh
 
-##################
-## !DIRECTIONS! ##
-##################
+############################
+## !INSTALLER DIRECTIONS! ##
+############################
 
 # open a terminal
 # sudo apt install git dos2unix -y
