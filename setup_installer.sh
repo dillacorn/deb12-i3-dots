@@ -109,14 +109,14 @@ for file in "/home/$SUDO_USER/.config/i3/custom_res.sh" "/home/$SUDO_USER/.confi
 done
 
 # Make specific files executable after they have been copied
-echo "Making scripts executable..."
-chmod +x "/home/$SUDO_USER/.config/i3/custom_res.sh"
-chmod +x "/home/$SUDO_USER/.config/i3/i3exit.sh"
-chmod +x "/home/$SUDO_USER/.config/i3/rotate_configs.sh"
+echo "Making i3-related scripts executable..."
+chmod 755 "/home/$SUDO_USER/.config/i3/custom_res.sh"
+chmod 755 "/home/$SUDO_USER/.config/i3/i3exit.sh"
+chmod 755 "/home/$SUDO_USER/.config/i3/rotate_configs.sh"
 
 # Navigate to i3 themes and make files executable
 cd "/home/$SUDO_USER/.config/i3/themes" || exit
-chmod +x *
+chmod 755 *
 
 # Navigate to alacritty and run the theme installation script
 cd "/home/$SUDO_USER/.config/alacritty" || exit
@@ -142,11 +142,18 @@ update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 # Set default file manager for directories
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
 
-# set permissions
-find /home/$SUDO_USER/.config/ -type d -exec chmod 777 {} +
-chmod 777 /home/$SUDO_USER/.config/ *
+# Set directory permissions
+echo "Setting permissions on configuration files and directories..."
+find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
+find /home/$SUDO_USER/.config/ -type f -exec chmod 644 {} +
 
-# change ownership
-chown -R $USER:$USER /home/$SUDO_USER/.config
+# Change ownership of specific directories to $SUDO_USER
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/alacritty
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/dunst
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/i3
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/rofi
+
+# Change ownership of all files in .config to the sudo user
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 
 echo "All tasks completed!"
