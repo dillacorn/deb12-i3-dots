@@ -108,19 +108,24 @@ for file in "/home/$SUDO_USER/.config/i3/custom_res.sh" "/home/$SUDO_USER/.confi
     done
 done
 
-# Make specific files executable after they have been copied
+# Set directory permissions
+echo "Setting permissions on configuration files and directories..."
+find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
+find /home/$SUDO_USER/.config/ -type f -exec chmod 644 {} +
+
+# Make specific i3-related scripts executable after setting general permissions
 echo "Making i3-related scripts executable..."
 chmod 755 "/home/$SUDO_USER/.config/i3/custom_res.sh"
 chmod 755 "/home/$SUDO_USER/.config/i3/i3exit.sh"
 chmod 755 "/home/$SUDO_USER/.config/i3/rotate_configs.sh"
 
-# Navigate to i3 themes and make files executable
-cd "/home/$SUDO_USER/.config/i3/themes" || exit
-chmod 755 *
+# Make all files in the themes folder executable
+echo "Making all files in /home/$SUDO_USER/.config/i3/themes executable..."
+chmod 755 /home/$SUDO_USER/.config/i3/themes/*
 
-# Navigate to alacritty and run the theme installation script
+# Navigate to alacritty and make the installation script executable
 cd "/home/$SUDO_USER/.config/alacritty" || exit
-chmod +x install_alacritty_themes.sh
+chmod 755 install_alacritty_themes.sh
 ./install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
@@ -141,11 +146,6 @@ update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 
 # Set default file manager for directories
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
-
-# Set directory permissions
-echo "Setting permissions on configuration files and directories..."
-find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
-find /home/$SUDO_USER/.config/ -type f -exec chmod 644 {} +
 
 # Change ownership of specific directories to $SUDO_USER
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/alacritty
