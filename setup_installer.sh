@@ -143,7 +143,7 @@ update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
 
 # set permissions
-find /home/$SUDO_USER/.config/ -type d -exec chmod 777 {} +
+find /home/$SUDO_USER/.config/ -type d -exec chmod 644 {} +
 
 # change ownership
 chown -R $USER:$USER /home/$SUDO_USER/.config
