@@ -60,5 +60,9 @@ echo "Cleaning up..."
 cd ..
 rm -rf alacritty
 
+# set alacritty as default terminal
+echo "update-alternatives --set x-terminal-emulator /usr/bin/alacritty"
+update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+
 # Done
 echo "Alacritty has been built and installed successfully!"
