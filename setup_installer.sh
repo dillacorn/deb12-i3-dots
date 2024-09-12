@@ -160,12 +160,10 @@ fi
 # Set alternatives for editor and terminal emulator
 echo "You may need to run the following commands with sudo:"
 echo "update-alternatives --set editor /usr/bin/micro"
-echo "update-alternatives --set x-terminal-emulator /usr/bin/alacritty"
 update-alternatives --set editor /usr/bin/micro
-update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 
 # Set default file manager for directories
-xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
+xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-search
 
 # Change ownership of all files in .config to the sudo user
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
