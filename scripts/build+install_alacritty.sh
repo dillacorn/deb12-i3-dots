@@ -1,4 +1,5 @@
 #!/bin/bash
+# requires sudo!
 
 set -e  # Exit on any error
 
