@@ -4,34 +4,31 @@
 ## "run this script" directions for new users! ##
 #################################################
 
+################################
+## !DOWNLOAD REPO DIRECTIONS! ##
+################################
+
+# open a terminal
+# sudo apt install git -y
+# git clone https://github.com/dillacorn/dotfiles
+
+################################
+## !RUN INSTALLER DIRECTIONS! ##
+################################
+
+# cd dotfiles
+# chmod +x setup_installer.sh
+# sudo ./setup_installer.sh
+# follow installer
+
 ########################
 ## !ALACRITTY NOTICE! ##
 ########################
 
 # alacritty theme changing WILL NOT work **(YET)** from Debian Stable repo.
 # I suggest building alacritty from source.
-# visit https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
-
-#######################################################
-## !USING ALACRITTY BUILD|FROM|SOURCE INSTALL SCRIPT ##
-#######################################################
-
-# I made a script to install alacritty from source for Debian Stable!
-# cd ~/dotfiles/scripts
-# sudo chmod +x build+install_alacritty.sh
-# sudo ./build+install_alacritty.sh
-
-############################
-## !INSTALLER DIRECTIONS! ##
-############################
-
-# open a terminal
-# sudo apt install git -y
-# git clone https://github.com/dillacorn/dotfiles
-# cd dotfiles
-# chmod +x setup_installer.sh
-# sudo ./setup_installer.sh
-# follow installer
+# I've provided a script that gives you the option to install alacritty from source! (see line #177-196)
+# https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
 #################################################
 ##              end of directions              ##
@@ -53,6 +50,7 @@ else
 fi
 
 # Navigate to ~/dotfiles/scripts and make scripts executable
+echo "Making ~/dotfiles/scripts executable!"
 cd "/home/$SUDO_USER/dotfiles/scripts" || exit
 chmod +x *
 
@@ -65,6 +63,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #echo "Running install_my_flatpaks.sh..."
+echo "Running install_my_flatpaks.sh..."
 ./install_my_flatpaks.sh
 if [ $? -ne 0 ]; then
     echo "install_my_flatpaks.sh failed. Exiting."
@@ -72,6 +71,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #echo "Running ranger_image_preview.sh"
+echo "Running ranger_image_preview.sh..."
 ./ranger_image_preview.sh
 if [ $? -ne 0 ]; then
     echo "ranger_image_preview.sh failed. Exiting."
@@ -79,6 +79,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #echo "Running install_micro_theme.sh"
+echo "Running install_micro_themes.sh..."
 ./install_micro_themes.sh
 if [ $? -ne 0 ]; then
     echo "install_micro_themes.sh failed. Exiting."
@@ -171,6 +172,37 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 echo "Converting .config file ownership!"
 echo "chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config"
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
+
+# Ask the user if they want to run the build+install_alacritty.sh script
+echo "Do you want to build and install Alacritty from source? (yes/no)"
+read -r response
+
+if [[ "$response" == "yes" || "$response" == "y" ]]; then
+    # Ask the user for confirmation
+    echo "Are you sure? This will build Alacritty from source. (yes/no)"
+    read -r confirmation
+
+    if [[ "$confirmation" == "yes" || "$confirmation" == "y" ]]; then
+        echo "Running the Alacritty build and install script..."
+        
+        # Ensure the script is executable
+        chmod +x "/home/$SUDO_USER/dotfiles/scripts/build+install_alacritty.sh"
+        
+        # Run the script
+        /home/$SUDO_USER/dotfiles/scripts/build+install_alacritty.sh
+        
+        if [ $? -ne 0 ]; then
+            echo "Failed to run build+install_alacritty.sh. Exiting."
+            exit 1
+        else
+            echo "Alacritty has been successfully installed!"
+        fi
+    else
+        echo "Alacritty build and install canceled."
+    fi
+else
+    echo "Skipping the Alacritty build and install script."
+fi
 
 echo "All tasks completed!"
 echo "Go login to i3-wm!"
