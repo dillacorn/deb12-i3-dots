@@ -29,6 +29,16 @@ rm -rf "$TEMP_DIR2" || { echo "Failed to remove temporary directory $TEMP_DIR2";
 
 # Start micro to populate "~/.config/micro"
 micro &
+MICRO_PID=$!
+
+# Wait
+sleep 1
+
+# Kill micro
+kill $MICRO_PID
+
+# Continue script
+echo "micro has been terminated, continuing script..."
 
 # Overwrite settings.json
 cat > "/home/$SUDO_USER/.config/micro/settings.json" <<EOL
