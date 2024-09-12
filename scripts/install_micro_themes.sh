@@ -31,6 +31,6 @@ exec micro
 pkill micro
 sed -i '1s|.*|{|' "$HOME/.config/micro/settings.json"
 sed -i '2s|.*|    "colorscheme:": "gruvbox"|' "$HOME/.config/micro/settings.json"
-set -i '3s|.*|}|' "$HOME/.config/micro/settings.json"
+sed -i '3s|.*|}|' "$HOME/.config/micro/settings.json"
 
 echo "Themes installed successfully!"
