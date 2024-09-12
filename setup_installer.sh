@@ -26,11 +26,10 @@
 ############################
 
 # open a terminal
-# sudo apt install git dos2unix -y
+# sudo apt install git -y
 # git clone https://github.com/dillacorn/dotfiles
 # cd dotfiles
 # chmod +x setup_installer.sh
-# dos2unix setup_installer.sh
 # sudo ./setup_installer.sh
 # follow installer
 
@@ -120,15 +119,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Wait for files to appear
-echo "Waiting for configuration files to be available..."
-for file in "/home/$SUDO_USER/.config/i3/custom_res.sh" "/home/$SUDO_USER/.config/i3/i3exit.sh" "/home/$SUDO_USER/.config/i3/rotate_configs.sh"; do
-    while [ ! -f "$file" ]; do
-        echo "Waiting for $file to appear..."
-        sleep 1
-    done
-done
-
 # Set directory permissions
 echo "Setting permissions on configuration files and directories..."
 find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
@@ -136,9 +126,7 @@ find /home/$SUDO_USER/.config/ -type f -exec chmod 644 {} +
 
 # Make specific i3-related scripts executable after setting general permissions
 echo "Making i3-related scripts executable..."
-chmod 755 "/home/$SUDO_USER/.config/i3/custom_res.sh"
-chmod 755 "/home/$SUDO_USER/.config/i3/i3exit.sh"
-chmod 755 "/home/$SUDO_USER/.config/i3/rotate_configs.sh"
+chmod 755 /home/$SUDO_USER/.config/i3/scripts/*
 
 # Make all files in the themes folder executable
 echo "Making all files in /home/$SUDO_USER/.config/i3/themes executable..."

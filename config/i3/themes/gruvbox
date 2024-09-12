@@ -94,7 +94,4 @@ sed -i '1s|.*|@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"|' "$HOME/.c
 # change alacritty theme
 sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/gruvbox_dark.toml"/' "$HOME/.config/alacritty/alacritty.toml"
 
-# change terminator theme
-# cp ~/.config/terminator/gruvbox ~/.config/terminator/config
-
 i3 reload
