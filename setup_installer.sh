@@ -86,7 +86,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Copy X11 configuration
-echo "You may need to run the following command with sudo:"
+echo "Copying X11 config..."
 echo "cp /home/$SUDO_USER/dotfiles/etc/X11/xinit/xinitrc /etc/X11/xinit"
 cp "/home/$SUDO_USER/dotfiles/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
@@ -149,7 +149,7 @@ chmod 755 install_alacritty_themes.sh
 ./install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
-echo "You may need to run the following command with sudo:"
+echo "Copying .desktop for app launchers to see!"
 echo "cp -r /home/$SUDO_USER/dotfiles/local/share/applications/. /home/$SUDO_USER/.local/share/applications"
 cp -r "/home/$SUDO_USER/dotfiles/local/share/applications/." "/home/$SUDO_USER/.local/share/applications"
 if [ $? -ne 0 ]; then
@@ -157,15 +157,20 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Set alternatives for editor and terminal emulator
-echo "You may need to run the following commands with sudo:"
+# Set alternatives for editor
+echo "Setting micro as default editor!"
 echo "update-alternatives --set editor /usr/bin/micro"
 update-alternatives --set editor /usr/bin/micro
 
 # Set default file manager for directories
+echo "Setting pcmanfm as default GUI file manager!"
+echo "xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-search"
 xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-search
 
 # Change ownership of all files in .config to the sudo user
+echo "Converting .config file ownership!"
+echo "chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config"
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 
 echo "All tasks completed!"
+echo "Go login to i3-wm!"
