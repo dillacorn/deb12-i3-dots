@@ -204,5 +204,5 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
-echo "All tasks completed!"
-echo "Go login to i3-wm!"
+echo -e "\e[32mAll tasks completed!\e[0m"
+echo -e "\e[35mGo login to i3-wm!\e[0m"
