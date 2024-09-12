@@ -1,4 +1,4 @@
-# `dilla.files`
+# `dilla.i3`
 distro: [`debian`](https://www.debian.org) | X11: [`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 # my keybinds are **DWM** inspired
