@@ -173,13 +173,13 @@ echo "Converting .config file ownership!"
 echo "chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config"
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 
-# Ask the user if they want to run the build+install_alacritty.sh script
-echo "Do you want to build and install Alacritty from source? (yes/no)"
+# Ask the user if they want to run the build+install_alacritty.sh script (in blue text)
+echo -e "\e[94mDo you want to build and install Alacritty from source? (yes/no)\e[0m"
 read -r response
 
 if [[ "$response" == "yes" || "$response" == "y" ]]; then
-    # Ask the user for confirmation
-    echo "Are you sure? This will build Alacritty from source. (yes/no)"
+    # Ask the user for confirmation (in blue text)
+    echo -e "\e[94mAre you sure? This will build Alacritty from source. (yes/no)\e[0m"
     read -r confirmation
 
     if [[ "$confirmation" == "yes" || "$confirmation" == "y" ]]; then
