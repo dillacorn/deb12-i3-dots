@@ -61,9 +61,13 @@ echo "Cleaning up..."
 cd ..
 rm -rf alacritty
 
+# add alacritty to x-terminal-emulator and set priority above the rest
+echo "update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50"
+update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
+
 # set alacritty as default terminal
 echo "update-alternatives --set x-terminal-emulator /usr/bin/alacritty"
-update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
 
 # Done
 echo "Alacritty has been built and installed successfully!"
