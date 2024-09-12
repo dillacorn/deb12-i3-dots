@@ -71,8 +71,19 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Run other scripts
+#echo "Running ranger_image_preview.sh"
 ./ranger_image_preview.sh
+if [ $? -ne 0 ]; then
+    echo "ranger_image_preview.sh failed. Exiting."
+    exit 1
+fi
+
+#echo "Running install_micro_theme.sh"
+./install_micro_themes.sh
+if [ $? -ne 0 ]; then
+    echo "install_micro_themes.sh failed. Exiting."
+    exit 1
+fi
 
 # Copy X11 configuration
 echo "You may need to run the following command with sudo:"
