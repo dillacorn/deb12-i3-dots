@@ -5,16 +5,16 @@ set -e  # Exit on any error
 
 # Remove the Alacritty binary
 echo "Removing Alacritty binary..."
-sudo rm -f /usr/local/bin/alacritty
+rm -f /usr/local/bin/alacritty
 
 # Remove Alacritty from x-terminal-emulator alternatives
 echo "Removing Alacritty from x-terminal-emulator alternatives..."
-sudo update-alternatives --remove x-terminal-emulator /usr/local/bin/alacritty
+update-alternatives --remove x-terminal-emulator /usr/local/bin/alacritty
 
 # Remove the Alacritty desktop entry
 echo "Removing Alacritty desktop entry..."
-sudo rm -f /usr/share/applications/Alacritty.desktop
-sudo update-desktop-database
+rm -f /usr/share/applications/Alacritty.desktop
+update-desktop-database
 
 # Optional: Remove Rust toolchain and environment if no longer needed
 echo "Do you want to uninstall Rust as well? [y/N]"
