@@ -15,6 +15,7 @@ fi
 
 # Function to switch to mod4
 switch_to_mod4() {
+    echo "Switching to Mod4..."
     sed -i \
     -e "s/bindsym ${mod1}+p/bindsym ${mod4}+p/g" \
     -e "s/bindsym ${mod1}+shift+p/bindsym ${mod4}+shift+p/g" \
@@ -28,11 +29,12 @@ switch_to_mod4() {
     -e "s/bindsym ${mod1}+shift+\([0-9]\)/bindsym ${mod4}+shift+\1/g" \
     -e "s/floating_modifier ${mod1}/floating_modifier ${mod4}/" \
     "$config_file"
-    echo "Switched to mod4"
+    echo "Switched to Mod4"
 }
 
 # Function to switch to mod1
 switch_to_mod1() {
+    echo "Switching to Mod1..."
     sed -i \
     -e "s/bindsym ${mod4}+p/bindsym ${mod1}+p/g" \
     -e "s/bindsym ${mod4}+shift+p/bindsym ${mod1}+shift+p/g" \
@@ -46,8 +48,12 @@ switch_to_mod1() {
     -e "s/bindsym ${mod4}+shift+\([0-9]\)/bindsym ${mod1}+shift+\1/g" \
     -e "s/floating_modifier ${mod4}/floating_modifier ${mod1}/" \
     "$config_file"
-    echo "Switched to mod1"
+    echo "Switched to Mod1"
 }
+
+# Print current mod keybindings for debugging
+echo "Current i3 config content:"
+grep 'bindsym' "$config_file"
 
 # Check the current configuration and toggle
 if grep -q "bindsym ${mod1}+p" "$config_file"; then
