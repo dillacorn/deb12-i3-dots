@@ -21,7 +21,8 @@ echo "Do you want to uninstall Rust as well? [y/N]"
 read -r uninstall_rust
 if [[ "$uninstall_rust" =~ ^[Yy]$ ]]; then
     echo "Uninstalling Rust..."
-    rustup self uninstall
+    rustup uninstall
+    rm -rf ~/.cargo ~/.rustup
 fi
 
 # Done
