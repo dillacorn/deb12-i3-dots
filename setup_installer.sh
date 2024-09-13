@@ -27,7 +27,7 @@
 
 # alacritty theme changing WILL NOT work **(YET)** from Debian Stable repo.
 # I suggest building alacritty from source.
-# I've provided a script that gives you the option to install alacritty from source! (see line #177-196)
+# I've provided a script that gives you the option to install alacritty from source! (see line #177-200)
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
 #################################################
