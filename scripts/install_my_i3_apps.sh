@@ -44,6 +44,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     tigervnc-viewer
     timeshift
     virt-manager
+    otpclient
     wireguard
     wireplumber
     gamemode
