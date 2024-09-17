@@ -45,6 +45,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     timeshift
     virt-manager
     otpclient
+    otpclient-cli
     wireguard
     wireplumber
     gamemode
