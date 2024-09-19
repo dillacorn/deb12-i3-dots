@@ -28,13 +28,13 @@ enjoy! I scripted this myself!
 
 # keybind commands/navigation
 
-READ [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds + alternative [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/super_navigation.config) config for mod4(win/super) navigation keybinds
+READ [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds
 
 Using both `mod1(alt)` and `mod4(win/super)` in default config depending on use.
 
 `mod4+shift+q` = reloads config
 
-`mod4+shift+r` = rotates i3 navigation configurations -> [i3 dir.](https://github.com/Dillacorn/dotfiles/tree/main/config/i3)
+`mod4+shift+r` = rotates i3 mod navigation -> [i3 script](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh)
 
 `mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command! ~ **work in process on i3**`
 
