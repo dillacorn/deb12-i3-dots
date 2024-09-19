@@ -13,32 +13,6 @@ s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303A6F #4
 s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #16A085 #2C2C2C #F9FAF9/g;
 ' "$HOME/.config/i3/config"
 
-# change bar colors in alt_navigation i3 config
-sed -i -E '
-s/^[[:space:]]*background[[:space:]]+.*/     background #303A6F/g;
-s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #F9FAF9/g;
-s/^[[:space:]]*separator[[:space:]]+.*/     separator  #454947/g;
-
-s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #DBDEED #303A6F #DBDEED/g;
-s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #DBDEED #303A6F #DBDEED/g;
-s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #303A6F #303A6F #DBDEED/g;
-s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303A6F #4F5370 #1A143A/g;
-s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #16A085 #2C2C2C #F9FAF9/g;
-' "$HOME/.config/i3/alt_navigation.config"
-
-# change bar colors in super_navigation i3 config
-sed -i -E '
-s/^[[:space:]]*background[[:space:]]+.*/     background #303A6F/g;
-s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #F9FAF9/g;
-s/^[[:space:]]*separator[[:space:]]+.*/     separator  #454947/g;
-
-s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #DBDEED #303A6F #DBDEED/g;
-s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #DBDEED #303A6F #DBDEED/g;
-s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #303A6F #303A6F #DBDEED/g;
-s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #303A6F #4F5370 #1A143A/g;
-s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #16A085 #2C2C2C #F9FAF9/g;
-' "$HOME/.config/i3/super_navigation.config"
-
 # change client colors in i3 config
 sed -i -E '
 s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #DBDEED #DBDEED #3A3E5B #FDF6E3   #DBDEED/g;
@@ -49,28 +23,6 @@ s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #000000
 
 s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #2B2C2B/g;
 ' "$HOME/.config/i3/config"
-
-# change client colors in alt_navigation i3 config
-sed -i -E '
-s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #DBDEED #DBDEED #3A3E5B #FDF6E3   #DBDEED/g;
-s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #2F3D44 #1A143A #DBDEED #454948   #2F3D44/g;
-s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #2F3D44 #1A143A #DBDEED #454948   #1A143A/g;
-s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2   #FDF6E3/g;
-s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C/g;
-
-s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #2B2C2B/g;
-' "$HOME/.config/i3/alt_navigation.config"
-
-# change client colors in super_navigation i3 config
-sed -i -E '
-s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #DBDEED #DBDEED #3A3E5B #FDF6E3   #DBDEED/g;
-s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #2F3D44 #1A143A #DBDEED #454948   #2F3D44/g;
-s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #2F3D44 #1A143A #DBDEED #454948   #1A143A/g;
-s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2   #FDF6E3/g;
-s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C/g;
-
-s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #2B2C2B/g;
-' "$HOME/.config/i3/super_navigation.config"
 
 # change dunst notifications theme
 sed -i -E '

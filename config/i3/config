@@ -44,7 +44,7 @@ set $screenshot1 exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
 set $screenshot2 flameshot gui
 
 # rotate alt/super config+reload script
-set $rotate ~/.config/i3/scripts/rotate_configs.sh
+set $rotate ~/.config/i3/scripts/rotate_config_navigation.sh
 
 # theme change with rofi
 set $themes selected=$(ls ~/.config/i3/themes/|rofi -dmenu -p "Run: ")&&bash ~/.config/i3/themes/$selected
