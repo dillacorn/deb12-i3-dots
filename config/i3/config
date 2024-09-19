@@ -1,6 +1,6 @@
-################################################
-### dillacorn alt navigation binds i3 config ###
-################################################
+#######################################
+######### dillacorn i3 config #########
+#######################################
 # https://github.com/dillacorn/dotfiles
 
 # disable_window_borders
