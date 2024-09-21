@@ -44,7 +44,7 @@ set $screenshot1 exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
 set $screenshot2 flameshot gui
 
 # capture gif
-set $gif ~/.config/i3/scripts/gif.sh
+set $gif exec --no-startup-id ~/.config/i3/scripts/gif.sh
 
 # rotate alt/super config+reload script
 set $rotate ~/.config/i3/scripts/rotate_config_navigation.sh
