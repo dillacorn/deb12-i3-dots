@@ -43,6 +43,9 @@ set $drun rofi -show drun
 set $screenshot1 exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
 set $screenshot2 flameshot gui
 
+# capture gif
+set $gif ~/.config/i3/scripts/gif.sh
+
 # rotate alt/super config+reload script
 set $rotate ~/.config/i3/scripts/rotate_config_navigation.sh
 
@@ -98,6 +101,9 @@ bindsym $mod1+shift+p exec $run
 # screenshot
 bindsym --release $mod4+shift+s exec $screenshot1
 bindsym $mod4+ctrl+shift+s exec $screenshot2
+
+# capture gif
+bindsym $mod4+shift+g $gif
 
 # start a terminal
 bindsym $mod1+shift+Return exec $term

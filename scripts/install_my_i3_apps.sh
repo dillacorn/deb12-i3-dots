@@ -13,6 +13,9 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
     feh
     rofi
     scrot
+    slop
+    byzanz
+    zenity
     dunst
     ueberzug
     ranger
