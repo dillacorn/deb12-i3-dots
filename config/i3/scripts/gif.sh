@@ -2,59 +2,46 @@
 
 # Define the output directory
 OUTPUT_DIR="$HOME/Videos"
-DURATION=60  # Max duration set to 1 minute (60 seconds)
 
-# Check if byzanz is already running
-BYZANZ_PID=$(pgrep -x byzanz-record)
+# Generate a filename with date and time (e.g., gif_2024-09-21_20-23-23.gif)
+FILENAME="gif_$(date +'%Y-%m-%d_%H-%M-%S').gif"
+OUTPUT_FILE="$OUTPUT_DIR/$FILENAME"
 
-if [ -z "$BYZANZ_PID" ]; then
-    # Use slop to get a custom area selection
+# Set max duration (60 seconds)
+DURATION=60
+
+# Check if ffmpeg is already running (i.e., recording is in progress)
+FFMPEG_PID=$(pgrep -x ffmpeg)
+
+if [ -z "$FFMPEG_PID" ]; then
+    # Use slop to select screen area for recording
     read -r GEOMETRY < <(slop --format "%x %y %w %h")
 
     if [ -n "$GEOMETRY" ]; then
-        # Define a temporary filename for the recording
-        TEMP_FILENAME="temp_gif_$(date +'%Y-%m-%d_%H-%M-%S').gif"
-        TEMP_OUTPUT_FILE="$OUTPUT_DIR/$TEMP_FILENAME"
+        # Split the geometry into separate variables
+        X=$(echo $GEOMETRY | awk '{print $1}')
+        Y=$(echo $GEOMETRY | awk '{print $2}')
+        WIDTH=$(echo $GEOMETRY | awk '{print $3}')
+        HEIGHT=$(echo $GEOMETRY | awk '{print $4}')
 
-        # Start recording with byzanz
-        echo "Starting recording in selected area for $DURATION seconds..."
-        byzanz-record --duration=$DURATION --x=$(echo $GEOMETRY | awk '{print $1}') --y=$(echo $GEOMETRY | awk '{print $2}') --width=$(echo $GEOMETRY | awk '{print $3}') --height=$(echo $GEOMETRY | awk '{print $4}') "$TEMP_OUTPUT_FILE" &
+        # Generate a color palette first
+        echo "Generating palette..."
+        ffmpeg -y -f x11grab -video_size "${WIDTH}x${HEIGHT}" \
+               -framerate 20 -i "$DISPLAY+$X,$Y" \
+               -t $DURATION -vf "fps=20,palettegen" palette.png
 
-        # Store the PID of the recording process
-        echo $! > "$OUTPUT_DIR/byzanz.pid"
-
-        # Wait for the recording to finish
-        wait $!
+        # Create the GIF using the generated palette
+        echo "Creating GIF..."
+        ffmpeg -y -f x11grab -video_size "${WIDTH}x${HEIGHT}" \
+               -framerate 20 -i "$DISPLAY+$X,$Y" \
+               -t $DURATION -i palette.png -lavfi "fps=20,paletteuse" "$OUTPUT_FILE" &
+        
+        echo "Recording... Run the script again to stop it."
     else
         echo "No area selected, aborting."
     fi
 else
-    # Stop the recording if byzanz is already running
-    echo "Stopping recording..."
-    kill "$BYZANZ_PID"
-
-    # Wait for the recording to complete
-    wait "$BYZANZ_PID"
-
-    # Prompt the user to enter a name for the GIF using zenity after stopping
-    GIF_NAME=$(zenity --entry --title="GIF Name" --text="Enter a name for the GIF (without extension):")
-
-    # Check if the user entered a name; if not, use the default timestamp-based name
-    if [ -z "$GIF_NAME" ]; then
-        GIF_NAME="gif_$(date +'%Y-%m-%d_%H-%M-%S')"
-    else
-        GIF_NAME="${GIF_NAME}_$(date +'%Y-%m-%d_%H-%M-%S')"
-    fi
-
-    # Rename the temporary file to the user-specified or default name
-    TEMP_OUTPUT_FILE="$OUTPUT_DIR/temp_gif_*.gif"
-    if ls $TEMP_OUTPUT_FILE 1> /dev/null 2>&1; then
-        mv $TEMP_OUTPUT_FILE "$OUTPUT_DIR/$GIF_NAME.gif"
-        echo "GIF saved as $OUTPUT_DIR/$GIF_NAME.gif"
-    else
-        echo "No temporary GIF file found to rename."
-    fi
-
-    # Clean up the PID file
-    rm "$OUTPUT_DIR/byzanz.pid"
+    # Stop the recording if ffmpeg is already running
+    echo "Stopping recording and saving as $OUTPUT_FILE..."
+    kill "$FFMPEG_PID"
 fi
