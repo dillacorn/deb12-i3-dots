@@ -36,7 +36,7 @@ Using both `mod1(alt)` and `mod4(win/super)` in default config depending on use.
 
 `mod4+shift+r` = rotates i3 mod navigation -> [i3 script](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh)
 
-`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command! ~ **work in process on i3**`
+`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command!` -> [gif script](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/gif.sh)
 
 `mod4+shift+s` = scrot screenshot
 
