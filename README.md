@@ -130,7 +130,7 @@ replace example: (two monitors in example)
 exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
 ```
 
-### or modify [custom_res.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/custom_res.sh)
+### or modify [custom_res.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/custom_res.sh)
 
 ## Tip:
 using **`arandr`** can help for getting the correct output code when dealing with multiple displays
