@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 # Set Default Kernal
 I use tkg kernal and want my system to choose the latest tkg-linux kernal I have installed over the brand new kernal that gets installed by Debian...
 

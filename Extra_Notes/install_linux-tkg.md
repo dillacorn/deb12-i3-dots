@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 # install linux-tkg
 
 **note**: *takes a while to build/compile and install*

@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 For when FireFox isn't capable of the task.. or for just normal browsing with Manifest V3.. lame
 FireFox is still better.. Using Librewolf as my main browser
 

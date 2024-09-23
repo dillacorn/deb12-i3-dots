@@ -10,13 +10,13 @@
 
 # open a terminal
 # sudo apt install git -y
-# git clone https://github.com/dillacorn/dotfiles
+# git clone https://github.com/dillacorn/i3-dots
 
 ################################
 ## !RUN INSTALLER DIRECTIONS! ##
 ################################
 
-# cd dotfiles
+# cd i3-dots
 # chmod +x setup_installer.sh
 # sudo ./setup_installer.sh
 # follow installer
@@ -39,21 +39,21 @@ echo -e "\033[1;34mUpdating package list and installing git...\033[0m"
 apt update
 apt install -y git
 
-# Clone the dotfiles repository into the home directory if it doesn't already exist
-if [ ! -d "/home/$SUDO_USER/dotfiles" ]; then
-    echo -e "\033[1;34mCloning dotfiles repository...\033[0m"
-    git clone https://github.com/dillacorn/dotfiles "/home/$SUDO_USER/dotfiles"
+# Clone the i3-dots repository into the home directory if it doesn't already exist
+if [ ! -d "/home/$SUDO_USER/i3-dots" ]; then
+    echo -e "\033[1;34mCloning i3-dots repository...\033[0m"
+    git clone https://github.com/dillacorn/i3-dots "/home/$SUDO_USER/i3-dots"
     if [ $? -ne 0 ]; then
-        echo -e "\033[1;31mFailed to clone the dotfiles repository. Exiting.\033[0m"
+        echo -e "\033[1;31mFailed to clone the i3-dots repository. Exiting.\033[0m"
         exit 1
     fi
 else
-    echo -e "\033[1;32mdotfiles repository already exists in /home/$SUDO_USER\033[0m"
+    echo -e "\033[1;32mi3-dots repository already exists in /home/$SUDO_USER\033[0m"
 fi
 
-# Navigate to ~/dotfiles/scripts and make scripts executable
-echo -e "\033[1;34mMaking ~/dotfiles/scripts executable!\033[0m"
-cd "/home/$SUDO_USER/dotfiles/scripts" || exit
+# Navigate to ~/i3-dots/scripts and make scripts executable
+echo -e "\033[1;34mMaking ~/i3-dots/scripts executable!\033[0m"
+cd "/home/$SUDO_USER/i3-dots/scripts" || exit
 chmod +x *
 
 # Run install_my_i3_apps.sh and install_my_flatpaks.sh before proceeding
@@ -87,7 +87,7 @@ fi
 
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
-cp "/home/$SUDO_USER/dotfiles/etc/X11/xinit/xinitrc" /etc/X11/xinit/
+cp "/home/$SUDO_USER/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
@@ -95,35 +95,35 @@ fi
 
 # Copy other configuration files
 echo -e "\033[1;34mCopying Xresources...\033[0m"
-cp "/home/$SUDO_USER/dotfiles/Xresources" "/home/$SUDO_USER/.Xresources"
+cp "/home/$SUDO_USER/i3-dots/Xresources" "/home/$SUDO_USER/.Xresources"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy Xresources. Exiting.\033[0m"
     exit 1
 fi
 
 echo -e "\033[1;32mCopying alacritty config...\033[0m"
-cp -r "/home/$SUDO_USER/dotfiles/config/alacritty" "/home/$SUDO_USER/.config"
+cp -r "/home/$SUDO_USER/i3-dots/config/alacritty" "/home/$SUDO_USER/.config"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy alacritty config. Exiting.\033[0m"
     exit 1
 fi
 
 echo -e "\033[1;32mCopying dunst config...\033[0m"
-cp -r "/home/$SUDO_USER/dotfiles/config/dunst" "/home/$SUDO_USER/.config"
+cp -r "/home/$SUDO_USER/i3-dots/config/dunst" "/home/$SUDO_USER/.config"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy dunst config. Exiting.\033[0m"
     exit 1
 fi
 
 echo -e "\033[1;32mCopying i3 config...\033[0m"
-cp -r "/home/$SUDO_USER/dotfiles/config/i3" "/home/$SUDO_USER/.config"
+cp -r "/home/$SUDO_USER/i3-dots/config/i3" "/home/$SUDO_USER/.config"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy i3 config. Exiting.\033[0m"
     exit 1
 fi
 
 echo -e "\033[1;32mCopying rofi config...\033[0m"
-cp -r "/home/$SUDO_USER/dotfiles/config/rofi" "/home/$SUDO_USER/.config"
+cp -r "/home/$SUDO_USER/i3-dots/config/rofi" "/home/$SUDO_USER/.config"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy rofi config. Exiting.\033[0m"
     exit 1
@@ -150,7 +150,7 @@ chmod 755 install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
 echo -e "\033[1;34mCopying .desktop for app launchers...\033[0m"
-cp -r "/home/$SUDO_USER/dotfiles/local/share/applications/." "/home/$SUDO_USER/.local/share/applications"
+cp -r "/home/$SUDO_USER/i3-dots/local/share/applications/." "/home/$SUDO_USER/.local/share/applications"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy .desktop files. Exiting.\033[0m"
     exit 1
@@ -181,10 +181,10 @@ if [[ "$response" == "yes" || "$response" == "y" ]]; then
         echo "Running the Alacritty build and install script..."
         
         # Ensure the script is executable
-        chmod +x "/home/$SUDO_USER/dotfiles/scripts/build+install_alacritty.sh"
+        chmod +x "/home/$SUDO_USER/i3-dots/scripts/build+install_alacritty.sh"
         
         # Run the script
-        /home/$SUDO_USER/dotfiles/scripts/build+install_alacritty.sh
+        /home/$SUDO_USER/i3-dots/scripts/build+install_alacritty.sh
         
         if [ $? -ne 0 ]; then
             echo "Failed to run build+install_alacritty.sh. Exiting."

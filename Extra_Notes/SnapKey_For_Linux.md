@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 # SnapKey for Linux
 
 I'm the OP -> [Guide for SnapKey on Linux!](https://github.com/cafali/SnapKey/wiki/Setup-Linux)

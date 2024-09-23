@@ -7,7 +7,7 @@
 ---
 
 ## Keybinds: **DWM** Inspired
-My keybinds (see [i3 config](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are heavily influenced by [**suckless DWM**](https://dwm.suckless.org/). I previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
+My keybinds (see [i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)) are heavily influenced by [**suckless DWM**](https://dwm.suckless.org/). I previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
 
 ---
 
@@ -38,13 +38,13 @@ Here are some of my custom keybinds from the i3 configuration:
 
 - `mod4+shift+q` = **Reload i3 config**  
   - Reloads the current i3 configuration to apply any changes.
-  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config))
+  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config))
   
 - `mod4+shift+r` = **Rotate i3 mod navigation**  
-  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh).
+  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh).
   
 - `mod4+shift+g` = **Capture a GIF**  
-  - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/gif.sh).  
+  - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/gif.sh).  
   - **Repeat the keybind to finish recording!**
   - `gif_date_time.gif` saved in `~/Videos` directory
   
@@ -62,7 +62,7 @@ Here are some of my custom keybinds from the i3 configuration:
 
 Here are more example keybinds from my i3 config:
 
-Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh)
+Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh)
 
 - `mod+shift+enter` = **Open Terminal**
   - Launches the terminal (default: Alacritty).
@@ -116,7 +116,7 @@ To login, type your username and password in TTY, then start i3 manually:
    ```sh
    micro /etc/X11/xinit/xinitrc
    ```
-   Match my [xinitrc](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc).
+   Match my [xinitrc](https://github.com/dillacorn/i3-dots/blob/main/etc/X11/xinit/xinitrc).
 
 2. **Start i3**:
    ```sh
@@ -133,7 +133,7 @@ When you logout of i3, any errors in your config or applications will be shown d
 
 ## i3 Apps and Manual Scripts Install/Setup
 
-To install the applications I use with i3, run my [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh). This includes i3wm, Rofi, Dunst, and others.
+To install the applications I use with i3, run my [install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_i3_apps.sh). This includes i3wm, Rofi, Dunst, and others.
 
 Make sure your i3 scripts are executable:
 ```sh

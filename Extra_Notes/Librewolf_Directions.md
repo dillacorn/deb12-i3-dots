@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 Librewolf is pretty great... 
 
 at least I can watch youtube videos without ads

@@ -1,3 +1,5 @@
+Notes From Repo: https://github.com/dillacorn/i3-dots
+
 # Use These Commands to Change Default Programs
 
 ```sh
