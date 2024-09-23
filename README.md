@@ -147,3 +147,8 @@ chmod +x rotate_configs.sh i3exit.sh custom_res.sh
 This originally started as a Wayland repo (see git history) ~ X11 currently is generally more flexible in customization.. I'm assuming if I learn to do as much as I can on X11 then I can maybe eventually transfer that knowledge to a seperate repo that will be using Swaywm. 
 
 Currently i3 to my knowledge is more flexible (especially for gaming) but the continued knowledge and updates in the unstable repo have proven that the gap will close eventually and we may all need to move to a wayland based window manager.
+
+### License
+All code and notes (excluding [MIT licensed flatpak install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh), see [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17))
+
+All other code and/or notes are not under any kind of license. If others find some of the scripts helpful they're free to use, modify, publish and distribute to there hearts content. See https://unlicense.org/repo
