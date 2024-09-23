@@ -149,6 +149,6 @@ This originally started as a Wayland repo (see git history) ~ X11 currently is g
 Currently i3 to my knowledge is more flexible (especially for gaming) but the continued knowledge and updates in the unstable repo have proven that the gap will close eventually and we may all need to move to a wayland based window manager.
 
 ### License
-All code and notes (excluding [MIT licensed flatpak install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh), see [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17))
+[MIT licensed flatpak install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh), see [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17))
 
 All other code and/or notes are not under any kind of license. If others find some of the scripts helpful they're free to use, modify, publish and distribute to there hearts content. See https://unlicense.org/repo
