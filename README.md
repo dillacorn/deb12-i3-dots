@@ -1,175 +1,149 @@
 # `dilla.i3`
-distro: [`debian`](https://www.debian.org) | X11: [`i3-wm`](https://github.com/i3/i3) | kernal: [`linux-tkg`](https://github.com/Frogging-Family/linux-tkg) - [`install linux-tkg on debian`](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
+- **Distro**: [Debian](https://www.debian.org)  
+- **X11**: [i3-wm](https://github.com/i3/i3)  
+- **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)  
+  - [Install linux-tkg on Debian](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
-# my keybinds are **DWM** inspired
+---
 
-My keybinds (see [**i3**](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are [**suckless DWM**](https://dwm.suckless.org/) inspired.
+## Keybinds: **DWM** Inspired
+My keybinds (see [i3 config](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config)) are heavily influenced by [**suckless DWM**](https://dwm.suckless.org/). I previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
 
-Previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) ~ DWM was my very first window manager.
+---
 
-# wallpapers
+## Wallpapers
+- [Gruvbox Wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers) by [AngelJumbo](https://github.com/AngelJumbo)
+- [Aesthetic Wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
 
-[gruvbox](https://github.com/AngelJumbo/gruvbox-wallpapers) by [AngelJumbo](https://github.com/AngelJumbo)
+---
 
-[aesthetic-wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
+## i3 Themes Change Script
 
-# i3 themes change script!
+You can dynamically switch i3 themes using **Rofi**.
 
-```sh
-cd ~/.config/i3/themes
-chmod +x *
-```
+1. Navigate to your themes folder:
+   ```sh
+   cd ~/.config/i3/themes
+   chmod +x *
+   ```
+2. Use the keybind `mod4+shift+t` to trigger the Rofi theme selector.
 
-using rofi to select theme
+Enjoy! I scripted this myself!
 
-`mod4+shift+t`
+---
 
-enjoy! I scripted this myself!
+## i3 Keybind Custom Scripts/Commands
 
-# keybind commands/navigation
+Here are some of my custom keybinds from the i3 configuration:
 
-READ [i3](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config) config for keybinds
+- `mod4+shift+q` = **Reload i3 config**  
+  - Reloads the current i3 configuration to apply any changes.
+  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/dotfiles/blob/main/config/i3/config))
+  
+- `mod4+shift+r` = **Rotate i3 mod navigation**  
+  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh).
+  
+- `mod4+shift+g` = **Capture a GIF**  
+  - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/gif.sh).  
+  - **Repeat the keybind to finish recording!**
+  - `gif_date_time.gif` saved in `~/Videos` directory
+  
+- `mod4+shift+s` = **Scrot screenshot**  
+  - Takes a screenshot using Scrot.
+  - `date_time.jpg` saved in `~/Pictures` directory
 
-Using both `mod1(alt)` and `mod4(win/super)` in default config depending on use.
+- `mod4+ctrl+shift+s` = **Flameshot screenshot**  
+  - Takes a screenshot using Flameshot with more customization options.
+  - `date_time.png` normally saved in `~/Pictures` directory
 
-`mod4+shift+q` = reloads config
+---
 
-`mod4+shift+r` = rotates i3 mod navigation -> [i3 script](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh)
+## i3 Navigation
 
-`mod4+shift+g` = capture a gif with script <- `repeat keybind to finish command!` -> [gif script](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/gif.sh)
+Here are more example keybinds from my i3 config:
 
-`mod4+shift+s` = scrot screenshot
+Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/rotate_config_navigation.sh)
 
-`mod4+ctrl+shift+s` = flameshot screenshot
+- `mod+shift+enter` = **Open Terminal**
+  - Launches the terminal (default: Alacritty).
 
-# terminal navigation
+- `mod+p` = **Rofi Application Launcher**
+  - Opens the Rofi app launcher for quick access to applications.
 
-`ctrl+l` <- clears console
+- `mod4+ctrl+shift+l` = **Lock Screen**
+  - Locks the screen using `i3lock`.
 
-`ctrl+a` <- goes to beginning of line
+- `mod+shift+c` = **Close Window**
+  - Closes the focused window.
 
-`ctrl+e` <- goes to end of line
+- `mod+f` = **Toggle Floating**
+  - Toggles between tiling and floating window layouts.
 
-`ctrl+k` <- deletes from cursor to end of line
+- `mod+shift+f` = **Toggle Fullscreen**
+  - Toggles app focus ~ fullscreen.
 
-`ctrl+left` or `ctrl+right` <- forward and backward words
+- `mod+arrow_keys` = **Change Focus**
+  - Switch between open windows.
 
-`shift+PgUp` or `shift+PgDwn` <- up and down terminal (faster than scrolling)
+- `mod+shift+arrow_keys` = **Move Windows**
+  - Move window location within workspace.
 
-more commands to learn -> [learning-command-line](https://github.com/LinkedInLearning/learning-linux-command-line-3005201/blob/e0cfdc8244b804b57c04b5cffc55c0b322122457/commands.md) by [LinkedInLearning](https://github.com/LinkedInLearning)
+- `mod+mouse_1` = **Move Floating Window**
+  - Move Floating Window with your mouse.
 
-# run a script in [scripts folder](https://github.com/dillacorn/dotfiles/tree/main/scripts)
+- `mod+mouse_2` = **Resize Floating Window**
+  - Resize Floating Window with your mouse.
 
-example:
+- `mod+1` to `mod+9` = **Workspace Switching**  
+  - Switches to workspaces 1 through 9.
 
-### NOTE: run these commands individually
+- `mod+shift+1` to `mod+shift+9` = **Move Focused Window to Workspace**  
+  - Moves the currently focused window to the specified workspace.
 
-```sh
-cd ~/dotfiles/scripts
-chmod +x install_my_apps.sh
-sudo ./install_my_apps.sh
-```
+---
 
-# drop the display managers...full stop...
+## TTY Setup: Ditch the Display Manager
 
-I've had the most issues with display (login) managers, so I prefer TTY. To remove your display manager, use:
+I prefer using **TTY** instead of display managers like `gdm3`, `sddm`, or `lightdm`. To remove your display manager:
 
 ```sh
 sudo apt remove gdm3 sddm lightdm
 ```
 
-Login by typing your username and password, then start i3 from TTY by typing:
+To login, type your username and password in TTY, then start i3 manually:
 
-Edit xinitrc first
+1. **Edit xinitrc**:
+   ```sh
+   micro /etc/X11/xinit/xinitrc
+   ```
+   Match my [xinitrc](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc).
 
-```sh
-micro /etc/X11/xinit/xinitrc
-```
+2. **Start i3**:
+   ```sh
+   startx
+   ```
 
-match my [**xinitrc**](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc)
+3. **Troubleshooting**:
+   If you encounter any issues, switch between TTYs using `CTRL+ALT+F1` to `F6`.
 
-### start **i3**
-```sh
-startx
-```
+### Why I Prefer TTY:
+When you logout of i3, any errors in your config or applications will be shown directly in the **TTY**, making it easier to troubleshoot.
 
-If you encounter issues, switch TTYs with CTRL+ALT+F1 to F6.
+---
 
-### I've discovered!
-**HUGE PRO** to using the **TTY** is if you have `i3` config issues or an application is experiencing errors when you logout of `i3` you will see those errors in the **TTY!**
+## i3 Apps and Manual Scripts Install/Setup
 
-# manual install directions
+To install the applications I use with i3, run my [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh). This includes i3wm, Rofi, Dunst, and others.
 
-### git clone my repository
-
-### NOTE: run these commands individually
-
-```sh
-sudo apt install git
-git clone https://github.com/dillacorn/dotfiles
-```
-
-Modify **`xinitrc`** as described [here](https://github.com/dillacorn/dotfiles/blob/main/etc/X11/xinit/xinitrc) so **`i3`** can be started in **TTY** with `startx` command
-
-### **Important:** Make sure **xrandr** command is configured correctly for your display!
-
-```sh
-xrandr
-```
-see output
-
-replace line in **`i3 config`**
-
-```sh
-exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 60
-```
-
-replace example: (two monitors in example)
-
-```sh
-exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 240 --pos 0x0 --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
-```
-
-### or modify [custom_res.sh](https://github.com/dillacorn/dotfiles/blob/main/config/i3/scripts/custom_res.sh)
-
-## Tip:
-using **`arandr`** can help for getting the correct output code when dealing with multiple displays
-
-### Install i3 apps I use with my script! ~ feel free to redact applications if you don't use them
-
-### NOTE: run these commands individually
-
-Run app [install script](https://github.com/dillacorn/dotfiles/blob/main/scripts/install_my_i3_apps.sh) to get my apps which also includes i3wm
-
-```sh
-cd dotfiles/scripts
-chmod +x install_my_i3_apps.sh
-sudo ./install_my_i3_apps.sh
-```
-
-Here is my [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) files you will need to copy to appropiate directory
-
-You also need [rofi](https://github.com/dillacorn/dotfiles/tree/main/config/rofi) and [dunst](https://github.com/dillacorn/dotfiles/tree/main/config/dunst) config files
-
-### NOTE: run these commands individually
-
-```sh
-cp -r dotfiles/config/i3 ~/.config
-cp -r dotfiles/config/dunst ~/.config
-cp -r dotfiles/config/rofi ~/.config
-```
-
-Make scripts [i3 configuration](https://github.com/dillacorn/dotfiles/tree/main/config/i3) executable
-
-### NOTE: run these commands individually
-
+Make sure your i3 scripts are executable:
 ```sh
 cd ~/.config/i3
 chmod +x rotate_configs.sh i3exit.sh custom_res.sh
 ```
 
-### mod4(win/super)+shift+q = restarts i3 session
+---
 
-# thanks for reading!
-### P.S. 
-### This originally started out as a wayland repo if you see the git history... at the time I actually liked Sway (wayland) but sense trying to do very custom things, I've concluded that wayland window managers just aren't for me.
+### P.S.
+This originally started as a Wayland repo (see git history) ~ X11 currently is generally more flexible in customization.. I'm assuming if I learn to do as much as I can on X11 then I can maybe eventually transfer that knowledge to a seperate repo that will be using Swaywm. 
+
+Currently i3 to my knowledge is more flexible (especially for gaming) but the continued knowledge and updates in the unstable repo have proven that the gap will close eventually and we may all need to move to a wayland based window manager.
