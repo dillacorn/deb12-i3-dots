@@ -33,8 +33,8 @@ Here are some of my custom keybinds from the i3 configuration:
   - Escape(ESC) to cancel power menu.
 
 - `mod4+shift+t` = **i3 Theme Changer**
-  - Launches a theme selector using Rofi: [View avaliable themes](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
-  - You can easily add your own themes to [this directory](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
+  - Launches a theme selector using Rofi: [View avaliable theme scripts](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
+  - You can easily add your own theme scripts to `~/.config/i3/themes`
   
 - `mod4+shift+g` = **Capture a GIF**  
   - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/gif.sh).  
