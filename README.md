@@ -17,21 +17,6 @@ My keybinds (see [i3 config](https://github.com/dillacorn/i3-dots/blob/main/conf
 
 ---
 
-## i3 Themes Change Script
-
-You can dynamically switch i3 themes using **Rofi**.
-
-1. Navigate to your themes folder:
-   ```sh
-   cd ~/.config/i3/themes
-   chmod +x *
-   ```
-2. Use the keybind `mod4+shift+t` to trigger the Rofi theme selector.
-
-Enjoy! I scripted this myself!
-
----
-
 ## i3 Keybind Custom Scripts/Commands
 
 Here are some of my custom keybinds from the i3 configuration:
@@ -46,6 +31,10 @@ Here are some of my custom keybinds from the i3 configuration:
 - `mod1+ctrl+shift+p` = **i3 Power Menu**  
   - Activates Selectable Power Menu script: [i3exit.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/i3exit.sh).
   - Escape(ESC) to cancel power menu.
+
+- `mod4+shift+t` = **i3 Theme Changer**
+  - Launches a theme selector using Rofi: [View avaliable themes](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
+  - You can easily add your own themes to [this directory](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
   
 - `mod4+shift+g` = **Capture a GIF**  
   - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/gif.sh).  
@@ -135,24 +124,18 @@ When you logout of i3, any errors in your config or applications will be shown d
 
 ---
 
-## i3 Apps and Manual Scripts Install/Setup
+### Installing i3-WM and Related Applications with Scripts
 
-To install the applications I use with i3, run my [install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_i3_apps.sh). This includes i3wm, Rofi, Dunst, and others.
+To install the applications I use with i3, you can run my [install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_i3_apps.sh). This script installs essential tools like i3-wm, Rofi, Dunst, and more.
 
-Make sure your i3 scripts are executable:
-```sh
-cd ~/.config/i3
-chmod +x rotate_configs.sh i3exit.sh custom_res.sh
-```
+For Flatpak applications, run the [install_my_flatpaks.sh script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh) to set up additional software.
 
 ---
 
 ### P.S.
-This originally started as a Wayland repo (see git history) ~ X11 currently is generally more flexible in customization.. I'm assuming if I learn to do as much as I can on X11 then I can maybe eventually transfer that knowledge to a seperate repo that will be using Swaywm. 
+This repository originally began as a Wayland-focused project (see the git history). However, X11 currently offers greater flexibility in customization. My goal is to learn as much as I can with X11, with the hope that this knowledge can eventually be applied to a separate repository using Sway-wm.
 
-Currently i3 to my knowledge is more flexible (especially for gaming) but the continued knowledge and updates in the unstable repo have proven that the gap will close eventually and we may all need to move to a wayland based window manager.
+At present, i3-wm seems more flexible (especially for gaming), but with ongoing developments and updates in the unstable repositories, it's likely that the gap will eventually close, and we may all need to transition to a Wayland-based window manager.
 
 ### License
-[MIT licensed flatpak install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh), see [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17))
-
-All other code and/or notes are not under any kind of license. If others find some of the scripts helpful they're free to use, modify, publish and distribute to there hearts content. See https://unlicense.org/repo
+All code and notes are not under any formal license. If you find any of the scripts helpful, feel free to use, modify, publish, and distribute them to your heart's content. See https://unlicense.org/repo

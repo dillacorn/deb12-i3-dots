@@ -1,4 +1,5 @@
 #!/bin/bash
+# requires sudo!
 
 set -eu -o pipefail # fail on error and report it, debug all lines
 

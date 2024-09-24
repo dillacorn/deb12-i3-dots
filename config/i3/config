@@ -47,7 +47,7 @@ set $screenshot2 flameshot gui
 set $rotate ~/.config/i3/scripts/rotate_config_navigation.sh
 
 # theme change with rofi
-set $themes selected=$(ls ~/.config/i3/themes/|rofi -dmenu -p "Run: ")&&bash ~/.config/i3/themes/$selected
+set $themes selected=$(ls ~/.config/i3/themes/ | rofi -dmenu -p "Select Theme") && bash ~/.config/i3/themes/$selected
 
 ####################
 ### input/output ###

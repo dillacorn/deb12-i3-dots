@@ -1,4 +1,5 @@
 #!/bin/bash
+# requires sudo!
 
 #################################################
 ## "run this script" directions for new users! ##
@@ -25,10 +26,13 @@
 ## !ALACRITTY NOTICE! ##
 ########################
 
-# alacritty theme changing WILL NOT work **(YET)** from Debian Stable repo.
+# alacritty ~theme changing~ WILL NOT work **(YET)** from Debian Stable repo.
 # I suggest building alacritty from source.
 # I've provided a script that gives you the option to install alacritty from source! (see line #171-200)
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
+
+# To uninstall alacritty (from source) run the "uninstall_alacritty.sh" script!
+# sudo ./uninstall_alacritty.sh
 
 #################################################
 ##              end of directions              ##
@@ -169,15 +173,17 @@ echo -e "\033[1;32mConverting .config file ownership...\033[0m"
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 
 # Ask the user if they want to run the build+install_alacritty.sh script (in bright cyan text)
-echo -e "\033[1;96mDo you want to build and install Alacritty from source? (yes/no)\033[0m"
-read -r response
+echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
+read -n 1 -r response
+echo # move to a new line
 
-if [[ "$response" == "yes" || "$response" == "y" ]]; then
-    # Ask the user for confirmation (in blue text)
-    echo -e "\033[1;96mAre you sure? This will build Alacritty from source. (yes/no)\033[0m"
-    read -r confirmation
+if [[ "$response" == "y" || "$response" == "Y" ]]; then
+    # Ask the user for confirmation (in bright cyan text)
+    echo -e "\033[1;96mAre you sure? This will build Alacritty from source. (y/n)\033[0m"
+    read -n 1 -r confirmation
+    echo # move to a new line
 
-    if [[ "$confirmation" == "yes" || "$confirmation" == "y" ]]; then
+    if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
         echo "Running the Alacritty build and install script..."
         
         # Ensure the script is executable

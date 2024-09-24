@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-lock() {
-    $HOME/.config/i3lock/i3lock.sh
-}
-
 case "$1" in
     lock)
         i3lock --color 000000
