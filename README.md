@@ -38,23 +38,27 @@ Here are some of my custom keybinds from the i3 configuration:
 
 - `mod4+shift+q` = **Reload i3 config**  
   - Reloads the current i3 configuration to apply any changes.
-  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config))
+  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)).
   
 - `mod4+shift+r` = **Rotate i3 mod navigation**  
   - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh).
+
+- `mod1+ctrl+shift+p` = **i3 Power Menu**  
+  - Activates Selectable Power Menu script: [i3exit.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/i3exit.sh).
+  - Escape(ESC) to cancel power menu.
   
 - `mod4+shift+g` = **Capture a GIF**  
   - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/gif.sh).  
   - **Repeat the keybind to finish recording!**
-  - `gif_date_time.gif` saved in `~/Videos` directory
+  - `gif_date_time.gif` saved in `~/Videos` directory.
   
 - `mod4+shift+s` = **Scrot screenshot**  
   - Takes a screenshot using Scrot.
-  - `date_time.jpg` saved in `~/Pictures` directory
+  - `date_time.jpg` saved in `~/Pictures` directory.
 
 - `mod4+ctrl+shift+s` = **Flameshot screenshot**  
   - Takes a screenshot using Flameshot with more customization options.
-  - `date_time.png` normally saved in `~/Pictures` directory
+  - `date_time.png` normally saved in `~/Pictures` directory.
 
 ---
 
