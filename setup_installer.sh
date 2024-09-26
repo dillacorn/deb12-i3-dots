@@ -204,6 +204,16 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
             exit 1
         else
             echo "Alacritty has been successfully installed!"
+            
+            # Automatically set Alacritty as the default terminal emulator
+            echo -e "\033[1;96mSetting Alacritty as the default terminal emulator...\033[0m"
+            sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
+
+            if [ $? -eq 0 ]; then
+                echo "Alacritty has been set as the default terminal emulator."
+            else
+                echo "Failed to set Alacritty as the default terminal emulator."
+            fi
         fi
     else
         echo "Alacritty build and install canceled."

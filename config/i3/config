@@ -21,7 +21,7 @@ set $up k
 set $right l
 
 # terminal
-set $term alacritty
+set $term x-terminal-emulator
 
 # lock screen
 set $lock i3lock --color 000000
