@@ -33,7 +33,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         slop
         dunst
         ueberzug
-        ranger
+        mc
         lxpolkit
         lxappearance
         micro

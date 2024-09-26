@@ -133,6 +133,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo -e "\033[1;32mCopying midnight commander config...\033[0m"
+cp -r "/home/$SUDO_USER/i3-dots/config/mc" "/home/$SUDO_USER/.config"
+if [ $? -ne 0 ]; then
+    echo -e "\033[1;31mFailed to copy midnight commander config. Exiting.\033[0m"
+    exit 1
+fi
+
 # Set directory permissions
 echo -e "\033[1;34mSetting permissions on configuration files and directories...\033[0m"
 find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
