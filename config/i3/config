@@ -27,7 +27,7 @@ set $term alacritty
 set $lock i3lock --color 000000
 
 # files GUI
-set $files mc
+set $files exec x-terminal-emulator -e mc
 
 # webcam popup
 set $webcam mpv av://v4l1:/dev/video0 --profile=low-latency --untimed
