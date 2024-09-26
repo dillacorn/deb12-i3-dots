@@ -8,7 +8,7 @@
 ---
 
 ## Keybinds: **DWM** Inspired
-My keybinds (see [i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)) are heavily influenced by [**suckless DWM**](https://dwm.suckless.org/). I previously used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
+My keybinds (see [i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)) are heavily inspired by [**suckless DWM**](https://dwm.suckless.org/). Before switching to i3, I used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
 
 ---
 
