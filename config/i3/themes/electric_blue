@@ -38,7 +38,7 @@ sed -i -E '
 killall dunst;notify-send theme_updated
 
 # change micro theme
-sed -i '2s|.*|    "colorscheme": "cmc-16"|' "$HOME/.config/micro/settings.json"
+sed -i '2s|.*|    "colorscheme": "geany"|' "$HOME/.config/micro/settings.json"
 
 # change rofi theme
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/Indego.rasi"|' "$HOME/.config/rofi/config.rasi"
