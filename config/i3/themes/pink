@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# change bar colors in i3 config with grey workspaces, darker right-side text, and a lighter pink background
+sed -i -E '
+s/^[[:space:]]*background[[:space:]]+.*/     background #EACDD2/g; # lighter pink background
+s/^[[:space:]]*statusline[[:space:]]+.*/     statusline #2E2E2E/g; # dark grey for statusline to match the right-side text
+s/^[[:space:]]*separator[[:space:]]+.*/     separator  #DFB7BE/g; # slightly darker pink for separator
+
+s/^[[:space:]]*focused_workspace[[:space:]]+.*/     focused_workspace  #282828 #D3D3D3 #282828/g; # dark grey for focused workspace text
+s/^[[:space:]]*active_workspace[[:space:]]+.*/     active_workspace   #EACDD2 #4B4B4B #EACDD2/g; # match active workspace border color to i3status background and text
+s/^[[:space:]]*inactive_workspace[[:space:]]+.*/     inactive_workspace #333333 #7A7A7A #4C4C4C/g; # dark grey for inactive workspace text
+s/^[[:space:]]*urgent_workspace[[:space:]]+.*/     urgent_workspace   #2F343A #DFB7BE #FFFFFF/g; # slightly darker pink for urgent workspace background
+s/^[[:space:]]*binding_mode[[:space:]]+.*/     binding_mode       #2F343A #DFB7BE #FFFFFF/g; # slightly darker pink for binding mode background
+' "$HOME/.config/i3/config"
+
+# change client colors in i3 config to match the new workspace text and lighter pink background
+sed -i -E '
+s/^[[:space:]]*client\.focused[[:space:]]+.*/client.focused          #EACDD2 #2E2E2E #DFB7BE #2E2E2E   #DFB7BE/g; # match active border color to slightly darker pink background
+s/^[[:space:]]*client\.focused_inactive[[:space:]]+.*/client.focused_inactive #333333 #272727 #DFB7BE #484E50   #DFB7BE/g; # slightly darker pink for focused inactive client
+s/^[[:space:]]*client\.unfocused[[:space:]]+.*/client.unfocused        #333333 #222222 #292D2E #292D2E   #292D2E/g; # dark grey for unfocused client
+s/^[[:space:]]*client\.urgent[[:space:]]+.*/client.urgent           #2f343a #DFB7BE #FFFFFF #DFB7BE   #DFB7BE/g; # slightly darker pink for urgent client
+s/^[[:space:]]*client\.placeholder[[:space:]]+.*/client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C/g;
+
+s/^[[:space:]]*client\.background[[:space:]]+.*/client.background       #EACDD2/g; # lighter pink for client background
+' "$HOME/.config/i3/config"
+
+# change dunst notifications theme to match the new lighter pink background and slightly darker text
+sed -i -E '
+22s|.*|    separator_color = "#DFB7BE"|; # slightly darker pink for separator
+29s|.*|    color = "#2E2E2E"|; # dark grey for text on the right side
+38s|.*|    background = "#EACDD2"|; # lighter pink background
+39s|.*|    foreground = "#2E2E2E"|; # dark grey for foreground on the right side
+43s|.*|    background = "#EACDD2"|; # lighter pink background
+44s|.*|    foreground = "#2E2E2E"|; # dark grey for foreground on the right side
+48s|.*|    background = "#EACDD2"|; # lighter pink background
+49s|.*|    foreground = "#2E2E2E"|; # dark grey for foreground on the right side
+' "$HOME/.config/dunst/dunstrc"
+killall dunst; notify-send theme_updated
+
+# change micro theme
+sed -i '2s|.*|    "colorscheme": "one-dark"|' "$HOME/.config/micro/settings.json"
+
+# change rofi theme
+sed -i '1s|.*|@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"|' "$HOME/.config/rofi/config.rasi"
+
+# change alacritty theme
+sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/ashes_dark.toml"/' "$HOME/.config/alacritty/alacritty.toml"
+
+i3 reload
