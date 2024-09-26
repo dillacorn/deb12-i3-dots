@@ -75,13 +75,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo -e "\033[1;34mRunning ranger_image_preview.sh...\033[0m"
-./ranger_image_preview.sh
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mranger_image_preview.sh failed. Exiting.\033[0m"
-    exit 1
-fi
-
 echo -e "\033[1;34mRunning install_micro_themes.sh...\033[0m"
 ./install_micro_themes.sh
 if [ $? -ne 0 ]; then
