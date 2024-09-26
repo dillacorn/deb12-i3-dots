@@ -44,6 +44,6 @@ sed -i '2s|.*|    "colorscheme": "one-dark"|' "$HOME/.config/micro/settings.json
 sed -i '1s|.*|@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"|' "$HOME/.config/rofi/config.rasi"
 
 # change alacritty theme
-sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/ashes_dark.toml"/' "$HOME/.config/alacritty/alacritty.toml"
+sed -i '11s/.*/  "~\/.config\/alacritty\/themes\/themes\/snazzy.toml"/' "$HOME/.config/alacritty/alacritty.toml"
 
 i3 reload
