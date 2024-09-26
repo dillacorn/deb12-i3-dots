@@ -1,4 +1,5 @@
 # `dilla.i3`
+- **Preview Images**: [View Here](https://github.com/dillacorn/i3-dots/tree/main/preview_pictures)
 - **Distro**: [Debian](https://www.debian.org)  
 - **X11**: [i3-wm](https://github.com/i3/i3)  
 - **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)  
