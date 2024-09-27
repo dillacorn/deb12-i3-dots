@@ -37,6 +37,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         lxpolkit
         lxappearance
         micro
+        neofetch
         nm-tray
         solaar
         blueman
