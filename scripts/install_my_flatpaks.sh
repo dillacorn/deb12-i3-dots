@@ -26,7 +26,6 @@ flatpak_apps=(
   'io.itch.itch'                                          # Install and play itch.io games
   'com.heroicgameslauncher.hgl'                           # Game Launcher
   'io.github.hrkfdn.ncspot'                               # Spotify TUI Client
-  'com.spotify.Client'                                    # Spotify Official Client
   'com.ultimaker.cura'                                    # 3D slicing
   'com.obsproject.Studio'                                 # Video recording/streaming
   'fr.handbrake.ghb'                                      # Video transcoder
