@@ -86,6 +86,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         xorg
         xinit
         xserver-xorg-input-libinput
+        xautolock
         xclip
         xsel
         pulseaudio-utils
