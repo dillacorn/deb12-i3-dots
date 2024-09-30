@@ -73,6 +73,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         xbase-clients
         xserver-xorg-video-all
         pipewire-pulse
+        bluetooth
 EOF
     )
 else
