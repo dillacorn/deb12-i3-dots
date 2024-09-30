@@ -215,6 +215,9 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
-# Notify the user
-echo -e "\e[32mAll tasks completed!\e[0m"
-echo -e "\033[1;34mYou can now login to i3-wm!\033[0m"
+# Notify user that the setup is complete and the system will reboot
+echo -e "\033[1;34mSetup complete! Rebooting the system to finalize changes...\033[0m"
+sleep 5
+
+# Reboot the system
+reboot
