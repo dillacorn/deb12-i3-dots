@@ -144,13 +144,13 @@ echo -e "\033[1;34mSetting permissions on configuration files and directories...
 find "$HOME_DIR/.config/" -type d -exec chmod 755 {} +
 find "$HOME_DIR/.config/" -type f -exec chmod 644 {} +
 
-# Make specific i3-related scripts executable
+# Make specific i3-related scripts executable (recursively)
 echo -e "\033[1;34mMaking i3-related scripts executable...\033[0m"
-chmod 755 "$HOME_DIR/.config/i3/scripts/*"
+find "$HOME_DIR/.config/i3/scripts" -type f -exec chmod +x {} +
 
-# Make all files in the themes folder executable
+# Make all files in the themes folder executable (recursively)
 echo -e "\033[1;34mMaking all files in $HOME_DIR/.config/i3/themes executable...\033[0m"
-chmod 755 "$HOME_DIR/.config/i3/themes/*"
+find "$HOME_DIR/.config/i3/themes" -type f -exec chmod +x {} +
 
 # Navigate to alacritty and make the installation script executable
 echo -e "\033[1;34mRunning install_alacritty_themes.sh...\033[0m"
