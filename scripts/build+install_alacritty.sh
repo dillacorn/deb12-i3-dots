@@ -1,6 +1,12 @@
 #!/bin/bash
 # requires sudo!
 
+# Ensure the script is run with sudo
+if [ -z "$SUDO_USER" ]; then
+    echo "This script must be run with sudo!"
+    exit 1
+fi
+
 set -e  # Exit on any error
 
 # Update and install dependencies
