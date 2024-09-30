@@ -10,7 +10,4 @@
 xrdb -merge ~/.Xresources
 
 # Start D-Bus session and i3
-exec dbus-run-session -- i3
-
-# Suppress the "No session for pid" warning (optional)
-loginctl enable-linger $USER
+exec i3
