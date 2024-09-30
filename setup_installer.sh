@@ -32,20 +32,20 @@
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
 # To uninstall alacritty (from source) run the "uninstall_alacritty.sh" script!
-# sudo ./uninstall_alacritty.sh
+#  ./uninstall_alacritty.sh
 
 #################################################
 ##              end of directions              ##
 #################################################
 
-# Ensure the script is run with sudo
-if [ -z "$SUDO_USER" ]; then
-    echo "This script must be run with sudo!"
+# Ensure the script is run with 
+if [ -z "$_USER" ]; then
+    echo "This script must be run with !"
     exit 1
 fi
 
-# Set the home directory of the sudo user
-HOME_DIR="/home/$SUDO_USER"
+# Set the home directory of the  user
+HOME_DIR="/home/$_USER"
 
 # Check if required directories are present, and create them if not
 echo -e "\033[1;34mChecking for required directories...\033[0m"
@@ -64,7 +64,7 @@ for dir in "${required_dirs[@]}"; do
     if [ ! -d "$dir" ]; then
         echo -e "\033[1;33mCreating missing directory: $dir\033[0m"
         mkdir -p "$dir"
-        chown $SUDO_USER:$SUDO_USER "$dir"
+        chown $_USER:$_USER "$dir"
     else
         echo -e "\033[1;32mDirectory already exists: $dir\033[0m"
     fi
@@ -72,8 +72,8 @@ done
 
 # Install git if it's not already installed
 echo -e "\033[1;34mUpdating package list and installing git...\033[0m"
-sudo apt update
-sudo apt install -y git
+apt update
+apt install -y git
 
 # Clone the i3-dots repository into the home directory if it doesn't already exist
 if [ ! -d "$HOME_DIR/i3-dots" ]; then
@@ -118,8 +118,8 @@ fi
 
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
-sudo mkdir -p /etc/X11/xinit
-sudo cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
+mkdir -p /etc/X11/xinit
+cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
@@ -159,7 +159,7 @@ chmod 755 install_alacritty_themes.sh
 
 # Set alternatives for editor
 echo -e "\033[1;94mSetting micro as default editor...\033[0m"
-sudo update-alternatives --set editor /usr/bin/micro
+update-alternatives --set editor /usr/bin/micro
 
 # Set default file manager for directories
 echo -e "\033[1;94mSetting pcmanfm as default GUI file manager...\033[0m"
@@ -189,8 +189,8 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
             echo "Failed to run build+install_alacritty.sh. Exiting."
             exit 1
         else
-            sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
-            sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
+            update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
+            update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
         fi
     else
         echo "Alacritty build and install canceled."
