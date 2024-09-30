@@ -23,7 +23,9 @@ read -n1 -s choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     echo -e "\n${GREEN}Proceeding with installation of Dillacorn's chosen Debian applications...${NC}"
     echo -e "${CYAN}Installing applications with apt${NC}"
-    while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
+    while read -r p ; do 
+        sudo apt-get install -y "$p" || { echo -e "${RED}Failed to install $p, skipping...${NC}"; }
+    done < <(cat << "EOF"
         i3
         fonts-font-awesome
         i3status
@@ -68,6 +70,9 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         wireguard
         wireplumber
         gamemode
+        xbase-clients
+        xserver-xorg-video-all
+        pipewire-pulse
 EOF
     )
 else

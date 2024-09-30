@@ -38,6 +38,30 @@
 ##              end of directions              ##
 #################################################
 
+# Check if required directories are present, and create them if not
+echo -e "\033[1;34mChecking for required directories...\033[0m"
+
+# List of directories to check/create
+required_dirs=(
+    "/home/$SUDO_USER/.config"
+    "/home/$SUDO_USER/.local/share/applications"
+    "/home/$SUDO_USER/Videos"
+    "/home/$SUDO_USER/Pictures"
+    "/home/$SUDO_USER/Documents"
+    "/home/$SUDO_USER/Downloads"
+)
+
+# Loop through and create any missing directories
+for dir in "${required_dirs[@]}"; do
+    if [ ! -d "$dir" ]; then
+        echo -e "\033[1;33mCreating missing directory: $dir\033[0m"
+        mkdir -p "$dir"
+        chown $SUDO_USER:$SUDO_USER "$dir"
+    else
+        echo -e "\033[1;32mDirectory already exists: $dir\033[0m"
+    fi
+done
+
 # Install git if it's not already installed
 echo -e "\033[1;34mUpdating package list and installing git...\033[0m"
 apt update
@@ -198,14 +222,22 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
         else
             echo "Alacritty has been successfully installed!"
             
-            # Automatically set Alacritty as the default terminal emulator
-            echo -e "\033[1;96mSetting Alacritty as the default terminal emulator...\033[0m"
-            sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
+            # Register Alacritty as an alternative for x-terminal-emulator
+            echo -e "\033[1;96mRegistering Alacritty as an alternative for x-terminal-emulator...\033[0m"
+            sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 
             if [ $? -eq 0 ]; then
-                echo "Alacritty has been set as the default terminal emulator."
+                # Automatically set Alacritty as the default terminal emulator
+                echo -e "\033[1;96mSetting Alacritty as the default terminal emulator...\033[0m"
+                sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
+
+                if [ $? -eq 0 ]; then
+                    echo "Alacritty has been set as the default terminal emulator."
+                else
+                    echo "Failed to set Alacritty as the default terminal emulator."
+                fi
             else
-                echo "Failed to set Alacritty as the default terminal emulator."
+                echo "Failed to register Alacritty as an alternative for x-terminal-emulator."
             fi
         fi
     else
