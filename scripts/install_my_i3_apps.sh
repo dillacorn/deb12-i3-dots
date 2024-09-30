@@ -70,6 +70,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         wireguard
         wireplumber
         gamemode
+        xorg
         xbase-clients
         xserver-common
         pipewire-pulse
