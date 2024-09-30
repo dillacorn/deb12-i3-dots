@@ -9,5 +9,5 @@
 
 xrdb -merge ~/.Xresources
 
-# Start D-Bus session and i3
+# Start i3 session
 exec i3
