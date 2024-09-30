@@ -31,21 +31,18 @@
 # I've provided a script that gives you the option to install alacritty from source! (see line #171-200)
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
-# To uninstall alacritty (from source) run the "uninstall_alacritty.sh" script!
-#  ./uninstall_alacritty.sh
-
 #################################################
 ##              end of directions              ##
 #################################################
 
-# Ensure the script is run with 
-if [ -z "$_USER" ]; then
-    echo "This script must be run with !"
+# Ensure the script is run with sudo
+if [ -z "$SUDO_USER" ]; then
+    echo "This script must be run with sudo!"
     exit 1
 fi
 
-# Set the home directory of the  user
-HOME_DIR="/home/$_USER"
+# Set the home directory of the sudo user
+HOME_DIR="/home/$SUDO_USER"
 
 # Check if required directories are present, and create them if not
 echo -e "\033[1;34mChecking for required directories...\033[0m"
@@ -64,7 +61,7 @@ for dir in "${required_dirs[@]}"; do
     if [ ! -d "$dir" ]; then
         echo -e "\033[1;33mCreating missing directory: $dir\033[0m"
         mkdir -p "$dir"
-        chown $_USER:$_USER "$dir"
+        chown $SUDO_USER:$SUDO_USER "$dir"
     else
         echo -e "\033[1;32mDirectory already exists: $dir\033[0m"
     fi
