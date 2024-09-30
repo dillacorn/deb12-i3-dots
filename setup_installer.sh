@@ -215,9 +215,6 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
-# Enable lingering to prevent session issues
-loginctl enable-linger $SUDO_USER
-
 # Notify the user
 echo -e "\e[32mAll tasks completed!\e[0m"
 echo -e "\033[1;34mYou can now login to i3-wm!\033[0m"
