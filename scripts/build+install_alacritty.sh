@@ -62,7 +62,6 @@ cp target/release/alacritty /usr/local/bin
 # Optional: Install the Alacritty desktop entry
 echo "Installing Alacritty desktop entry..."
 cp extra/linux/Alacritty.desktop /usr/share/applications
-update-desktop-database
 
 # Clean up
 echo "Cleaning up..."
