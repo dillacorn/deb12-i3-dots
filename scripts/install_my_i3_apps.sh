@@ -38,8 +38,10 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         sudo apt-get install -y --fix-missing "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
     done < <(cat << "EOF"
         i3
+        suckless-tools
         fonts-font-awesome
         i3status
+        i3lock
         feh
         rofi
         scrot
@@ -82,6 +84,11 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         wireplumber
         gamemode
         xorg
+        xinit
+        xserver-xorg-input-libinput
+        xclip
+        xsel
+        pulseaudio-utils
         pipewire-pulse
         bluetooth
 EOF
