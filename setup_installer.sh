@@ -99,6 +99,25 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Ensure ~/.local/share/applications directory exists
+echo -e "\033[1;34mEnsuring ~/.local/share/applications directory exists...\033[0m"
+mkdir -p "$HOME_DIR/.local/share/applications"
+
+# Copy .desktop files into ~/.local/share/applications
+echo -e "\033[1;34mCopying .desktop files to ~/.local/share/applications...\033[0m"
+cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
+
+# Fix ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications
+echo -e "\033[1;34mSetting ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications...\033[0m"
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local"
+chmod -R u+rwX "$HOME_DIR/.local"
+
+# Ensure ~/.local and ~/.local/share have correct permissions (including for Xorg)
+chmod u+rwx "$HOME_DIR/.local"
+chmod u+rwx "$HOME_DIR/.local/share"
+
+echo -e "\033[1;32mOwnership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications set correctly.\033[0m"
+
 echo -e "\033[1;34mRunning install_my_flatpaks.sh...\033[0m"
 ./install_my_flatpaks.sh
 if [ $? -ne 0 ]; then
