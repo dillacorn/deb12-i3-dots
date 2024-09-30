@@ -11,8 +11,8 @@ set -e  # Exit on any error
 
 # Update and install dependencies
 echo "Updating package lists and installing dependencies..."
-sudo apt update
-sudo apt install -y \
+apt update
+apt install -y \
     python3 \
     libfontconfig1-dev \
     libxcb-xfixes0-dev \
@@ -30,13 +30,15 @@ sudo apt install -y \
 
 # Install Rust using rustup
 echo "Installing Rust..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-# Source the Rust environment
-export PATH="$HOME/.cargo/bin:$PATH"
+# Source the Rust environment to ensure we can run rustup and cargo
+echo "Sourcing Rust environment..."
 source "$HOME/.cargo/env"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Install Rust toolchain
+echo "Installing stable Rust toolchain..."
 rustup install stable
 rustup default stable
 
@@ -55,7 +57,7 @@ cargo build --release
 
 # Install Alacritty
 echo "Installing Alacritty..."
-sudo cp target/release/alacritty /usr/local/bin
+cp target/release/alacritty /usr/local/bin
 
 # Optional: Install the Alacritty desktop entry
 echo "Installing Alacritty desktop entry..."
@@ -67,12 +69,11 @@ echo "Cleaning up..."
 cd ..
 rm -rf alacritty
 
-# add alacritty to x-terminal-emulator and set priority above the rest
-echo "update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50"
+# Add Alacritty to x-terminal-emulator and set priority above the rest
+echo "Setting Alacritty as the default terminal emulator..."
 update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 
-# set alacritty as default terminal
-echo "update-alternatives --set x-terminal-emulator /usr/bin/alacritty"
+# Set Alacritty as default terminal
 update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
 
 # Done
