@@ -53,7 +53,6 @@ echo -e "\033[1;34mChecking for required directories...\033[0m"
 # List of directories to check/create
 required_dirs=(
     "$HOME_DIR/.config"
-    "$HOME_DIR/.local/share/applications"
     "$HOME_DIR/Videos"
     "$HOME_DIR/Pictures"
     "$HOME_DIR/Documents"
@@ -102,6 +101,16 @@ if [ $? -ne 0 ]; then
     echo -e "\033[1;31minstall_my_i3_apps.sh failed. Exiting.\033[0m"
     exit 1
 fi
+
+# Create ~/.local/share/applications directory after install_my_i3_apps.sh
+echo -e "\033[1;34mCreating ~/.local/share/applications directory...\033[0m"
+mkdir -p "$HOME_DIR/.local/share/applications"
+chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
+
+# Copy files to ~/.local/share/applications
+echo -e "\033[1;34mCopying .desktop files to ~/.local/share/applications...\033[0m"
+cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
 
 echo -e "\033[1;34mRunning install_my_flatpaks.sh...\033[0m"
 ./install_my_flatpaks.sh
@@ -157,15 +166,6 @@ echo -e "\033[1;34mRunning install_alacritty_themes.sh...\033[0m"
 cd "$HOME_DIR/.config/alacritty" || exit
 chmod 755 install_alacritty_themes.sh
 ./install_alacritty_themes.sh
-
-# Copy .desktop files to local applications directory
-echo -e "\033[1;34mCopying .desktop for app launchers...\033[0m"
-cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy .desktop files. Exiting.\033[0m"
-    exit 1
-fi
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
 
 # Set alternatives for editor
 echo -e "\033[1;94mSetting micro as default editor...\033[0m"
