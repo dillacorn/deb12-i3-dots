@@ -215,10 +215,24 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
-# Ensure D-Bus session is started for i3-wm
-echo -e "\033[1;34mStarting D-Bus session for i3...\033[0m"
-dbus-launch --exit-with-session i3
-echo -e "\033[1;32mD-Bus session started.\033[0m"
+# Start i3 in the background and kill if necessary
+echo -e "\033[1;34mStarting i3 in the background...\033[0m"
+i3 &
+
+# Store the PID of the i3 process
+I3_PID=$!
+
+# Wait for a few seconds to allow i3 to initialize
+sleep 10
+
+# Check if i3 is still running
+if ps -p $I3_PID > /dev/null; then
+    echo "i3 is running. Killing the process to prevent freezing."
+    kill $I3_PID
+    echo "i3 process killed."
+else
+    echo "i3 has exited on its own."
+fi
 
 # Notify the user
 echo -e "\033[1;34mYou can now login to i3-wm!\033[0m"
