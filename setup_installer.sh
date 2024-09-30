@@ -215,6 +215,7 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
+# Enable lingering to prevent session issues
 loginctl enable-linger $SUDO_USER
 
 # Notify the user
