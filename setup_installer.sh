@@ -72,8 +72,8 @@ done
 
 # Install git if it's not already installed
 echo -e "\033[1;34mUpdating package list and installing git...\033[0m"
-apt update
-apt install -y git
+sudo apt update
+sudo apt install -y git
 
 # Clone the i3-dots repository into the home directory if it doesn't already exist
 if [ ! -d "$HOME_DIR/i3-dots" ]; then
@@ -102,16 +102,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Create ~/.local/share/applications directory after install_my_i3_apps.sh
-echo -e "\033[1;34mCreating ~/.local/share/applications directory...\033[0m"
-mkdir -p "$HOME_DIR/.local/share/applications"
-chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
-
-# Copy files to ~/.local/share/applications
-echo -e "\033[1;34mCopying .desktop files to ~/.local/share/applications...\033[0m"
-cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
-
 echo -e "\033[1;34mRunning install_my_flatpaks.sh...\033[0m"
 ./install_my_flatpaks.sh
 if [ $? -ne 0 ]; then
@@ -128,8 +118,8 @@ fi
 
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
-mkdir -p /etc/X11/xinit
-cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
+sudo mkdir -p /etc/X11/xinit
+sudo cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
@@ -169,7 +159,7 @@ chmod 755 install_alacritty_themes.sh
 
 # Set alternatives for editor
 echo -e "\033[1;94mSetting micro as default editor...\033[0m"
-update-alternatives --set editor /usr/bin/micro
+sudo update-alternatives --set editor /usr/bin/micro
 
 # Set default file manager for directories
 echo -e "\033[1;94mSetting pcmanfm as default GUI file manager...\033[0m"
