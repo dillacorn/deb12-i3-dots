@@ -299,5 +299,6 @@ client.background       #FFFFFF
 exec lxpolkit
 exec blueman-applet
 exec nm-applet
+exec nm-tray
 exec solaar --window hide
 exec_always --no-startup-id dunst
