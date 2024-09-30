@@ -71,8 +71,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         wireplumber
         gamemode
         xorg
-        xbase-clients
-        xserver-common
         pipewire-pulse
         bluetooth
 EOF
