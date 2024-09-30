@@ -1,12 +1,6 @@
 #!/bin/bash
 # requires sudo!
 
-# Ensure the script is run with sudo
-if [ -z "$SUDO_USER" ]; then
-    echo "This script must be run with sudo!"
-    exit 1
-fi
-
 set -e  # Exit on any error
 
 # Update and install dependencies
@@ -62,6 +56,9 @@ cp target/release/alacritty /usr/local/bin
 # Optional: Install the Alacritty desktop entry
 echo "Installing Alacritty desktop entry..."
 cp extra/linux/Alacritty.desktop /usr/share/applications
+
+# Try to update the desktop database (optional), continue if it fails
+update-desktop-database || true
 
 # Clean up
 echo "Cleaning up..."
