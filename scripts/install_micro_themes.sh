@@ -1,6 +1,12 @@
 #!/bin/bash
 # requires sudo!
 
+# Ensure the script is run with sudo
+if [ -z "$SUDO_USER" ]; then
+    echo "This script must be run with sudo!"
+    exit 1
+fi
+
 # Define variables for both repositories and temporary directories
 REPO_URL1="https://github.com/catppuccin/micro"
 REPO_URL2="https://github.com/zyedidia/micro"
