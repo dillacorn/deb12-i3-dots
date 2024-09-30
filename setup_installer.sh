@@ -38,17 +38,26 @@
 ##              end of directions              ##
 #################################################
 
+# Ensure the script is run with sudo
+if [ -z "$SUDO_USER" ]; then
+    echo "This script must be run with sudo!"
+    exit 1
+fi
+
+# Set the home directory of the sudo user
+HOME_DIR="/home/$SUDO_USER"
+
 # Check if required directories are present, and create them if not
 echo -e "\033[1;34mChecking for required directories...\033[0m"
 
 # List of directories to check/create
 required_dirs=(
-    "/home/$SUDO_USER/.config"
-    "/home/$SUDO_USER/.local/share/applications"
-    "/home/$SUDO_USER/Videos"
-    "/home/$SUDO_USER/Pictures"
-    "/home/$SUDO_USER/Documents"
-    "/home/$SUDO_USER/Downloads"
+    "$HOME_DIR/.config"
+    "$HOME_DIR/.local/share/applications"
+    "$HOME_DIR/Videos"
+    "$HOME_DIR/Pictures"
+    "$HOME_DIR/Documents"
+    "$HOME_DIR/Downloads"
 )
 
 # Loop through and create any missing directories
@@ -68,21 +77,23 @@ apt update
 apt install -y git
 
 # Clone the i3-dots repository into the home directory if it doesn't already exist
-if [ ! -d "/home/$SUDO_USER/i3-dots" ]; then
+if [ ! -d "$HOME_DIR/i3-dots" ]; then
     echo -e "\033[1;34mCloning i3-dots repository...\033[0m"
-    git clone https://github.com/dillacorn/i3-dots "/home/$SUDO_USER/i3-dots"
+    git clone https://github.com/dillacorn/i3-dots "$HOME_DIR/i3-dots"
     if [ $? -ne 0 ]; then
         echo -e "\033[1;31mFailed to clone the i3-dots repository. Exiting.\033[0m"
         exit 1
     fi
+    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/i3-dots"
 else
-    echo -e "\033[1;32mi3-dots repository already exists in /home/$SUDO_USER\033[0m"
+    echo -e "\033[1;32mi3-dots repository already exists in $HOME_DIR\033[0m"
 fi
 
 # Navigate to ~/i3-dots/scripts and make scripts executable
 echo -e "\033[1;34mMaking ~/i3-dots/scripts executable!\033[0m"
-cd "/home/$SUDO_USER/i3-dots/scripts" || exit
+cd "$HOME_DIR/i3-dots/scripts" || exit
 chmod +x *
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/i3-dots/scripts"
 
 # Run install_my_i3_apps.sh and install_my_flatpaks.sh before proceeding
 echo -e "\033[1;34mRunning install_my_i3_apps.sh...\033[0m"
@@ -108,81 +119,53 @@ fi
 
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
-cp "/home/$SUDO_USER/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
+mkdir -p /etc/X11/xinit
+cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
 fi
 
 # Copy other configuration files
-echo -e "\033[1;34mCopying Xresources...\033[0m"
-cp "/home/$SUDO_USER/i3-dots/Xresources" "/home/$SUDO_USER/.Xresources"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy Xresources. Exiting.\033[0m"
-    exit 1
-fi
+config_dirs=("alacritty" "dunst" "i3" "rofi" "mc")
 
-echo -e "\033[1;32mCopying alacritty config...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/config/alacritty" "/home/$SUDO_USER/.config"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy alacritty config. Exiting.\033[0m"
-    exit 1
-fi
+for config in "${config_dirs[@]}"; do
+    echo -e "\033[1;32mCopying $config config...\033[0m"
+    cp -r "$HOME_DIR/i3-dots/config/$config" "$HOME_DIR/.config"
+    if [ $? -ne 0 ]; then
+        echo -e "\033[1;31mFailed to copy $config config. Exiting.\033[0m"
+        exit 1
+    fi
+    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.config/$config"
+done
 
-echo -e "\033[1;32mCopying dunst config...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/config/dunst" "/home/$SUDO_USER/.config"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy dunst config. Exiting.\033[0m"
-    exit 1
-fi
-
-echo -e "\033[1;32mCopying i3 config...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/config/i3" "/home/$SUDO_USER/.config"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy i3 config. Exiting.\033[0m"
-    exit 1
-fi
-
-echo -e "\033[1;32mCopying rofi config...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/config/rofi" "/home/$SUDO_USER/.config"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy rofi config. Exiting.\033[0m"
-    exit 1
-fi
-
-echo -e "\033[1;32mCopying midnight commander config...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/config/mc" "/home/$SUDO_USER/.config"
-if [ $? -ne 0 ]; then
-    echo -e "\033[1;31mFailed to copy midnight commander config. Exiting.\033[0m"
-    exit 1
-fi
-
-# Set directory permissions
+# Set permissions for .config
 echo -e "\033[1;34mSetting permissions on configuration files and directories...\033[0m"
-find /home/$SUDO_USER/.config/ -type d -exec chmod 755 {} +
-find /home/$SUDO_USER/.config/ -type f -exec chmod 644 {} +
+find "$HOME_DIR/.config/" -type d -exec chmod 755 {} +
+find "$HOME_DIR/.config/" -type f -exec chmod 644 {} +
 
-# Make specific i3-related scripts executable after setting general permissions
+# Make specific i3-related scripts executable
 echo -e "\033[1;34mMaking i3-related scripts executable...\033[0m"
-chmod 755 /home/$SUDO_USER/.config/i3/scripts/*
+chmod 755 "$HOME_DIR/.config/i3/scripts/*"
 
 # Make all files in the themes folder executable
-echo -e "\033[1;34mMaking all files in /home/$SUDO_USER/.config/i3/themes executable...\033[0m"
-chmod 755 /home/$SUDO_USER/.config/i3/themes/*
+echo -e "\033[1;34mMaking all files in $HOME_DIR/.config/i3/themes executable...\033[0m"
+chmod 755 "$HOME_DIR/.config/i3/themes/*"
 
 # Navigate to alacritty and make the installation script executable
 echo -e "\033[1;34mRunning install_alacritty_themes.sh...\033[0m"
-cd "/home/$SUDO_USER/.config/alacritty" || exit
+cd "$HOME_DIR/.config/alacritty" || exit
 chmod 755 install_alacritty_themes.sh
 ./install_alacritty_themes.sh
 
 # Copy .desktop files to local applications directory
 echo -e "\033[1;34mCopying .desktop for app launchers...\033[0m"
-cp -r "/home/$SUDO_USER/i3-dots/local/share/applications/." "/home/$SUDO_USER/.local/share/applications"
+cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy .desktop files. Exiting.\033[0m"
     exit 1
 fi
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local/share/applications"
 
 # Set alternatives for editor
 echo -e "\033[1;94mSetting micro as default editor...\033[0m"
@@ -194,51 +177,30 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 
 # Change ownership of all files in .config to the sudo user
 echo -e "\033[1;32mConverting .config file ownership...\033[0m"
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.config"
 
-# Ask the user if they want to run the build+install_alacritty.sh script (in bright cyan text)
+# Ask the user if they want to run the build+install_alacritty.sh script
 echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
 read -n 1 -r response
-echo # move to a new line
+echo
 
 if [[ "$response" == "y" || "$response" == "Y" ]]; then
-    # Ask the user for confirmation (in bright cyan text)
     echo -e "\033[1;96mAre you sure? This will build Alacritty from source. (y/n)\033[0m"
     read -n 1 -r confirmation
-    echo # move to a new line
+    echo
 
     if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
         echo "Running the Alacritty build and install script..."
         
-        # Ensure the script is executable
-        chmod +x "/home/$SUDO_USER/i3-dots/scripts/build+install_alacritty.sh"
-        
-        # Run the script
-        /home/$SUDO_USER/i3-dots/scripts/build+install_alacritty.sh
+        chmod +x "$HOME_DIR/i3-dots/scripts/build+install_alacritty.sh"
+        "$HOME_DIR/i3-dots/scripts/build+install_alacritty.sh"
         
         if [ $? -ne 0 ]; then
             echo "Failed to run build+install_alacritty.sh. Exiting."
             exit 1
         else
-            echo "Alacritty has been successfully installed!"
-            
-            # Register Alacritty as an alternative for x-terminal-emulator
-            echo -e "\033[1;96mRegistering Alacritty as an alternative for x-terminal-emulator...\033[0m"
             sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
-
-            if [ $? -eq 0 ]; then
-                # Automatically set Alacritty as the default terminal emulator
-                echo -e "\033[1;96mSetting Alacritty as the default terminal emulator...\033[0m"
-                sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
-
-                if [ $? -eq 0 ]; then
-                    echo "Alacritty has been set as the default terminal emulator."
-                else
-                    echo "Failed to set Alacritty as the default terminal emulator."
-                fi
-            else
-                echo "Failed to register Alacritty as an alternative for x-terminal-emulator."
-            fi
+            sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
         fi
     else
         echo "Alacritty build and install canceled."
