@@ -215,5 +215,11 @@ else
     echo "Skipping the Alacritty build and install script."
 fi
 
+# Ensure D-Bus session is started for i3-wm
+echo -e "\033[1;34mStarting D-Bus session for i3...\033[0m"
+dbus-launch --exit-with-session i3
+echo -e "\033[1;32mD-Bus session started.\033[0m"
+
+# Notify the user
+echo -e "\033[1;34mYou can now login to i3-wm!\033[0m"
 echo -e "\e[32mAll tasks completed!\e[0m"
-echo -e "\e[35mGo login to i3-wm!\e[0m"
