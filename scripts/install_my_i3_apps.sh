@@ -22,9 +22,14 @@ read -n1 -s choice
 # Check user input
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     echo -e "\n${GREEN}Proceeding with installation of Dillacorn's chosen Debian applications...${NC}"
+    
+    # Update the package list
+    echo -e "${CYAN}Updating package list...${NC}"
+    sudo apt-get update
+
     echo -e "${CYAN}Installing applications with apt${NC}"
     while read -r p ; do 
-        sudo apt-get install -y "$p" || { echo -e "${RED}Failed to install $p, skipping...${NC}"; }
+        sudo apt-get install -y --fix-missing "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
     done < <(cat << "EOF"
         i3
         fonts-font-awesome
