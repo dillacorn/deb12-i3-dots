@@ -193,6 +193,15 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 echo -e "\033[1;32mConverting .config file ownership...\033[0m"
 chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.config"
 
+# Add GTK2 theme and icon settings
+echo 'include "'$HOME_DIR'/.gtkrc-2.0.mine"' > "$HOME_DIR/.gtkrc-2.0"
+chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.gtkrc-2.0"
+chmod 644 "$HOME_DIR/.gtkrc-2.0"
+
+echo -e 'gtk-theme-name="Materia-dark"\ngtk-icon-theme-name="Papirus-Dark"' > "$HOME_DIR/.gtkrc-2.0.mine"
+chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.gtkrc-2.0.mine"
+chmod 644 "$HOME_DIR/.gtkrc-2.0.mine"
+
 # Ask the user if they want to run the build+install_alacritty.sh script
 echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
 read -n 1 -r response
