@@ -1,8 +1,8 @@
 # `dilla.i3`
 - **Preview Images**: [View Here](https://github.com/dillacorn/i3-dots/tree/main/preview_pictures/preview_page.md)
-- **Distro**: [Debian](https://www.debian.org)  
-- **X11**: [i3-wm](https://github.com/i3/i3)  
-- **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)  
+- **Distro**: [Debian 12](https://www.debian.org/releases/stable/)
+- **X11**: [i3-wm](https://github.com/i3/i3)
+- **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)
   - [Install linux-tkg on Debian](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
 
 ---
