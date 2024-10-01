@@ -83,6 +83,9 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         wireguard
         wireplumber
         gamemode
+        papirus-icon-theme
+        materia-gtk-theme
+        comixcursors
         xorg
         xinit
         xserver-xorg-input-libinput
