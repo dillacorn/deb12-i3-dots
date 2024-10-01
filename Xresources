@@ -1,7 +1,7 @@
 # Edit $HOME/.Xresources
 
 # for i3-wm
-Xcursor.theme: Anya cursor
+Xcursor.theme: ComixCursors-White
 
 # Raise/Lower font DPI ~ default value is 96
 Xft.dpi: 96
