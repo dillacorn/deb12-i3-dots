@@ -141,6 +141,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Copy .Xresources file
+echo -e "\033[1;34mCopying .Xresources to $HOME_DIR...\033[0m"
+cp "$HOME_DIR/i3-dots/Xresources" "$HOME_DIR/.Xresources"
+if [ $? -ne 0 ]; then
+    echo -e "\033[1;31mFailed to copy .Xresources. Exiting.\033[0m"
+    exit 1
+fi
+
 # Copy other configuration files
 config_dirs=("alacritty" "dunst" "i3" "rofi" "mc")
 
