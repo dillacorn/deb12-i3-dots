@@ -150,7 +150,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Copy other configuration files
-config_dirs=("alacritty" "dunst" "i3" "rofi" "mc")
+config_dirs=("alacritty" "dunst" "i3" "rofi" "mc" "gtk-3.0")
 
 for config in "${config_dirs[@]}"; do
     echo -e "\033[1;32mCopying $config config...\033[0m"
