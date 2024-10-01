@@ -51,7 +51,7 @@ echo -e "\033[1;34mChecking for required directories...\033[0m"
 required_dirs=(
     "$HOME_DIR/.config"
     "$HOME_DIR/Videos"
-    "$HOME_DIR/Pictures"
+    "$HOME_DIR/Pictures/wallpapers"
     "$HOME_DIR/Documents"
     "$HOME_DIR/Downloads"
 )
