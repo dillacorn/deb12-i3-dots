@@ -202,6 +202,14 @@ echo -e 'gtk-theme-name="Materia-dark"\ngtk-icon-theme-name="Papirus-Dark"' > "$
 chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.gtkrc-2.0.mine"
 chmod 644 "$HOME_DIR/.gtkrc-2.0.mine"
 
+# Copy wallpaper to ~/Pictures/wallpapers directory
+echo -e "\033[1;94mCopying wallpaper...\033[0m"
+cp "$HOME_DIR/i3-dots/debianlogo_bw.png" "$HOME_DIR/Pictures/wallpapers/"
+if [ $? -ne 0 ]; then
+    echo -e "\033[1;31mFailed to copy wallpaper. Exiting.\033[0m"
+    exit 1
+fi
+chown $SUDO_USER:$SUDO_USER "$HOME_DIR/Pictures/wallpapers/debianlogo_bw.png"
 # Ask the user if they want to run the build+install_alacritty.sh script
 echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
 read -n 1 -r response
