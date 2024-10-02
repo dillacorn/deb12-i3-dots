@@ -15,7 +15,7 @@ fi
 # Function to switch to mod4
 switch_to_mod4() {
     echo "Switching to mod4..."
-    sed -i '/# mod keys/! s/\$mod1/\$mod4/g' "$config_file"
+    sed -i '/# font for window titles and bars/,/#end of window title bars & borders section/! {/bar {/,/}/! s/\$mod1/\$mod4/g}' "$config_file"
     i3-msg reload
     echo "Switched to mod4"
 }
