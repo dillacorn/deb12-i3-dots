@@ -1,38 +1,32 @@
 #!/bin/bash
-# requires sudo!
-
 #################################################
-## "run this script" directions for new users! ##
+##           Installation Instructions         ##
 #################################################
 
-################################
-## !DOWNLOAD REPO DIRECTIONS! ##
-################################
+# Step 1: Download the repository
+# --------------------------------
+# Open a terminal and run:
+#   sudo apt install git -y
+#   git clone https://github.com/dillacorn/i3-dots
 
-# open a terminal
-# sudo apt install git -y
-# git clone https://github.com/dillacorn/i3-dots
+# Step 2: Run the installer
+# -------------------------
+# Navigate to the i3-dots directory:
+#   cd i3-dots
+# Make the installer executable and run it:
+#   chmod +x setup_installer.sh
+#   sudo ./setup_installer.sh
+# Follow the on-screen instructions.
 
-################################
-## !RUN INSTALLER DIRECTIONS! ##
-################################
-
-# cd i3-dots
-# chmod +x setup_installer.sh
-# sudo ./setup_installer.sh
-# follow installer
-
-########################
-## !ALACRITTY NOTICE! ##
-########################
-
-# alacritty ~theme changing~ WILL NOT work **(YET)** from Debian Stable repo.
-# I suggest building alacritty from source.
-# I've provided a script that gives you the option to install alacritty from source! (see line #171-200)
+# Alacritty Notice:
+# -----------------
+# Alacritty theme changes will NOT work with the version from the Debian Stable repo.
+# You can build Alacritty from source using the provided script in this repository.
+# Refer to the official installation guide for more details:
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
 
 #################################################
-##              end of directions              ##
+##              End of Instructions            ##
 #################################################
 
 # Ensure the script is run with sudo
@@ -40,6 +34,42 @@ if [ -z "$SUDO_USER" ]; then
     echo "This script must be run with sudo!"
     exit 1
 fi
+
+# Add a warning message for overwriting directories
+echo -e "\033[1;31mWARNING: This script will overwrite the following directories:\033[0m"
+echo -e "\033[1;33m
+- ~/.config/i3
+- ~/.config/mc
+- ~/.config/alacritty
+- ~/.config/rofi
+- ~/.config/dunst
+- ~/.config/gtk-3.0
+- ~/.gtk-2.0
+- /etc/X11/xinit/xinitrc
+- ~/.Xresources\033[0m"
+echo -e "\033[1;31mAre you sure you want to continue? This action CANNOT be undone.\033[0m"
+echo -e "\033[1;32mPress 'y' to continue or 'n' to cancel.\033[0m"
+
+# First confirmation
+read -n 1 -r first_confirmation
+echo
+
+if [[ "$first_confirmation" != "y" && "$first_confirmation" != "Y" ]]; then
+    echo -e "\033[1;31mInstallation canceled by user.\033[0m"
+    exit 1
+fi
+
+# Second confirmation
+echo -e "\033[1;31mThis is your last chance! Are you absolutely sure? (y/n)\033[0m"
+read -n 1 -r second_confirmation
+echo
+
+if [[ "$second_confirmation" != "y" && "$second_confirmation" != "Y" ]]; then
+    echo -e "\033[1;31mInstallation canceled by user.\033[0m"
+    exit 1
+fi
+
+echo -e "\033[1;32mProceeding with the installation...\033[0m"
 
 # Set the home directory of the sudo user
 HOME_DIR="/home/$SUDO_USER"
@@ -210,6 +240,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 chown $SUDO_USER:$SUDO_USER "$HOME_DIR/Pictures/wallpapers/debianlogo_bw.png"
+
 # Ask the user if they want to run the build+install_alacritty.sh script
 echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
 read -n 1 -r response
