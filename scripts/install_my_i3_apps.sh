@@ -30,11 +30,11 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     
     # Update the package list
     echo -e "${CYAN}Updating package list...${NC}"
-    sudo apt-get update
+    apt-get update
 
     echo -e "${CYAN}Installing applications with apt${NC}"
     while read -r p ; do 
-        sudo apt-get install -y --fix-missing "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
+        apt-get install -y --fix-missing "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
     done < <(cat << "EOF"
         i3
         suckless-tools
