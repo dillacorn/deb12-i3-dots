@@ -19,14 +19,14 @@ sudo -n true
 test $? -eq 0 || { echo -e "${RED}You should have sudo privileges to run this script.${NC}"; exit 1; }
 
 # Prompt for package installation
-echo -e "\n${CYAN}Do you want to install Dillacorn's chosen Debian applications? [y/n]${NC}"
+echo -e "\n${CYAN}Do you want to install Dillacorn's chosen Debian 12 applications? [y/n]${NC}"
 
 # Read a single character without requiring the Enter key
 read -n1 -s choice
 
 # Check user input
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-    echo -e "\n${GREEN}Proceeding with installation of Dillacorn's chosen Debian applications...${NC}"
+    echo -e "\n${GREEN}Proceeding with installation of Dillacorn's chosen Debian 12 applications...${NC}"
     
     # Update the package list
     echo -e "${CYAN}Updating package list...${NC}"
@@ -99,7 +99,10 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         bluetooth
 EOF
     )
+    
+    # Print success message after installation
+    echo -e "\n${GREEN}Successfully installed all of Dillacorn's Debian 12 chosen applications!${NC}"
 else
-    echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian applications.${NC}"
+    echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian 12 applications.${NC}"
     exit 0
 fi
