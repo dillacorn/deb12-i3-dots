@@ -32,9 +32,12 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     echo -e "${CYAN}Updating package list...${NC}"
     apt-get update
 
-    echo -e "${CYAN}Installing applications with apt${NC}"
+    # Non-interactive install to avoid prompts
+    echo -e "${CYAN}Installing applications with apt in non-interactive mode${NC}"
+    export DEBIAN_FRONTEND=noninteractive
+
     while read -r p ; do 
-        apt-get install -y --fix-missing "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
+        apt-get install -y --fix-missing -o Dpkg::Options::="--force-confnew" "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
     done < <(cat << "EOF"
         i3
         suckless-tools
