@@ -1,5 +1,4 @@
 #!/bin/bash
-# requires sudo!
 
 # Ensure the script is run with sudo
 if [ -z "$SUDO_USER" ]; then
