@@ -55,7 +55,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         lxappearance
         micro
         neofetch
-        nm-tray
+        network-manager-gnome
         solaar
         blueman
         arandr
