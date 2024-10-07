@@ -97,6 +97,9 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         pulseaudio-utils
         pipewire-pulse
         bluetooth
+        resolvconf
+        bridge-utils
+        qemu-guest-agent
 EOF
     )
     
