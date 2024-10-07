@@ -100,6 +100,8 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         resolvconf
         bridge-utils
         qemu-guest-agent
+        dnsmasq
+        ebtables
 EOF
     )
     
