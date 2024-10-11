@@ -1,5 +1,5 @@
 # `dilla.i3`
-- **Preview Images**: [View Here](https://github.com/dillacorn/i3-dots/tree/main/preview_pictures/preview_page.md)
+- **Preview Images**: [View Here](https://github.com/dillacorn/deb12-i3-dots/tree/main/preview_pictures/preview_page.md)
 - **Distro**: [Debian 12](https://www.debian.org/releases/stable/)
 - **X11**: [i3-wm](https://github.com/i3/i3)
 - **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)
@@ -8,7 +8,7 @@
 ---
 
 ## Keybinds: **DWM** Inspired
-My keybinds (see [i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)) are heavily inspired by [**suckless DWM**](https://dwm.suckless.org/). Before switching to i3, I used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
+My keybinds (see [i3 config](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/config)) are heavily inspired by [**suckless DWM**](https://dwm.suckless.org/). Before switching to i3, I used [**DWM Flexipatch**](https://github.com/bakkeby/dwm-flexipatch) by [bakkeby](https://github.com/bakkeby) — DWM was my first window manager.
 
 ---
 
@@ -24,21 +24,21 @@ Here are some of my custom keybinds from the i3 configuration:
 
 - `mod4+shift+q` = **Reload i3 config**  
   - Reloads the current i3 configuration to apply any changes.
-  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/i3-dots/blob/main/config/i3/config)).
+  - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/config)).
   
 - `mod4+shift+r` = **Rotate i3 mod navigation**  
-  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh).
+  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh).
 
 - `mod1+ctrl+shift+p` = **i3 Power Menu**  
-  - Activates Selectable Power Menu script: [i3exit.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/i3exit.sh).
+  - Activates Selectable Power Menu script: [i3exit.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/i3exit.sh).
   - Escape(ESC) to cancel power menu.
 
 - `mod4+shift+t` = **i3 Theme Changer**
-  - Launches a theme selector using Rofi: [View avaliable theme scripts](https://github.com/dillacorn/i3-dots/tree/main/config/i3/themes).
+  - Launches a theme selector using Rofi: [View avaliable theme scripts](https://github.com/dillacorn/deb12-i3-dots/tree/main/config/i3/themes).
   - You can easily add your own theme scripts to `~/.config/i3/themes`
   
 - `mod4+shift+g` = **Capture a GIF**  
-  - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/gif.sh).  
+  - Starts a GIF recording with the script: [gif.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/gif.sh).  
   - **Repeat the keybind to finish recording!**
   - `gif_date_time.gif` saved in `~/Videos` directory.
   
@@ -56,7 +56,7 @@ Here are some of my custom keybinds from the i3 configuration:
 
 Here are more example keybinds from my i3 config:
 
-Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh)
+Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh)
 
 - `mod+shift+enter` = **Open Terminal**
   - Launches the terminal (default: Alacritty).
@@ -110,7 +110,7 @@ To login, type your username and password in TTY, then start i3 manually:
    ```sh
    micro /etc/X11/xinit/xinitrc
    ```
-   Match my [xinitrc](https://github.com/dillacorn/i3-dots/blob/main/etc/X11/xinit/xinitrc).
+   Match my [xinitrc](https://github.com/dillacorn/deb12-i3-dots/blob/main/etc/X11/xinit/xinitrc).
 
 2. **Start i3**:
    ```sh
@@ -127,9 +127,9 @@ When you logout of i3, any errors in your config or applications will be shown d
 
 ### Installing i3-WM and Related Applications with Scripts
 
-To install the applications I use with i3, you can run my [install script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_i3_apps.sh). This script installs essential tools like i3-wm, Rofi, Dunst, and more.
+To install the applications I use with i3, you can run my [install script](https://github.com/dillacorn/deb12-i3-dots/blob/main/scripts/install_my_i3_apps.sh). This script installs essential tools like i3-wm, Rofi, Dunst, and more.
 
-For Flatpak applications, run the [install_my_flatpaks.sh script](https://github.com/dillacorn/i3-dots/blob/main/scripts/install_my_flatpaks.sh) to set up additional software.
+For Flatpak applications, run the [install_my_flatpaks.sh script](https://github.com/dillacorn/deb12-i3-dots/blob/main/scripts/install_my_flatpaks.sh) to set up additional software.
 
 ---
 

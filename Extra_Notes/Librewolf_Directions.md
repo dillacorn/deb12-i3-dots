@@ -1,4 +1,4 @@
-Notes From Repo: https://github.com/dillacorn/i3-dots
+Notes From Repo: https://github.com/dillacorn/deb12-i3-dots
 
 Librewolf is pretty great... 
 

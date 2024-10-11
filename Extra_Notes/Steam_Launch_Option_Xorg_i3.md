@@ -1,8 +1,8 @@
-Notes From Repo: https://github.com/dillacorn/i3-dots
+Notes From Repo: https://github.com/dillacorn/deb12-i3-dots
 
 ### These are unique launch options depending on the game and use case for [i3wm](https://github.com/i3/i3) and/or other Xorg/X11 sessions
 
-### before running launch option set a custom resolution see [custom_res.sh](https://github.com/dillacorn/i3-dots/blob/main/config/i3/custom_res.sh)
+### before running launch option set a custom resolution see [custom_res.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/custom_res.sh)
 
 ## Counter-Strike 2 ~ stretched 1352x1080 240hz
 xrandr --output DisplayPort-1 --mode "1352x1080_240.00" ; gamemoderun ; %command% -novid +fps_max 0; xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240

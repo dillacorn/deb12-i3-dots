@@ -1,7 +1,7 @@
 #######################################
 ######### dillacorn i3 config #########
 #######################################
-# https://github.com/dillacorn/i3-dots
+# https://github.com/dillacorn/deb12-i3-dots
 
 # disable_window_borders
 default_border pixel 1

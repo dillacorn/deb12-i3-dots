@@ -7,12 +7,12 @@
 # --------------------------------
 # Open a terminal and run:
 #   sudo apt install git -y
-#   git clone https://github.com/dillacorn/i3-dots
+#   git clone https://github.com/dillacorn/deb12-i3-dots
 
 # Step 2: Run the installer
 # -------------------------
-# Navigate to the i3-dots directory:
-#   cd i3-dots
+# Navigate to the deb12-i3-dots directory:
+#   cd deb12-i3-dots
 # Make the installer executable and run it:
 #   chmod +x setup_installer.sh
 #   sudo ./setup_installer.sh
@@ -102,24 +102,24 @@ echo -e "\033[1;34mUpdating package list and installing git...\033[0m"
 apt update
 apt install -y git
 
-# Clone the i3-dots repository into the home directory if it doesn't already exist
-if [ ! -d "$HOME_DIR/i3-dots" ]; then
-    echo -e "\033[1;34mCloning i3-dots repository...\033[0m"
-    git clone https://github.com/dillacorn/i3-dots "$HOME_DIR/i3-dots"
+# Clone the deb12-i3-dots repository into the home directory if it doesn't already exist
+if [ ! -d "$HOME_DIR/deb12-i3-dots" ]; then
+    echo -e "\033[1;34mCloning deb12-i3-dots repository...\033[0m"
+    git clone https://github.com/dillacorn/deb12-i3-dots "$HOME_DIR/deb12-i3-dots"
     if [ $? -ne 0 ]; then
-        echo -e "\033[1;31mFailed to clone the i3-dots repository. Exiting.\033[0m"
+        echo -e "\033[1;31mFailed to clone the deb12-i3-dots repository. Exiting.\033[0m"
         exit 1
     fi
-    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/i3-dots"
+    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/deb12-i3-dots"
 else
-    echo -e "\033[1;32mi3-dots repository already exists in $HOME_DIR\033[0m"
+    echo -e "\033[1;32mdeb12-i3-dots repository already exists in $HOME_DIR\033[0m"
 fi
 
-# Navigate to ~/i3-dots/scripts and make scripts executable
-echo -e "\033[1;34mMaking ~/i3-dots/scripts executable!\033[0m"
-cd "$HOME_DIR/i3-dots/scripts" || exit
+# Navigate to ~/deb12-i3-dots/scripts and make scripts executable
+echo -e "\033[1;34mMaking ~/deb12-i3-dots/scripts executable!\033[0m"
+cd "$HOME_DIR/deb12-i3-dots/scripts" || exit
 chmod +x *
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/i3-dots/scripts"
+chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/deb12-i3-dots/scripts"
 
 # Run install_my_i3_apps.sh and install_my_flatpaks.sh before proceeding
 echo -e "\033[1;34mRunning install_my_i3_apps.sh...\033[0m"
@@ -135,7 +135,7 @@ mkdir -p "$HOME_DIR/.local/share/applications"
 
 # Copy .desktop files into ~/.local/share/applications
 echo -e "\033[1;34mCopying .desktop files to ~/.local/share/applications...\033[0m"
-cp -r "$HOME_DIR/i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
+cp -r "$HOME_DIR/deb12-i3-dots/local/share/applications/." "$HOME_DIR/.local/share/applications"
 
 # Fix ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications
 echo -e "\033[1;34mSetting ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications...\033[0m"
@@ -165,7 +165,7 @@ fi
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
 mkdir -p /etc/X11/xinit
-cp "$HOME_DIR/i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
+cp "$HOME_DIR/deb12-i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
@@ -173,7 +173,7 @@ fi
 
 # Copy .Xresources file
 echo -e "\033[1;34mCopying .Xresources to $HOME_DIR...\033[0m"
-cp "$HOME_DIR/i3-dots/Xresources" "$HOME_DIR/.Xresources"
+cp "$HOME_DIR/deb12-i3-dots/Xresources" "$HOME_DIR/.Xresources"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy .Xresources. Exiting.\033[0m"
     exit 1
@@ -184,7 +184,7 @@ config_dirs=("alacritty" "dunst" "i3" "rofi" "mc" "gtk-3.0")
 
 for config in "${config_dirs[@]}"; do
     echo -e "\033[1;32mCopying $config config...\033[0m"
-    cp -r "$HOME_DIR/i3-dots/config/$config" "$HOME_DIR/.config"
+    cp -r "$HOME_DIR/deb12-i3-dots/config/$config" "$HOME_DIR/.config"
     if [ $? -ne 0 ]; then
         echo -e "\033[1;31mFailed to copy $config config. Exiting.\033[0m"
         exit 1
@@ -234,7 +234,7 @@ chmod 644 "$HOME_DIR/.gtkrc-2.0.mine"
 
 # Copy wallpaper to ~/Pictures/wallpapers directory
 echo -e "\033[1;94mCopying wallpaper...\033[0m"
-cp "$HOME_DIR/i3-dots/debianlogo_bw.png" "$HOME_DIR/Pictures/wallpapers/"
+cp "$HOME_DIR/deb12-i3-dots/debianlogo_bw.png" "$HOME_DIR/Pictures/wallpapers/"
 if [ $? -ne 0 ]; then
     echo -e "\033[1;31mFailed to copy wallpaper. Exiting.\033[0m"
     exit 1
@@ -254,8 +254,8 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
     if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
         echo "Running the Alacritty build and install script..."
         
-        chmod +x "$HOME_DIR/i3-dots/scripts/build+install_alacritty.sh"
-        "$HOME_DIR/i3-dots/scripts/build+install_alacritty.sh"
+        chmod +x "$HOME_DIR/deb12-i3-dots/scripts/build+install_alacritty.sh"
+        "$HOME_DIR/deb12-i3-dots/scripts/build+install_alacritty.sh"
         
         if [ $? -ne 0 ]; then
             echo "Failed to run build+install_alacritty.sh. Exiting."
