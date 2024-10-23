@@ -10,45 +10,6 @@ default_border pixel 1
 gaps inner 10
 gaps outer 10
 
-# mod keys
-set $mod1 Mod1
-set $mod4 Mod4
-
-# direction keys
-set $left h
-set $down j
-set $up k
-set $right l
-
-# terminal
-set $term x-terminal-emulator
-
-# lock screen
-set $lock i3lock --color 000000
-
-# files GUI
-set $files pcmanfm
-
-# webcam popup
-set $webcam mpv av://v4l1:/dev/video0 --profile=low-latency --untimed
-
-# mpv force idle
-set $mpv mpv --force-window idle
-
-# run app | rofi | run/drun
-set $run rofi -show run
-set $drun rofi -show drun
-
-# screenshot utilities
-set $screenshot1 exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
-set $screenshot2 flameshot gui
-
-# rotate alt/super config+reload script
-set $rotate ~/.config/i3/scripts/rotate_config_navigation.sh
-
-# theme change with rofi
-set $themes selected=$(ls ~/.config/i3/themes/ | rofi -dmenu -p "Select Theme") && bash ~/.config/i3/themes/$selected
-
 ####################
 ### input/output ###
 ####################
@@ -61,7 +22,7 @@ exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux 
 exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-2 1.4
 
 # shuffle and display random wallpaper
-exec_always feh --randomize --bg-fill ~/Pictures/wallpapers/*
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
 # virtual machine ~ for testing
 exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 60
@@ -77,13 +38,13 @@ exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock' -c 000000
 ### binds ###
 #############
 
-set $i3exit [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF
-bindsym mod1+ctrl+shift+p mode "$i3exit"
-mode "$i3exit" {
+# Lockscreen and window manager controls
+bindsym Mod1+ctrl+shift+p mode "[L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF"
+
+mode "[L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF" {
     bindsym l mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock
     bindsym o mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout
     bindsym s mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend
-    bindsym h mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate
     bindsym r mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot
     bindsym p mode "default", exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown
 
@@ -92,167 +53,180 @@ mode "$i3exit" {
 }
 
 # run app | rofi | run/drun
-bindsym $mod1+p exec $drun
-bindsym $mod1+shift+p exec $run
+bindsym $mod1+p exec rofi -show drun
+bindsym $mod1+shift+p exec rofi -show run
 
 # screenshot
-bindsym --release $mod4+shift+s exec $screenshot1
-bindsym $mod4+ctrl+shift+s exec $screenshot2
+bindsym --release Mod4+shift+s exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
+bindsym Mod4+ctrl+shift+s exec flameshot gui
+
+# select wallpapers
+bindsym Mod4+shift+w exec nitrogen
 
 # capture gif
-bindsym $mod4+shift+g exec --no-startup-id ~/.config/i3/scripts/gif.sh
+bindsym Mod4+shift+g exec --no-startup-id ~/.config/i3/scripts/gif.sh
 
-# start a terminal
-bindsym $mod1+shift+Return exec $term
+# camera popup with mpv
+bindsym Mod4+ctrl+shift+c exec --no-startup-id mpv av://v4l1:/dev/video0 --profile=low-latency --untimed
+
+# terminal
+bindsym Mod1+shift+Return exec x-terminal-emulator
 
 # kill focused window
-bindsym $mod1+shift+c kill
+bindsym Mod1+shift+c kill
 
-# i3lock | lock screen
-bindsym $mod4+ctrl+shift+l exec $lock
+# lock screen
+bindsym Mod1+ctrl+shift+l exec i3lock --color 000000
+bindsym Mod4+ctrl+shift+l exec i3lock --color 000000
 
-# open file GUI
-bindsym $mod4+e exec $files
+# file manager
+bindsym Mod4+e exec pcmanfm
 
-# when the modifier key is held, hold left click to move window, right click to resize them
-floating_modifier $mod1
+# btop
+bindsym Mod4+ctrl+shift+b exec x-terminal-emulator -e btop --tty_on
+
+# htop
+bindsym Mod4+ctrl+shift+h exec x-terminal-emulator -e htop
+
+# close dunst notification
+bindsym Mod4+space exec dunstctl close 
+
+# floating windows
+floating_modifier Mod1
 
 # reload i3 config
-bindsym $mod4+shift+q restart
+bindsym Mod4+shift+q restart
 
-# rotate alt/super config+reload script
-bindsym $mod4+shift+r exec $rotate
+# rotate mod script
+bindsym Mod4+shift+r exec ~/.config/i3/scripts/rotate_mod.sh
 
 # theme change with rofi
-bindsym $mod4+shift+t exec $themes
+bindsym Mod4+shift+t exec selected=$(ls ~/.config/i3/themes/ | rofi -dmenu -p "Select Theme") && bash ~/.config/i3/themes/$selected
 
-# change focused window
-bindsym $mod1+$left focus left
-bindsym $mod1+$down focus down
-bindsym $mod1+$up focus up
-bindsym $mod1+$right focus right
-# or use $mod1+[up|down|left|right]
-bindsym $mod1+Left focus left
-bindsym $mod1+Down focus down
-bindsym $mod1+Up focus up
-bindsym $mod1+Right focus right
+# focus window navigation
+bindsym Mod1+j focus left
+bindsym Mod1+h focus down
+bindsym Mod1+k focus up
+bindsym Mod1+l focus right
+# alternative with arrow keys
+bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+Right focus right
 
 # move focused window
-bindsym $mod1+shift+$left move left
-bindsym $mod1+shift+$down move down
-bindsym $mod1+shift+$up move up
-bindsym $mod1+shift+$right move right
+bindsym Mod1+shift+h move left
+bindsym Mod1+shift+j move down
+bindsym Mod1+shift+k move up
+bindsym Mod1+shift+l move right
 # alternative with arrow keys
-bindsym $mod1+shift+Left move left
-bindsym $mod1+shift+Down move down
-bindsym $mod1+shift+Up move up
-bindsym $mod1+shift+Right move right
+bindsym Mod1+shift+Left move left
+bindsym Mod1+shift+Down move down
+bindsym Mod1+shift+Up move up
+bindsym Mod1+shift+Right move right
 
 ###################
 ### workspaces: ###
 ###################
 
-# define names for workspaces with some nice symbols
-set $ws1 1 
-set $ws2 2 
-set $ws3 3 
-set $ws4 4 
-set $ws5 5 
-set $ws6 6 
-set $ws7 7 
-set $ws8 8 
-set $ws9 9 
-set $ws0 10 
+# Workspace switching
+bindsym Mod1+1 workspace --no-auto-back-and-forth "1:  "
+bindsym Mod1+2 exec --no-startup-id i3-msg workspace "2:  "
+bindsym Mod1+3 exec --no-startup-id i3-msg workspace "3:  "
+bindsym Mod1+4 exec --no-startup-id i3-msg workspace "4:  "
+bindsym Mod1+5 exec --no-startup-id i3-msg workspace "5:  "
+bindsym Mod1+6 exec --no-startup-id i3-msg workspace "6:  "
+bindsym Mod1+7 exec --no-startup-id i3-msg workspace "7:  "
+bindsym Mod1+8 exec --no-startup-id i3-msg workspace "8:  "
+bindsym Mod1+9 exec --no-startup-id i3-msg workspace "9:  "
+bindsym Mod1+0 exec --no-startup-id i3-msg workspace "10:  "
 
 # default workspaces for common programs
-assign [class="^Moonlight"] $ws1
-assign [class="^LibreWolf$"] $ws2
-assign [class="^Io.github.ungoogled_software.ungoogled_chromium$"] $ws2
-assign [class="^vesktop$"] $ws3
-assign [class="^steam$"] $ws4
-assign [class="^itch$"] $ws4
-assign [class="^Spotify$"] $ws5
-assign [class="^TelegramDesktop$"] $ws6
-assign [class="^TigerVNC Viewer"] $ws7
-assign [class="^teams-for-linux"] $ws8
-assign [class="^kdenlive"] $ws9
-assign [class="^Shotcut$"] $ws9
-assign [class="^krita$"] $ws9
-assign [class="^obs$"] $ws0
+assign [class="^Moonlight"] "1:  "
+assign [class="^LibreWolf$"] "2:  "
+assign [class="^Io.github.ungoogled_software.ungoogled_chromium$"] "2:  "
+assign [class="^vesktop$"] "3:  "
+assign [class="^steam$"] "4:  "
+assign [class="^itch$"] "4:  "
+assign [class="^Spotify$"] "5:  "
+assign [class="^TelegramDesktop$"] "6:  "
+assign [class="^chat-simplex-desktop-MainKt$"] "6:  "
+assign [class="^TigerVNC Viewer"] "7:  "
+assign [class="^teams-for-linux"] "8:  "
+assign [class="^kdenlive"] "9:  "
+assign [class="^Shotcut$"] "9:  "
+assign [class="^krita$"] "9:  "
+assign [class="^obs$"] "10:  "
+assign [class="^Gpu-screen-recorder-gtk$"] "10:  "
 
-# switch to tag
-bindsym $mod1+1 workspace $ws1
-bindsym $mod1+2 workspace $ws2
-bindsym $mod1+3 workspace $ws3
-bindsym $mod1+4 workspace $ws4
-bindsym $mod1+5 workspace $ws5
-bindsym $mod1+6 workspace $ws6
-bindsym $mod1+7 workspace $ws7
-bindsym $mod1+8 workspace $ws8
-bindsym $mod1+9 workspace $ws9
-bindsym $mod1+0 workspace $ws0
-# move focused window to tag
-bindsym $mod1+shift+1 move container to workspace number $ws1
-bindsym $mod1+shift+2 move container to workspace number $ws2
-bindsym $mod1+shift+3 move container to workspace number $ws3
-bindsym $mod1+shift+4 move container to workspace number $ws4
-bindsym $mod1+shift+5 move container to workspace number $ws5
-bindsym $mod1+shift+6 move container to workspace number $ws6
-bindsym $mod1+shift+7 move container to workspace number $ws7
-bindsym $mod1+shift+8 move container to workspace number $ws8
-bindsym $mod1+shift+9 move container to workspace number $ws9
-bindsym $mod1+shift+0 move container to workspace number $ws0
+# Move focused window to workspace
+bindsym Mod1+shift+1 move container to workspace "1:  "
+bindsym Mod1+shift+2 move container to workspace "2:  "
+bindsym Mod1+shift+3 move container to workspace "3:  "
+bindsym Mod1+shift+4 move container to workspace "4:  "
+bindsym Mod1+shift+5 move container to workspace "5:  "
+bindsym Mod1+shift+6 move container to workspace "6:  "
+bindsym Mod1+shift+7 move container to workspace "7:  "
+bindsym Mod1+shift+8 move container to workspace "8:  "
+bindsym Mod1+shift+9 move container to workspace "9:  "
+bindsym Mod1+shift+0 move container to workspace "10:  "
 
 # current window focus fullscreen
-bindsym $mod1+shift+f fullscreen
+bindsym Mod1+shift+f fullscreen
 
 # toggle focused window tiling and/or floating
-bindsym $mod1+f floating toggle
+bindsym Mod1+f floating toggle
 
 # toggle sticky window
-bindsym $mod1+y sticky toggle
+bindsym Mod1+y sticky toggle
 
 ###################
 ### scratchpads ###
 ###################
 
-bindsym $mod4+shift+x move scratchpad
-bindsym $mod4+x scratchpad show
+bindsym Mod4+shift+x move scratchpad
+bindsym Mod4+x scratchpad show
 
 ####################################
 ### focused resize / adjust gaps ###
 ####################################
 
 # resize windows:
-bindsym $mod1+ctrl+Right resize shrink width 100 px
-bindsym $mod1+ctrl+Up resize grow height 50 px
-bindsym $mod1+ctrl+Down resize shrink height 50 px
-bindsym $mod1+ctrl+Left resize grow width 100 px
+bindsym Mod1+ctrl+Right resize shrink width 100 px
+bindsym Mod1+ctrl+Up resize grow height 50 px
+bindsym Mod1+ctrl+Down resize shrink height 50 px
+bindsym Mod1+ctrl+Left resize grow width 100 px
 # same but vim keys
-bindsym $mod1+ctrl+l resize shrink width 100 px
-bindsym $mod1+ctrl+k resize grow height 50 px
-bindsym $mod1+ctrl+j resize shrink height 50 px
-bindsym $mod1+ctrl+h resize grow width 100 px
+bindsym Mod1+ctrl+l resize shrink width 100 px
+bindsym Mod1+ctrl+k resize grow height 50 px
+bindsym Mod1+ctrl+j resize shrink height 50 px
+bindsym Mod1+ctrl+h resize grow width 100 px
 
 # adjust inner gaps
-bindsym $mod1+ctrl+plus   gaps inner current plus 5
-bindsym $mod1+ctrl+minus  gaps inner current minus 5
+bindsym Mod1+ctrl+plus   gaps inner current plus 5
+bindsym Mod1+ctrl+minus  gaps inner current minus 5
 # adjust outer gaps
-bindsym $mod1+ctrl+shift+plus   gaps outer current plus 5
-bindsym $mod1+ctrl+shift+minus  gaps outer current minus 5 
+bindsym Mod1+ctrl+shift+plus   gaps outer current plus 5
+bindsym Mod1+ctrl+shift+minus  gaps outer current minus 5 
 
-################
-### controls ###
-################
+######################
+### media controls ###
+######################
 
 # media keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # brightness control
-bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 10%+"
-bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 10%-"
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+# media control: play/pause, next, previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
 
 ####################
 ### bar / themes ###

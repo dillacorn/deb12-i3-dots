@@ -6,7 +6,7 @@ at least I can watch youtube videos without ads
 
 # install
 ```sh
-flatpak install io.gitlab.librewolf-community
+sudo yay -S librewolf-bin
 ```
 
 open "Librewolf"
@@ -67,10 +67,10 @@ URL with %s in place of query
 **search engine**: `(option #2)` <- usually faster than disroot
 
 Name:
-`startpage`
+`brave`
 
 URL with %s in place of query
-`https://www.startpage.com/sp/search?q=%s`
+`https://search.brave.com/search?q=%s`
 
 # Test Browser Security
 https://browserleaks.com/webrtc

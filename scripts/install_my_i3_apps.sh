@@ -49,8 +49,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         scrot
         slop
         dunst
-        ueberzug
-        mc
         lxpolkit
         lxappearance
         micro

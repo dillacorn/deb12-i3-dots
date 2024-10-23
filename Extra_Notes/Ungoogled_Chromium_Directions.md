@@ -1,7 +1,6 @@
-Notes From Repo: https://github.com/dillacorn/deb12-i3-dots
+notes from repo: https://github.com/dillacorn/deb12-i3-dots
 
-For when FireFox isn't capable of the task.. or for just normal browsing with Manifest V3.. lame
-FireFox is still better.. Using Librewolf as my main browser
+For when FireFox/Librewolf isn't capable of the task.. or for compatibility reasons..
 
 # start here
 ```sh
@@ -15,30 +14,35 @@ open "Ungoogled Chromium"
 navigate to: `chrome://flags/`
 
 change these flags:
-* Handling of extension MIME type requests: `Always prompt for install` <- allows for **chrome-web-store** to be installed
-* Disable search engine collection: `Enabled`
-* Enable get*ClientRects() fingerprint deception: `Enabled`
-* Enable Canvas::measureText() fingerprint deception: `Enabled`
-* Enable Canvas image data fingerprint deception: `Enabled`
-* Anonymize local IPs exposed by WebRTC: `Enabled`
-* Preferred Ozone platform: `Wayland` <- If you're using **Wayland** session - **(Sway for example)**
+* [Handling of extension MIME type requests](chrome://flags/#extension-mime-request-handling): `Always prompt for install` <- allows for **chrome-web-store** to be installed
+* [Disable search engine collection](chrome://flags/#disable-search-engine-collection): `Enabled`
+* [Enable get*ClientRects() fingerprint deception](chrome://flags/#fingerprinting-client-rects-noise): `Enabled`
+* [Enable Canvas::measureText() fingerprint deception](chrome://flags/#fingerprinting-canvas-measuretext-noise): `Enabled`
+* [Enable Canvas image data fingerprint deception](chrome://flags/#fingerprinting-canvas-image-data-noise): `Enabled`
+* [Anonymize local IPs exposed by WebRTC](chrome://flags/#enable-webrtc-hide-local-ips-with-mdns): `Enabled`
+* [enable-webrtc-allow-input-volume-adjustment](chrome://flags/#enable-webrtc-allow-input-volume-adjustment): `Disabled` <- Browser adjusting mic volume randomly is so annoying
+* [Preferred Ozone platform](chrome://flags/#ozone-platform-hint): `X11`
 
 # chrome web store fix
 
-Make chrome web store work:
+make chrome web store work:
 
-Navigate to : [`https://github.com/NeverDecaf/chromium-web-store`](https://github.com/NeverDecaf/chromium-web-store)
+open Extensions Page: `chrome://extensions/`
 
-Open Extensions Page: `chrome://extensions/`
+enable `Developer mode` in the top right corner
 
-Drag and Drop from your file browser the `Chromium.Web.Store.crx` you downloaded with your prefered file browser. <- example browser for **Linux** = **pcmanfm or thunar**
+reboot Ungoogled Chromium
 
-Go install your extensions! -> [`https://chromewebstore.google.com/`](https://chromewebstore.google.com/)
+navigate to : [`https://github.com/NeverDecaf/chromium-web-store`](https://github.com/NeverDecaf/chromium-web-store)
+
+go to release page and click on `Chromium.Web.Store.crx` to install it
+
+go install your extensions! -> [`https://chromewebstore.google.com/`](https://chromewebstore.google.com/)
 
 # extensions
 
 [`Chrome Show Tab Numbers`](https://chromewebstore.google.com/detail/chrome-show-tab-numbers/pflnpcinjbcfefgbejjfanemlgcfjbna)
-[`uBlock Origin Lite`](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh)
+[`uBlock Origin`](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
 [`LocalCDN`](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
 [`ClearURLs`](https://chromewebstore.google.com/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 [`Privacy Badger`](https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
@@ -55,11 +59,11 @@ Go install your extensions! -> [`https://chromewebstore.google.com/`](https://ch
 [`Search by Image`](https://chromewebstore.google.com/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci)
 [`DownThemAll!`](https://chromewebstore.google.com/detail/downthemall/nljkibfhlpcnanjgbnlnbjecgicbjkge)
 [`FastForward`](https://chromewebstore.google.com/detail/fastforward/icallnadddjmdinamnolclfjanhfoafe)
-[`SponsorBlock for YouTube`](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
+[`SponsorBlock`](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
 
 # search engine
 
-**search engine**: `(option #1)` - normally slower than startpage
+**search engine**: `(option #1)` - normally slower than brave
 
 Name:
 `disroot`
@@ -70,10 +74,33 @@ URL with %s in place of query
 **search engine**: `(option #2)` <- usually faster than disroot
 
 Name:
-`startpage`
+`brave`
 
 URL with %s in place of query
-`https://www.startpage.com/sp/search?q=%s`
+`https://search.brave.com/search?q=%s`
 
-# Test Browser Security
+# custom dns server
+
+navigate to `Privacy and security` in settings
+
+enable `Use secure DNS`
+
+add custom configured dns server from personal provider ~ I pay for nextdns ($2 a month)
+### example dns server address
+
+DNS-over-HTTPS: `https://dns.nextdns.io\xxxxxxx`
+
+# test browser security
 https://browserleaks.com/webrtc
+
+# personal settings
+
+navigate to `appearance`
+
+enable `classic` theme
+
+choose mode `Dark`
+
+enable `Show home button` and add my personal `flame` domain running on my personal OpenMediaVault NAS.
+
+disable `Show bookmarks bar`

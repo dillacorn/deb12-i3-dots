@@ -9,6 +9,5 @@ Navigate to **"Settings"**
 Click **"Interface"**
 
 ### **Step #3:**
-**Uncheck these options**
+**Uncheck option**
 - Enable GPU accelerated rendering in web views (requires restart)
-- Enable hardware video decoding, if supported (requires restart)

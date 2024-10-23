@@ -7,7 +7,10 @@
 # invoke global X session script
 #. /etc/X11/Xsession
 
+xsetroot -cursor_name left_ptr
 xrdb -merge ~/.Xresources
+export XCURSOR_THEME="ComixCursors-White"
+export XCURSOR_SIZE=24 # Adjust the size if needed
 
 # Start D-Bus session and i3
 exec dbus-run-session -- i3
