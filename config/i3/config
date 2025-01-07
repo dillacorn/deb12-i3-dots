@@ -125,6 +125,12 @@ bindsym Mod1+shift+Down move down
 bindsym Mod1+shift+Up move up
 bindsym Mod1+shift+Right move right
 
+# Move workspace to a different monitor
+bindsym Mod1+Ctrl+Shift+Right move workspace to output right
+bindsym Mod1+Ctrl+Shift+Left move workspace to output left
+bindsym Mod1+Ctrl+Shift+Up move workspace to output up
+bindsym Mod1+Ctrl+Shift+Down move workspace to output down
+
 ###################
 ### workspaces: ###
 ###################
