@@ -94,6 +94,9 @@ Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script n
 - `mod+shift+1` to `mod+shift+9` = **Move Focused Window to Workspace**  
   - Moves the currently focused window to the specified workspace.
 
+- `Mod1+ctrl+shift+arrows` = **Move Focused Workspace to Adjacent Monitor**  
+  - Moves the currently focused workspace to an adjacent monitor.
+
 ---
 
 ## TTY Setup: Ditch the Display Manager
