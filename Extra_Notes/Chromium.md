@@ -1,13 +1,9 @@
 notes from repo: https://github.com/dillacorn/deb12-i3-dots
 
-For when FireFox/Librewolf isn't capable of the task.. or for compatibility reasons..
-
-# start here
+# install ungoogled-chromium from flathub
 ```sh
 flatpak install io.github.ungoogled_software.ungoogled_chromium
 ```
-
-open "Ungoogled Chromium"
 
 # flags
 
@@ -41,47 +37,57 @@ go install your extensions! -> [`https://chromewebstore.google.com/`](https://ch
 
 # extensions
 
-[`Chrome Show Tab Numbers`](https://chromewebstore.google.com/detail/chrome-show-tab-numbers/pflnpcinjbcfefgbejjfanemlgcfjbna)
+Privacy centric extensions:
 [`uBlock Origin`](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
 [`LocalCDN`](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
 [`ClearURLs`](https://chromewebstore.google.com/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
-[`Privacy Badger`](https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
+
+Must have Extra extensions:
+[`Chrome Show Tab Numbers`](https://chromewebstore.google.com/detail/chrome-show-tab-numbers/pflnpcinjbcfefgbejjfanemlgcfjbna)
+[`SponsorBlock`](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
+[`Disable YouTube Number Keyboard Shortcuts`](https://chromewebstore.google.com/detail/disable-youtube-number-ke/lajiknjoinemadijnpdnjjdmpmpigmge)
+[`Return YouTube Dislike`](https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi)
+[`Bitwarden Password Manager`](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb)
 [`ScrollAnywhere`](https://chromewebstore.google.com/detail/scrollanywhere/jehmdpemhgfgjblpkilmeoafmkhbckhi)
+
+Extra extensions I can live without:
 [`Dark Reader`](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
 [`Key Jump keyboard navigation`](https://chromewebstore.google.com/detail/key-jump-keyboard-navigat/afdjhbmagopjlalgcjfclkgobaafamck)
 [`Go Back With Backspace`](https://chromewebstore.google.com/detail/go-back-with-backspace/eekailopagacbcdloonjhbiecobagjci)
-[`Bitwarden Password Manager`](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb)
-[`Google Translate`](https://chromewebstore.google.com/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
-[`Honey`](https://chromewebstore.google.com/detail/honey-automatic-coupons-r/bmnlcjabgnpnenekpadlanbbkooimhnj)
-[`Enhancer for YouTube`](https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
-[`Return YouTube Dislike`](https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi)
+[`Simple Translate`](https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace)
 [`DeArrow - Better Titles and Thumbnails`](https://chromewebstore.google.com/detail/dearrow-better-titles-and/enamippconapkdmgfgjchkhakpfinmaj)
 [`Search by Image`](https://chromewebstore.google.com/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci)
 [`DownThemAll!`](https://chromewebstore.google.com/detail/downthemall/nljkibfhlpcnanjgbnlnbjecgicbjkge)
-[`FastForward`](https://chromewebstore.google.com/detail/fastforward/icallnadddjmdinamnolclfjanhfoafe)
-[`SponsorBlock`](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
+
+# theme
+
+[`Dark-10`](https://chromewebstore.google.com/detail/dark-10/baebencgofnhbdimnijacljeoegbokeh)
+[`Material Simple Dark Grey`](https://chromewebstore.google.com/detail/material-simple-dark-grey/ookepigabmicjpgfnmncjiplegcacdbm)
+
+# `picture in picture` video tip 
+- `Right-click` video `twice` and click `Picture in picture`
 
 # search engine
 
-**search engine**: `(option #1)` - normally slower than brave
+**search engines**: `(option #1)` - select a searx server (speed varies)
 
 Name:
-`disroot`
+`Searx`
 
-URL with %s in place of query
-`https://search.disroot.org/search?q=%s`
+Find a searx server
+`https://searx.space/`
 
-**search engine**: `(option #2)` <- usually faster than disroot
+**search engine**: `(option #2)` <- usually faster than searx
 
 Name:
-`brave`
+`Brave`
 
 URL with %s in place of query
 `https://search.brave.com/search?q=%s`
 
 # custom dns server
 
-navigate to `Privacy and security` in settings
+navigate to `Privacy and security` in settings ~ brave://settings/security
 
 enable `Use secure DNS`
 
@@ -95,12 +101,6 @@ https://browserleaks.com/webrtc
 
 # personal settings
 
-navigate to `appearance`
-
-enable `classic` theme
-
-choose mode `Dark`
-
-enable `Show home button` and add my personal `flame` domain running on my personal OpenMediaVault NAS.
+enable `Show home button` and add your preferred URL.. in my case "flame" and/or "hoarder" self hosted instance
 
 disable `Show bookmarks bar`
