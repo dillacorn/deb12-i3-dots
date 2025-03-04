@@ -43,6 +43,7 @@ flatpak_apps=(
   'io.github.ungoogled_software.ungoogled_chromium'       # Degoogled Chromium-based browser
   'com.rustdesk.RustDesk'                                 # Teamviewer replacement
   'dev.deedles.Trayscale'                                 # Tailscale GUI unofficial client ~ tailscale needs to be installed seperately
+  'com.github.wwmm.easyeffects'                           # Use https://github.com/werman/noise-suppression-for-voice for mic global noise suppression
 )
 
 # Check if Flatpak is installed; if not, install it via apt
