@@ -90,7 +90,7 @@ for dir in "${required_dirs[@]}"; do
     if [ ! -d "$dir" ]; then
         echo -e "\033[1;33mCreating missing directory: $dir\033[0m"
         mkdir -p "$dir"
-        chown $SUDO_USER:$SUDO_USER "$dir"
+        chown "$SUDO_USER:$SUDO_USER" "$dir"
     else
         echo -e "\033[1;32mDirectory already exists: $dir\033[0m"
     fi
@@ -104,26 +104,26 @@ apt install -y git
 # Clone the deb12-i3-dots repository into the home directory if it doesn't already exist
 if [ ! -d "$HOME_DIR/deb12-i3-dots" ]; then
     echo -e "\033[1;34mCloning deb12-i3-dots repository...\033[0m"
-    git clone https://github.com/dillacorn/deb12-i3-dots "$HOME_DIR/deb12-i3-dots"
-    if [ $? -ne 0 ]; then
+    if ! git clone https://github.com/dillacorn/deb12-i3-dots "$HOME_DIR/deb12-i3-dots"; then
         echo -e "\033[1;31mFailed to clone the deb12-i3-dots repository. Exiting.\033[0m"
         exit 1
     fi
-    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/deb12-i3-dots"
+    chown -R "$SUDO_USER:$SUDO_USER" "$HOME_DIR/deb12-i3-dots"
 else
     echo -e "\033[1;32mdeb12-i3-dots repository already exists in $HOME_DIR\033[0m"
 fi
 
 # Navigate to ~/deb12-i3-dots/scripts and make scripts executable
 echo -e "\033[1;34mMaking ~/deb12-i3-dots/scripts executable!\033[0m"
-cd "$HOME_DIR/deb12-i3-dots/scripts" || exit
-chmod +x *
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/deb12-i3-dots/scripts"
+cd "$HOME_DIR/deb12-i3-dots/scripts" || exit 1
+chmod +x ./*
+chown -R "$SUDO_USER:$SUDO_USER" "$HOME_DIR/deb12-i3-dots/scripts"
 
 # Run install_my_i3_apps.sh and install_my_flatpaks.sh before proceeding
 echo -e "\033[1;34mRunning install_my_i3_apps.sh...\033[0m"
-./install_my_i3_apps.sh
-if [ $? -ne 0 ]; then
+if ./install_my_i3_apps.sh; then
+    echo -e "\033[1;32minstall_my_i3_apps.sh completed successfully.\033[0m"
+else
     echo -e "\033[1;31minstall_my_i3_apps.sh failed. Exiting.\033[0m"
     exit 1
 fi
@@ -138,7 +138,7 @@ cp -r "$HOME_DIR/deb12-i3-dots/local/share/applications/." "$HOME_DIR/.local/sha
 
 # Fix ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications
 echo -e "\033[1;34mSetting ownership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications...\033[0m"
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.local"
+chown -R "$SUDO_USER:$SUDO_USER" "$HOME_DIR/.local"
 chmod -R u+rwX "$HOME_DIR/.local"
 
 # Ensure ~/.local and ~/.local/share have correct permissions (including for Xorg)
@@ -148,32 +148,35 @@ chmod u+rwx "$HOME_DIR/.local/share"
 echo -e "\033[1;32mOwnership and permissions for ~/.local, ~/.local/share, and ~/.local/share/applications set correctly.\033[0m"
 
 echo -e "\033[1;34mRunning install_my_flatpaks.sh...\033[0m"
-./install_my_flatpaks.sh
-if [ $? -ne 0 ]; then
+if ./install_my_flatpaks.sh; then
+    echo -e "\033[1;32minstall_my_flatpaks.sh completed successfully.\033[0m"
+else
     echo -e "\033[1;31minstall_my_flatpaks.sh failed. Exiting.\033[0m"
     exit 1
 fi
 
 echo -e "\033[1;34mRunning install_micro_themes.sh...\033[0m"
-./install_micro_themes.sh
-if [ $? -ne 0 ]; then
+if ./install_micro_themes.sh; then
+    echo -e "\033[1;32minstall_micro_themes.sh completed successfully.\033[0m"
+else
     echo -e "\033[1;31minstall_micro_themes.sh failed. Exiting.\033[0m"
     exit 1
 fi
 
 # Copy X11 configuration
 echo -e "\033[1;34mCopying X11 config...\033[0m"
-mkdir -p /etc/X11/xinit
-cp "$HOME_DIR/deb12-i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/
-if [ $? -ne 0 ]; then
+if mkdir -p /etc/X11/xinit && cp "$HOME_DIR/deb12-i3-dots/etc/X11/xinit/xinitrc" /etc/X11/xinit/; then
+    echo -e "\033[1;32mSuccessfully copied xinitrc.\033[0m"
+else
     echo -e "\033[1;31mFailed to copy xinitrc. Exiting.\033[0m"
     exit 1
 fi
 
 # Copy .Xresources file
 echo -e "\033[1;34mCopying .Xresources to $HOME_DIR...\033[0m"
-cp "$HOME_DIR/deb12-i3-dots/Xresources" "$HOME_DIR/.Xresources"
-if [ $? -ne 0 ]; then
+if cp "$HOME_DIR/deb12-i3-dots/Xresources" "$HOME_DIR/.Xresources"; then
+    echo -e "\033[1;32mSuccessfully copied .Xresources.\033[0m"
+else
     echo -e "\033[1;31mFailed to copy .Xresources. Exiting.\033[0m"
     exit 1
 fi
@@ -181,14 +184,20 @@ fi
 # Copy other configuration files
 config_dirs=("alacritty" "dunst" "i3" "rofi" "gtk-3.0")
 
+# Loop through each config directory
 for config in "${config_dirs[@]}"; do
     echo -e "\033[1;32mCopying $config config...\033[0m"
-    cp -r "$HOME_DIR/deb12-i3-dots/config/$config" "$HOME_DIR/.config"
-    if [ $? -ne 0 ]; then
+    
+    # Attempt to copy the config directory
+    if cp -r "$HOME_DIR/deb12-i3-dots/config/$config" "$HOME_DIR/.config"; then
+        echo -e "\033[1;32mSuccessfully copied $config config.\033[0m"
+    else
         echo -e "\033[1;31mFailed to copy $config config. Exiting.\033[0m"
         exit 1
     fi
-    chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.config/$config"
+    
+    # Change ownership of the copied config directory
+    chown -R "$SUDO_USER:$SUDO_USER" "$HOME_DIR/.config/$config"
 done
 
 # Set permissions for .config
@@ -220,25 +229,24 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 
 # Change ownership of all files in .config to the sudo user
 echo -e "\033[1;32mConverting .config file ownership...\033[0m"
-chown -R $SUDO_USER:$SUDO_USER "$HOME_DIR/.config"
+chown -R "$SUDO_USER:$SUDO_USER" "$HOME_DIR/.config"
 
 # Add GTK2 theme and icon settings
-echo 'include "'$HOME_DIR'/.gtkrc-2.0.mine"' > "$HOME_DIR/.gtkrc-2.0"
-chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.gtkrc-2.0"
+echo "include \"$HOME_DIR/.gtkrc-2.0.mine\"" > "$HOME_DIR/.gtkrc-2.0"
+chown "$SUDO_USER:$SUDO_USER" "$HOME_DIR/.gtkrc-2.0"
 chmod 644 "$HOME_DIR/.gtkrc-2.0"
 
 echo -e 'gtk-theme-name="Materia-dark"\ngtk-icon-theme-name="Papirus-Dark"' > "$HOME_DIR/.gtkrc-2.0.mine"
-chown $SUDO_USER:$SUDO_USER "$HOME_DIR/.gtkrc-2.0.mine"
+chown "$SUDO_USER:$SUDO_USER" "$HOME_DIR/.gtkrc-2.0.mine"
 chmod 644 "$HOME_DIR/.gtkrc-2.0.mine"
 
 # Copy wallpaper to ~/Pictures/wallpapers directory
 echo -e "\033[1;94mCopying wallpaper...\033[0m"
-cp "$HOME_DIR/deb12-i3-dots/debianlogo_bw.png" "$HOME_DIR/Pictures/wallpapers/"
-if [ $? -ne 0 ]; then
+if ! cp "$HOME_DIR/deb12-i3-dots/debianlogo_bw.png" "$HOME_DIR/Pictures/wallpapers/"; then
     echo -e "\033[1;31mFailed to copy wallpaper. Exiting.\033[0m"
     exit 1
 fi
-chown $SUDO_USER:$SUDO_USER "$HOME_DIR/Pictures/wallpapers/debianlogo_bw.png"
+chown "$SUDO_USER:$SUDO_USER" "$HOME_DIR/Pictures/wallpapers/debianlogo_bw.png"
 
 # Ask the user if they want to run the build+install_alacritty.sh script
 echo -e "\033[1;96mDo you want to build and install Alacritty from source? (y/n)\033[0m"
@@ -254,9 +262,8 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
         echo "Running the Alacritty build and install script..."
         
         chmod +x "$HOME_DIR/deb12-i3-dots/scripts/build+install_alacritty.sh"
-        "$HOME_DIR/deb12-i3-dots/scripts/build+install_alacritty.sh"
         
-        if [ $? -ne 0 ]; then
+        if ! "$HOME_DIR/deb12-i3-dots/scripts/build+install_alacritty.sh"; then
             echo "Failed to run build+install_alacritty.sh. Exiting."
             exit 1
         else
@@ -277,21 +284,21 @@ BASH_PROFILE="/home/$SUDO_USER/.bash_profile"
 if [ ! -f "$BASH_PROFILE" ]; then
     echo "Creating $BASH_PROFILE..."
     touch "$BASH_PROFILE"
-    chown $SUDO_USER:$SUDO_USER "$BASH_PROFILE"
+    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
 fi
 
 # Add figlet Welcome message using the default font
 if ! grep -q "figlet" "$BASH_PROFILE"; then
     echo "Adding figlet welcome to $BASH_PROFILE..."
     echo -e "\nfiglet \"Welcome \$USER!\"" >> "$BASH_PROFILE"
-    chown $SUDO_USER:$SUDO_USER "$BASH_PROFILE"
+    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
 fi
 
 # Add i3-wm instruction
 if ! grep -q "To start i3-wm" "$BASH_PROFILE"; then
     echo "Adding i3-wm instruction to $BASH_PROFILE..."
     echo -e "echo -e \"\\033[1;34mTo start i3-wm, type: \\033[1;31mstartx\\033[0m\"" >> "$BASH_PROFILE"
-    chown $SUDO_USER:$SUDO_USER "$BASH_PROFILE"
+    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
 fi
 
 # Add random fun message generator to .bash_profile
@@ -299,18 +306,22 @@ if ! grep -q "add_random_fun_message" "$BASH_PROFILE"; then
     echo "Adding random fun message function to $BASH_PROFILE..."
 
     # Append the function definition to .bash_profile
-    echo -e "\n# Function to generate a random fun message" >> "$BASH_PROFILE"
-    echo -e "add_random_fun_message() {" >> "$BASH_PROFILE"
-    echo -e "  fun_messages=(\"cacafire\" \"cmatrix\" \"aafire\" \"sl\" \"asciiquarium\" \"figlet TTY is cool\")" >> "$BASH_PROFILE"
-    echo -e "  RANDOM_FUN_MESSAGE=\${fun_messages[\$RANDOM % \${#fun_messages[@]}]}" >> "$BASH_PROFILE"
-    echo -e "  echo -e \"\\033[1;33mFor some fun, try running \\033[1;31m\$RANDOM_FUN_MESSAGE\\033[1;33m !\\033[0m\"" >> "$BASH_PROFILE"
-    echo -e "}" >> "$BASH_PROFILE"
+    {
+        echo -e "\n# Function to generate a random fun message"
+        echo -e "add_random_fun_message() {"
+        echo -e "  fun_messages=(\"cacafire\" \"cmatrix\" \"aafire\" \"sl\" \"asciiquarium\" \"figlet TTY is cool\")"
+        echo -e "  RANDOM_FUN_MESSAGE=\${fun_messages[\$RANDOM % \${#fun_messages[@]}]}"
+        echo -e "  echo -e \"\\033[1;33mFor some fun, try running \\033[1;31m\$RANDOM_FUN_MESSAGE\\033[1;33m !\\033[0m\""
+        echo -e "}"
+    } >> "$BASH_PROFILE"
 
     # Append the function call to .bash_profile so it runs on every login
-    echo -e "\n# Call the random fun message function on login" >> "$BASH_PROFILE"
-    echo -e "add_random_fun_message" >> "$BASH_PROFILE"
+    {
+        echo -e "\n# Call the random fun message function on login"
+        echo -e "add_random_fun_message"
+    } >> "$BASH_PROFILE"
 
-    chown $SUDO_USER:$SUDO_USER "$BASH_PROFILE"
+    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
 fi
 
 echo "Changes have been applied to $BASH_PROFILE."
