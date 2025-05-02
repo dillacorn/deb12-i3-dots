@@ -1,6 +1,9 @@
-# `dilla.i3`
+# `deb12 dilla.i3.files`
 - **Preview Images**: [View Here](https://github.com/dillacorn/deb12-i3-dots/tree/main/preview_pictures/preview_page.md)
 - **Distro**: [Debian 12](https://www.debian.org/releases/stable/)
+- **File System**: ext4 (preferred)
+- **Flatpak**: [flathub](https://flathub.org/)
+- **Bootloader**: [grub2](https://github.com/rhboot/grub2)
 - **X11**: [i3-wm](https://github.com/i3/i3)
 - **Kernel**: [linux-tkg](https://github.com/Frogging-Family/linux-tkg)
   - [Install linux-tkg on Debian](https://github.com/Frogging-Family/linux-tkg?tab=readme-ov-file#deb-debian-ubuntu-and-derivatives-and-rpm-fedora-suse-and-derivatives-based-distributions)
@@ -15,6 +18,7 @@ My keybinds (see [i3 config](https://github.com/dillacorn/deb12-i3-dots/blob/mai
 ## Wallpapers
 - [Gruvbox Wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers) by [AngelJumbo](https://github.com/AngelJumbo)
 - [Aesthetic Wallpapers](https://github.com/D3Ext/aesthetic-wallpapers) by [D3Ext](https://github.com/D3Ext)
+- [Wallpapers](https://github.com/michaelScopic/Wallpapers) by [michaelScopic](https://github.com/michaelScopic)
 
 ---
 
