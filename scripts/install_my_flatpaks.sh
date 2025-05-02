@@ -52,6 +52,10 @@ if ! command -v flatpak &> /dev/null; then
   sudo apt update && sudo apt install -y flatpak
 fi
 
+# Add Flathub repository if not already present
+echo -e "${GREEN}Adding Flathub repository...${RESET}"
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 # Prompt the user to proceed with installation
 echo -e "${CYAN_B}Would you like to install Dillacorn's chosen Flatpak applications? (y/n)${RESET}"
 read -n 1 -r REPLY
@@ -60,10 +64,6 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
   echo -e "${YELLOW}Flatpak setup and install canceled by the user...${RESET}"
   exit 0
 fi
-
-# Add Flathub repository if not already present
-echo -e "${GREEN}Adding Flathub repository...${RESET}"
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Update currently installed Flatpak apps
 echo -e "${GREEN}Updating installed Flatpak apps...${RESET}"
