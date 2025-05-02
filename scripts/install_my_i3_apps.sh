@@ -99,6 +99,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         bridge-utils
         qemu-guest-agent
         dnsmasq
+        systemd-resolved
         ebtables
 EOF
     )
