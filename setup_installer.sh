@@ -39,7 +39,6 @@ fi
 echo -e "\033[1;31mWARNING: This script will overwrite the following directories:\033[0m"
 echo -e "\033[1;33m
 - ~/.config/i3
-- ~/.config/mc
 - ~/.config/alacritty
 - ~/.config/rofi
 - ~/.config/dunst
@@ -180,7 +179,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Copy other configuration files
-config_dirs=("alacritty" "dunst" "i3" "rofi" "mc" "gtk-3.0")
+config_dirs=("alacritty" "dunst" "i3" "rofi" "gtk-3.0")
 
 for config in "${config_dirs[@]}"; do
     echo -e "\033[1;32mCopying $config config...\033[0m"
