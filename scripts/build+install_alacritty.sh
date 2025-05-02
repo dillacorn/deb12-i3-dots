@@ -33,6 +33,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Source the Rust environment to ensure we can run rustup and cargo
 echo "Sourcing Rust environment..."
+# shellcheck source=/dev/null
 source "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin:$PATH"
 
