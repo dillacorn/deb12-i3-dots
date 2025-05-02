@@ -111,6 +111,7 @@ EOF
     systemctl enable --now systemd-resolved
     ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
     systemctl restart systemd-resolved
+
 else
     echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian 12 applications.${NC}"
     exit 0
