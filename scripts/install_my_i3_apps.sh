@@ -77,7 +77,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         okular
         tigervnc-viewer
         timeshift
-        virt-manager
         otpclient
         otpclient-cli
         wireguard
@@ -100,6 +99,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         dnsmasq
         bridge-utils
         ebtables
+        virt-manager
         qemu-guest-agent
 EOF
     )
