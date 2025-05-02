@@ -94,7 +94,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         pulseaudio-utils
         pipewire-pulse
         bluetooth
-        resolvconf
         systemd-resolved
         dnsmasq
         bridge-utils
