@@ -95,7 +95,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         pulseaudio-utils
         pipewire-pulse
         bluetooth
-        qemu-guest-agent
         resolvconf
         systemd-resolved
         dnsmasq
