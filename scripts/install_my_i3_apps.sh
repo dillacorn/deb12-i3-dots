@@ -105,6 +105,12 @@ EOF
     
     # Print success message after installation
     echo -e "\n${GREEN}Successfully installed all of Dillacorn's Debian 12 chosen applications!${NC}"
+
+    # Fix /etc/resolv.conf to use systemd-resolved stub resolver
+    echo -e "${CYAN}Configuring systemd-resolved DNS stub...${NC}"
+    systemctl enable --now systemd-resolved
+    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+    systemctl restart systemd-resolved
 else
     echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian 12 applications.${NC}"
     exit 0
