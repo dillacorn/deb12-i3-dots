@@ -22,7 +22,7 @@ test $? -eq 0 || { echo -e "${RED}You should have sudo privileges to run this sc
 echo -e "\n${CYAN}Do you want to install Dillacorn's chosen Debian 12 applications? [y/n]${NC}"
 
 # Read a single character without requiring the Enter key
-read -r -n1 choice
+read -r -n1 -s choice
 
 # Check user input
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
