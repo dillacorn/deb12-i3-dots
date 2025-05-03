@@ -298,14 +298,6 @@ if ! grep -q "neofetch" "$BASH_PROFILE"; then
     chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
-# Add figlet Welcome message using the default font
-if ! grep -q "figlet" "$BASH_PROFILE"; then
-    echo "Adding figlet welcome to $BASH_PROFILE..."
-    echo -e "\nfiglet \"Welcome \$USER!\"" >> "$BASH_PROFILE"
-    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
-    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
-fi
-
 # Add i3-wm instruction
 if ! grep -q "To start i3-wm" "$BASH_PROFILE"; then
     echo "Adding i3-wm instruction to $BASH_PROFILE..."
