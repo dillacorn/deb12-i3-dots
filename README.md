@@ -50,7 +50,7 @@ Here are some of my custom keybinds from the i3 configuration:
   - Takes a screenshot using Maim.
   - `date_time.jpg` saved in `~/Pictures/screenshots` directory.
 
-- `mod4+ctrl+shift+s` = **Flameshot screenshot**  
+- `mod4+shift+f` = **Flameshot screenshot**  
   - Takes a screenshot using Flameshot with more customization options.
   - `date_time.png` normally saved in `~/Pictures/screenshots` directory.
 
