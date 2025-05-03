@@ -42,6 +42,8 @@ echo -e "\033[1;33m
 - ~/.config/alacritty
 - ~/.config/rofi
 - ~/.config/dunst
+- ~/.config/flameshot
+- ~/.config/neofetch
 - ~/.config/gtk-3.0
 - ~/.gtk-2.0
 - /etc/X11/xinit/xinitrc
@@ -183,7 +185,7 @@ else
 fi
 
 # Copy other configuration files
-config_dirs=("alacritty" "dunst" "i3" "rofi" "gtk-3.0")
+config_dirs=("alacritty" "dunst" "flameshot" "neofetch" "i3" "rofi" "gtk-3.0")
 
 # Loop through each config directory
 for config in "${config_dirs[@]}"; do
@@ -289,10 +291,10 @@ if [ ! -f "$BASH_PROFILE" ]; then
     chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
-# Add fastfetch to bash_profile if it doesn't exist already
-if ! grep -q "fastfetch" "$BASH_PROFILE"; then
-    echo "Adding fastfetch to $BASH_PROFILE..."
-    echo -e "\nfastfetch --config ~/.config/fastfetch/tty_compatible.jsonc" >> "$BASH_PROFILE"
+# Add neofetch to bash_profile if it doesn't exist already
+if ! grep -q "neofetch" "$BASH_PROFILE"; then
+    echo "Adding neofetch to $BASH_PROFILE..."
+    echo -e "\nneofetch --config ~/.config/neofetch/tty_compatible.jsonc" >> "$BASH_PROFILE"
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
     chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
