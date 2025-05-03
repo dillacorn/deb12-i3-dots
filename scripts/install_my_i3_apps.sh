@@ -46,7 +46,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         i3lock
         feh
         rofi
-        maim
+        scrot
         slop
         dunst
         nitrogen
