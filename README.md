@@ -52,7 +52,7 @@ Here are some of my custom keybinds from the i3 configuration:
 
 - `mod4+ctrl+shift+s` = **Flameshot screenshot**  
   - Takes a screenshot using Flameshot with more customization options.
-  - `date_time.png` normally saved in `~/Pictures` directory.
+  - `date_time.png` normally saved in `~/Pictures/screenshots` directory.
 
 ---
 
