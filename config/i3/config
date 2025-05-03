@@ -58,13 +58,13 @@ bindsym Mod1+shift+p exec rofi -show run
 
 # screenshots
 bindsym --release Mod4+shift+s exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
-bindsym Mod4+ctrl+shift+s exec flameshot gui
+bindsym Mod4+shift+f exec flameshot gui
 
 # select wallpapers
 bindsym Mod4+shift+w exec nitrogen
 
 # capture gif
-bindsym Mod4+shift+g exec peek
+bindsym Mod4+shift+g exec peek --no-startup-d ~/.config/i3/scripts/gif.sh
 
 # camera popup with mpv
 bindsym Mod4+ctrl+shift+c exec --no-startup-id mpv av://v4l1:/dev/video0 --profile=low-latency --untimed

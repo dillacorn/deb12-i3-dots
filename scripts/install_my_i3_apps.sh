@@ -49,6 +49,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         maim
         slop
         dunst
+        nitrogen
         lxpolkit
         lxappearance
         micro
