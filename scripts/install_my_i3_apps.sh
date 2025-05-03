@@ -54,7 +54,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         micro
         neofetch
         network-manager-gnome
-        solaar
         blueman
         arandr
         pavucontrol
