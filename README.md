@@ -60,7 +60,7 @@ Here are some of my custom keybinds from the i3 configuration:
 
 Here are more example keybinds from my i3 config:
 
-Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [script navigation rotation](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh)
+Let me preface `"mod"` can equal `"mod1"` and/or `"mod4"` depending on [rotate mod script](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_mod.sh)
 
 - `mod+shift+enter` = **Open Terminal**
   - Launches the terminal (default: Alacritty).
