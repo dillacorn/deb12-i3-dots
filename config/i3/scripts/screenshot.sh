@@ -1,12 +1,17 @@
 #!/bin/bash
 
-# Capture screenshot with maim, save it, and copy to clipboard
+# Define the filename with timestamp
 FILENAME="$HOME/Pictures/$(date +'%Y-%m-%d_%H-%M-%S').png"
-maim -s --format=png /dev/stdout | tee "$FILENAME" | xclip -selection clipboard -t image/png -i
 
-# Check if the screenshot was successfully saved and copied
+# Take a screenshot of a selected region and save it
+scrot -s "$FILENAME"
+
+# Copy the image to the clipboard
+xclip -selection clipboard -t image/png -i < "$FILENAME"
+
+# Notify the user
 if [[ -f "$FILENAME" ]]; then
-    notify-send "Screenshot" "Screenshot saved and copied to clipboard: $FILENAME"
+    notify-send "Screenshot" "Saved and copied to clipboard:\n$FILENAME"
 else
-    notify-send "Screenshot" "Failed to take the screenshot."
+    notify-send "Screenshot" "Failed to take screenshot."
 fi
