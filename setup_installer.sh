@@ -43,7 +43,6 @@ echo -e "\033[1;33m
 - ~/.config/rofi
 - ~/.config/dunst
 - ~/.config/flameshot
-- ~/.config/neofetch
 - ~/.config/gtk-3.0
 - ~/.gtk-2.0
 - /etc/X11/xinit/xinitrc
@@ -185,7 +184,7 @@ else
 fi
 
 # Copy other configuration files
-config_dirs=("alacritty" "dunst" "flameshot" "neofetch" "i3" "rofi" "gtk-3.0")
+config_dirs=("alacritty" "dunst" "flameshot" "i3" "rofi" "gtk-3.0")
 
 # Loop through each config directory
 for config in "${config_dirs[@]}"; do
@@ -294,7 +293,7 @@ fi
 # Add neofetch to bash_profile if it doesn't exist already
 if ! grep -q "neofetch" "$BASH_PROFILE"; then
     echo "Adding neofetch to $BASH_PROFILE..."
-    echo -e "\nneofetch --config ~/.config/neofetch/tty_compatible.jsonc" >> "$BASH_PROFILE"
+    echo -e "\nneofetch" >> "$BASH_PROFILE"
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
     chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
