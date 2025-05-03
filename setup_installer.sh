@@ -286,6 +286,15 @@ if [ ! -f "$BASH_PROFILE" ]; then
     echo "Creating $BASH_PROFILE..."
     touch "$BASH_PROFILE"
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
+    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
+fi
+
+# Add fastfetch to bash_profile if it doesn't exist already
+if ! grep -q "fastfetch" "$BASH_PROFILE"; then
+    echo "Adding fastfetch to $BASH_PROFILE..."
+    echo -e "\nfastfetch --config ~/.config/fastfetch/tty_compatible.jsonc" >> "$BASH_PROFILE"
+    chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
+    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
 # Add figlet Welcome message using the default font
@@ -293,6 +302,7 @@ if ! grep -q "figlet" "$BASH_PROFILE"; then
     echo "Adding figlet welcome to $BASH_PROFILE..."
     echo -e "\nfiglet \"Welcome \$USER!\"" >> "$BASH_PROFILE"
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
+    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
 # Add i3-wm instruction
@@ -300,6 +310,7 @@ if ! grep -q "To start i3-wm" "$BASH_PROFILE"; then
     echo "Adding i3-wm instruction to $BASH_PROFILE..."
     echo -e "echo -e \"\\033[1;34mTo start i3-wm, type: \\033[1;31mstartx\\033[0m\"" >> "$BASH_PROFILE"
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
+    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
 # Add random fun message generator to .bash_profile
@@ -307,22 +318,19 @@ if ! grep -q "add_random_fun_message" "$BASH_PROFILE"; then
     echo "Adding random fun message function to $BASH_PROFILE..."
 
     # Append the function definition to .bash_profile
-    {
-        echo -e "\n# Function to generate a random fun message"
-        echo -e "add_random_fun_message() {"
-        echo -e "  fun_messages=(\"cacafire\" \"cmatrix\" \"aafire\" \"sl\" \"asciiquarium\" \"figlet TTY is cool\")"
-        echo -e "  RANDOM_FUN_MESSAGE=\${fun_messages[\$RANDOM % \${#fun_messages[@]}]}"
-        echo -e "  echo -e \"\\033[1;33mFor some fun, try running \\033[1;31m\$RANDOM_FUN_MESSAGE\\033[1;33m !\\033[0m\""
-        echo -e "}"
-    } >> "$BASH_PROFILE"
+    echo -e "\n# Function to generate a random fun message"
+    echo -e "add_random_fun_message() {"
+    echo -e "  fun_messages=(\"cacafire\" \"cmatrix\" \"aafire\" \"sl\" \"asciiquarium\" \"figlet TTY is cool\")"
+    echo -e "  RANDOM_FUN_MESSAGE=\${fun_messages[\$RANDOM % \${#fun_messages[@]}]}"
+    echo -e "  echo -e \"\\033[1;33mFor some fun, try running \\033[1;31m\$RANDOM_FUN_MESSAGE\\033[1;33m !\\033[0m\""
+    echo -e "}"
 
     # Append the function call to .bash_profile so it runs on every login
-    {
-        echo -e "\n# Call the random fun message function on login"
-        echo -e "add_random_fun_message"
-    } >> "$BASH_PROFILE"
+    echo -e "\n# Call the random fun message function on login" >> "$BASH_PROFILE"
+    echo -e "add_random_fun_message" >> "$BASH_PROFILE"
 
     chown "$SUDO_USER:$SUDO_USER" "$BASH_PROFILE"
+    chmod 644 "$BASH_PROFILE"  # Ensure the file is readable and writable
 fi
 
 echo "Changes have been applied to $BASH_PROFILE."
