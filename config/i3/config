@@ -17,9 +17,9 @@ gaps outer 10
 # custom res and configuration script
 exec --no-startup-id ~/.config/i3/scripts/custom_res.sh
 
-# persistant digital vibrance command
-exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-1 1.4
-exec_always flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-2 1.4
+# persistent digital vibrance command
+exec_always --no-startup-id vibrant-cli DisplayPort-1 1.4
+exec_always --no-startup-id vibrant-cli DisplayPort-2 1.4
 
 # shuffle and display random wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/*
@@ -32,7 +32,7 @@ exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080 --rate 60
 ### idle config ###
 ###################
 
-exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock' -c 000000' &
+exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock' -c 000000 &
 
 #############
 ### binds ###
@@ -52,25 +52,25 @@ mode "[L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       
     bindsym Escape mode "default"
 }
 
-# run app | rofi | run/drun
-bindsym $mod1+p exec rofi -show drun
-bindsym $mod1+shift+p exec rofi -show run
+# rofi launcher
+bindsym Mod1+p exec rofi -show drun
+bindsym Mod1+shift+p exec rofi -show run
 
-# screenshot
-bindsym --release Mod4+shift+s exec scrot -s '%Y-%m-%d_%H:%M:%S.jpg' -e 'mv $f ~/Pictures'
+# screenshots
+bindsym --release Mod4+shift+s exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
 bindsym Mod4+ctrl+shift+s exec flameshot gui
 
 # select wallpapers
 bindsym Mod4+shift+w exec nitrogen
 
 # capture gif
-bindsym Mod4+shift+g exec --no-startup-id ~/.config/i3/scripts/gif.sh
+bindsym Mod4+shift+g exec peek
 
 # camera popup with mpv
 bindsym Mod4+ctrl+shift+c exec --no-startup-id mpv av://v4l1:/dev/video0 --profile=low-latency --untimed
 
 # terminal
-bindsym Mod1+shift+Return exec x-terminal-emulator
+bindsym Mod1+shift+Return exec alacritty
 
 # kill focused window
 bindsym Mod1+shift+c kill
@@ -82,11 +82,14 @@ bindsym Mod4+ctrl+shift+l exec i3lock --color 000000
 # file manager
 bindsym Mod4+e exec pcmanfm
 
+# pavucontrol-dark
+bindsym Mod4+v exec --no-startup-id env GTK_THEME=Materia-dark pavucontrol
+
 # btop
-bindsym Mod4+ctrl+shift+b exec x-terminal-emulator -e btop --tty_on
+bindsym Mod4+ctrl+shift+b exec alacritty -e btop --tty_on
 
 # htop
-bindsym Mod4+ctrl+shift+h exec x-terminal-emulator -e htop
+bindsym Mod4+ctrl+shift+h exec alacritty -e htop
 
 # close dunst notification
 bindsym Mod4+space exec dunstctl close 
@@ -125,7 +128,7 @@ bindsym Mod1+shift+Down move down
 bindsym Mod1+shift+Up move up
 bindsym Mod1+shift+Right move right
 
-# move workspace to a different monitor
+# move focused workspace to a different monitor
 bindsym Mod1+Ctrl+Shift+Right move workspace to output right
 bindsym Mod1+Ctrl+Shift+Left move workspace to output left
 bindsym Mod1+Ctrl+Shift+Up move workspace to output up
@@ -148,16 +151,16 @@ bindsym Mod1+9 exec --no-startup-id i3-msg workspace "9:  "
 bindsym Mod1+0 exec --no-startup-id i3-msg workspace "10:  "
 
 # default workspaces for common programs
-assign [class="^Moonlight"] "1:  "
-assign [class="^LibreWolf$"] "2:  "
-assign [class="^Io.github.ungoogled_software.ungoogled_chromium$"] "2:  "
-assign [class="^vesktop$"] "3:  "
+assign [class="^com.moonlight_stream.Moonlight"] "1:  "
+assign [class="^net.mullvad.MullvadBrowser$"] "2:  "
+assign [class="^io.github.ungoogled_software.ungoogled_chromium$"] "2:  "
+assign [class="^dev.vencord.Vesktop$"] "3:  "
 assign [class="^steam$"] "4:  "
 assign [class="^itch$"] "4:  "
 assign [class="^Spotify$"] "5:  "
 assign [class="^TelegramDesktop$"] "6:  "
 assign [class="^chat-simplex-desktop-MainKt$"] "6:  "
-assign [class="^TigerVNC Viewer"] "7:  "
+assign [class="^Vncviewer"] "7:  "
 assign [class="^teams-for-linux"] "8:  "
 assign [class="^kdenlive"] "9:  "
 assign [class="^Shotcut$"] "9:  "
@@ -244,7 +247,7 @@ font pango: Hack 10
 #start of bar section
 bar {
     position top
-    status_command i3status -c ~/.config/i3/i3status.conf
+    status_command i3status ~/.config/i3/i3status.conf
     colors {
      background #282828
      statusline #FFFFFF
@@ -266,7 +269,7 @@ client.focused          #262626 #E4DBBD #E3DDBA #E4DBBD   #BFB293
 client.focused_inactive #333333 #272727 #D79920 #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2f343a #900000 #FFFFFF #900000   #900000
-client.placeholder      #000000 #303446 #FFFFFF #000000   #0C0C0C
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
@@ -276,8 +279,8 @@ client.background       #FFFFFF
 ### autostart ###
 #################
 
-exec lxpolkit
-exec blueman-applet
-exec nm-applet
-exec solaar --window hide
+exec --no-startup-id xsettingsd
+exec --no-startup-id lxpolkit
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
 exec_always --no-startup-id dunst
