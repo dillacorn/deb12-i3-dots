@@ -46,9 +46,9 @@ Here are some of my custom keybinds from the i3 configuration:
   - **Repeat the keybind to finish recording!**
   - `gif_date_time.gif` saved in `~/Videos` directory.
   
-- `mod4+shift+s` = **Scrot screenshot**  
-  - Takes a screenshot using Scrot.
-  - `date_time.jpg` saved in `~/Pictures` directory.
+- `mod4+shift+s` = **Maim screenshot**  
+  - Takes a screenshot using Maim.
+  - `date_time.jpg` saved in `~/Pictures/screenshots` directory.
 
 - `mod4+ctrl+shift+s` = **Flameshot screenshot**  
   - Takes a screenshot using Flameshot with more customization options.
