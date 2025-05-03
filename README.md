@@ -31,7 +31,7 @@ Here are some of my custom keybinds from the i3 configuration:
   - Additionally randomizes wallpaper in `~/Pictures/wallpapers` directory. <- if you don't want this behavior modify the ([i3 config](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/config)).
   
 - `mod4+shift+r` = **Rotate i3 mod navigation**  
-  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate_config_navigation.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_config_navigation.sh).
+  - Switches between `mod1(alt)` and `mod4(win/super)` navigation using a script: [rotate mod script](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/rotate_mod.sh).
 
 - `mod1+ctrl+shift+p` = **i3 Power Menu**  
   - Activates Selectable Power Menu script: [i3exit.sh](https://github.com/dillacorn/deb12-i3-dots/blob/main/config/i3/scripts/i3exit.sh).
