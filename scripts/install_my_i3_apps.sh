@@ -106,11 +106,29 @@ EOF
     # Print success message after installation
     echo -e "\n${GREEN}Successfully installed all of Dillacorn's Debian 12 chosen applications!${NC}"
 
-    # Fix /etc/resolv.conf to use systemd-resolved stub resolver
-    echo -e "${CYAN}Configuring systemd-resolved DNS stub...${NC}"
-    systemctl enable --now systemd-resolved
-    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-    systemctl restart systemd-resolved
+# Fix /etc/resolv.conf to use systemd-resolved stub resolver
+echo -e "${CYAN}Configuring systemd-resolved DNS stub...${NC}"
+systemctl enable --now systemd-resolved
+
+# Configure NetworkManager to use systemd-resolved for DNS
+if grep -q '^\[main\]' /etc/NetworkManager/NetworkManager.conf; then
+    if ! grep -q '^dns=systemd-resolved' /etc/NetworkManager/NetworkManager.conf; then
+        sed -i '/^\[main\]/a dns=systemd-resolved' /etc/NetworkManager/NetworkManager.conf
+        echo -e "${CYAN}Set NetworkManager DNS backend to systemd-resolved.${NC}"
+    fi
+else
+    echo -e "${CYAN}Adding [main] section with dns=systemd-resolved to NetworkManager config...${NC}"
+    printf '[main]\ndns=systemd-resolved\n' >> /etc/NetworkManager/NetworkManager.conf
+fi
+
+# Restart NetworkManager to apply changes
+systemctl restart NetworkManager
+
+# Ensure resolv.conf points to the systemd stub
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+# Restart systemd-resolved again to ensure it's using the stub properly
+systemctl restart systemd-resolved
 
 else
     echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian 12 applications.${NC}"
