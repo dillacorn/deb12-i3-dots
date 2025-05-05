@@ -23,21 +23,22 @@ echo -e "\n${CYAN}Do you want to install Dillacorn's chosen Debian 12 applicatio
 
 # Read a single character without requiring the Enter key
 read -r -n1 -s choice
+echo
 
 # Check user input
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     echo -e "\n${GREEN}Proceeding with installation of Dillacorn's chosen Debian 12 applications...${NC}"
-    
-    # Update the package list
+
     echo -e "${CYAN}Updating package list...${NC}"
     apt-get update
 
-    # Non-interactive install to avoid prompts
     echo -e "${CYAN}Installing applications with apt in non-interactive mode${NC}"
     export DEBIAN_FRONTEND=noninteractive
 
     while read -r p ; do 
-        apt-get install -y --fix-missing -o Dpkg::Options::="--force-confnew" "$p" || { echo -e "${RED}Failed to install $p. Error: $?${NC}"; }
+        apt-get install -y --fix-missing -o Dpkg::Options::="--force-confnew" "$p" || {
+            echo -e "${RED}Failed to install $p. Error: $?${NC}";
+        }
     done < <(cat << "EOF"
         i3
         suckless-tools
@@ -102,8 +103,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         systemd-resolved
 EOF
     )
-    
-    # Print success message after installation
+
     echo -e "\n${GREEN}Successfully installed all of Dillacorn's Debian 12 chosen applications!${NC}"
 
     # Fix /etc/resolv.conf to use systemd-resolved stub resolver
@@ -121,13 +121,9 @@ EOF
         printf '[main]\ndns=systemd-resolved\n' >> /etc/NetworkManager/NetworkManager.conf
     fi
 
-    # Restart NetworkManager to apply changes
+    # Restart services to apply the DNS configuration
     systemctl restart NetworkManager
-
-    # Ensure resolv.conf points to the systemd stub
     ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-
-    # Restart systemd-resolved again to ensure it's using the stub properly
     systemctl restart systemd-resolved
 
 else
