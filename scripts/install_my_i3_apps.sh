@@ -35,7 +35,7 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
     echo -e "${CYAN}Installing applications with apt in non-interactive mode${NC}"
     export DEBIAN_FRONTEND=noninteractive
 
-    while read -r p ; do 
+    while read -r p ; do
         apt-get install -y --fix-missing -o Dpkg::Options::="--force-confnew" "$p" || {
             echo -e "${RED}Failed to install $p. Error: $?${NC}";
         }
