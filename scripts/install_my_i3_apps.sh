@@ -100,31 +100,10 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         ebtables
         virt-manager
         qemu-guest-agent
-        systemd-resolved
 EOF
     )
 
     echo -e "\n${GREEN}Successfully installed all of Dillacorn's Debian 12 chosen applications!${NC}"
-
-    # Fix /etc/resolv.conf to use systemd-resolved stub resolver
-    echo -e "${CYAN}Configuring systemd-resolved DNS stub...${NC}"
-    systemctl enable --now systemd-resolved
-
-    # Configure NetworkManager to use systemd-resolved for DNS
-    if grep -q '^\[main\]' /etc/NetworkManager/NetworkManager.conf; then
-        if ! grep -q '^dns=systemd-resolved' /etc/NetworkManager/NetworkManager.conf; then
-            sed -i '/^\[main\]/a dns=systemd-resolved' /etc/NetworkManager/NetworkManager.conf
-            echo -e "${CYAN}Set NetworkManager DNS backend to systemd-resolved.${NC}"
-        fi
-    else
-        echo -e "${CYAN}Adding [main] section with dns=systemd-resolved to NetworkManager config...${NC}"
-        printf '[main]\ndns=systemd-resolved\n' >> /etc/NetworkManager/NetworkManager.conf
-    fi
-
-    # Restart services to apply the DNS configuration
-    systemctl restart NetworkManager
-    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-    systemctl restart systemd-resolved
 
 else
     echo -e "\n${YELLOW}Skipping installation of Dillacorn's chosen Debian 12 applications.${NC}"
