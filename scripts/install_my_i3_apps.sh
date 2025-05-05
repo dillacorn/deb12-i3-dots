@@ -94,12 +94,12 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         pulseaudio-utils
         pipewire-pulse
         bluetooth
-        systemd-resolved
         dnsmasq
         bridge-utils
         ebtables
         virt-manager
         qemu-guest-agent
+        systemd-resolved
 EOF
     )
     
