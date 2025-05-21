@@ -1,3 +1,16 @@
+# ⚠️ Archived – Moved to Arch on Hyprland!
+This repository is no longer maintained.
+
+➡️ New dotfiles: [arch-hypr-dots](https://github.com/dillacorn/arch-hypr-dots)
+## Why?
+- I’ve switched from Debian to Arch Linux (with Hyprland) for my desktop environment.
+
+- Debian is still fantastic—especially for servers and learning—but I believe Arch offers a better experience for desktop users (hot take, I know).
+
+- Since I no longer use Debian on my desktop, I no longer want to maintain this repository.
+
+---
+
 # `deb12 dilla.i3.files`
 - **Preview Images**: [View Here](https://github.com/dillacorn/deb12-i3-dots/tree/main/preview_pictures/preview_page.md)
 - **Distro**: [Debian 12](https://www.debian.org/releases/stable/)
